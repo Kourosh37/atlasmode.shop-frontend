@@ -5,6 +5,7 @@ import Categories from "../components/Categories.vue";
 import DiscountProducts from "../components/DiscountProducts.vue";
 import mostSalesProducts from "../components/MostSales.vue";
 import newProducts from "../components/NewProducts.vue";
+import PostSlider from "../components/PostsSlider.vue";
 
 
 </script>
@@ -22,5 +23,8 @@ import newProducts from "../components/NewProducts.vue";
   <mostSalesProducts />
 
   <newProducts />
+
+
+  <PostSlider />
 
 </template>
