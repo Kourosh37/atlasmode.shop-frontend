@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -7,14 +7,18 @@ import { Pagination, Autoplay } from "swiper/modules";
 import { useSliderStore } from "../stores/sliders";
 
 const sliderStore = useSliderStore();
+const showImages = ref(false);
 
-onMounted(() => {
-  if (!sliderStore.slides.length) sliderStore.fetchSlides();
+onMounted(async () => {
+  if (!sliderStore.slides.length) await sliderStore.fetchSlides();
+  await nextTick();
+  setTimeout(() => {
+    showImages.value = true;
+  }, 50);
 });
 </script>
 
 <template>
-
   <!-- Loading -->
   <div v-if="sliderStore.loading || !sliderStore.slides.length">
     <div class="hidden md:flex justify-center mx-auto">
@@ -40,16 +44,19 @@ onMounted(() => {
         class="w-10/12 h-96 rounded-2xl shadow-lg mb-8"
       >
         <SwiperSlide v-for="slider in sliderStore.desktopSlides" :key="slider.id">
-          <img
-            :src="slider.image.url"
-            :alt="slider.title"
-            class="w-full h-full object-cover rounded-2xl"
-          />
+          <Transition name="fade">
+            <img
+              v-if="showImages"
+              :src="slider.image.url"
+              :alt="slider.title"
+              class="w-full h-full object-cover rounded-2xl"
+            />
+          </Transition>
         </SwiperSlide>
       </Swiper>
     </div>
 
-    <!-- Moblie -->
+    <!-- Mobile -->
     <div class="flex md:hidden justify-center mx-auto">
       <Swiper
         :modules="[Pagination, Autoplay]"
@@ -59,11 +66,14 @@ onMounted(() => {
         class="w-10/12 h-60 rounded-2xl shadow-lg mb-6"
       >
         <SwiperSlide v-for="slider in sliderStore.mobileSlides" :key="slider.id">
-          <img
-            :src="slider.image.url"
-            :alt="slider.title"
-            class="w-full h-full object-cover rounded-2xl"
-          />
+          <Transition name="fade">
+            <img
+              v-if="showImages"
+              :src="slider.image.url"
+              :alt="slider.title"
+              class="w-full h-full object-cover rounded-2xl"
+            />
+          </Transition>
         </SwiperSlide>
       </Swiper>
     </div>
@@ -81,5 +91,13 @@ onMounted(() => {
 }
 .animate-shine {
   animation: shine 1.5s linear infinite;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.7s cubic-bezier(.4,0,.2,1);
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
