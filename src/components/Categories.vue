@@ -35,7 +35,7 @@ function handleImageLoad(id) {
     v-else
     class="flex w-full gap-4 md:gap-8 px-2 md:px-6 py-4 md:py-6 overflow-x-auto justify-center md:justify-center"
     style="scroll-snap-type: x mandatory;"
-    dir="rtl"
+    dir="ltr"
   >
     <template v-if="categoryStore.mainCategories.length">
       <div
