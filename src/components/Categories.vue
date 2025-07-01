@@ -26,7 +26,7 @@ function handleImageLoad(id) {
     <div
       v-for="i in 5"
       :key="i"
-      class="min-w-[140px] md:min-w-[230px] w-36 md:w-60 h-40 md:h-64 bg-gray-200 rounded-xl animate-pulse flex-shrink-0"
+      class="min-w-[140px] md:min-w-[230px] w-36 md:w-60 h-40 md:h-64 bg-gray-200 rounded-xl flex-shrink-0 animate-shine"
     ></div>
   </div>
 
@@ -45,7 +45,7 @@ function handleImageLoad(id) {
       >
         <div
           v-if="cat.image && !loadedImages[cat.id]"
-          class="w-full h-24 md:h-40 bg-gray-200 rounded-xl mb-2 md:mb-4 animate-pulse"
+          class="w-full h-24 md:h-40 bg-gray-200 rounded-xl mb-2 md:mb-4 animate-shine"
         ></div>
         <img
           v-if="cat.image"
@@ -59,6 +59,32 @@ function handleImageLoad(id) {
         <span class="font-bold text-base md:text-lg text-center mt-auto">{{ cat.title }}</span>
       </div>
     </template>
-    <span v-else class="text-gray-400 mx-auto">دسته‌ای وجود ندارد</span>
+    <span v-else class="text-gray-400 mx-auto">No Categories Found!</span>
   </div>
 </template>
+
+<style scoped>
+@keyframes shine {
+  0% {
+    transform: translateX(-80%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+.animate-shine {
+  position: relative;
+  overflow: hidden;
+}
+.animate-shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(90deg, #e5e7eb 0%, #f4f4f5 50%, #e5e7eb 100%);
+  animation: shine 1.3s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+</style>
