@@ -1,14 +1,14 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import { useMostSalesProductsStore } from "../stores/mostSalesProducts";
+import { useNewProductsStore } from "../stores/newProducts";
 import { Heart, Star } from 'lucide-vue-next';
 
-const store = useMostSalesProductsStore();
+const store = useNewProductsStore();
 const hovered = ref(null);
 const loadedImages = ref({});
 
 onMounted(() => {
-  store.fetchMostSalesProducts();
+  store.fetchNewProducts();
 });
 
 function handleImageLoad(id) {
@@ -26,7 +26,7 @@ function getProductImage(product, hover = false) {
   <div class="w-full min-h-[560px] bg-gray-50 py-8 flex flex-col items-center gap-8" dir="rtl">
     <!-- Title + More -->
     <div class="container flex justify-between items-center mb-2 px-2 md:px-8">
-      <h2 class="text-2xl md:text-3xl font-bold text-gray-700">پرفروش‌ترین‌های اطلس</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-700">جدیدترین محصولات اطلس</h2>
       <a href="#" class="font-semibold border-b-2 border-gray-800 text-gray-800 hover:text-blue-500 transition">مشاهده بیشتر</a>
     </div>
 
