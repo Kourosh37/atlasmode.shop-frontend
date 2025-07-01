@@ -1,40 +1,64 @@
+<script setup>
+import { onMounted, ref } from "vue";
+import { useCategoryStore } from "../stores/categories";
+
+const categoryStore = useCategoryStore();
+
+onMounted(() => {
+  if (!categoryStore.categories.length) categoryStore.fetchCategories();
+});
+
+const loadedImages = ref({});
+
+function handleImageLoad(id) {
+  loadedImages.value = { ...loadedImages.value, [id]: true };
+}
+</script>
+
 <template>
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-8">
+  <!-- Loading Skeleton -->
+  <div
+    v-if="categoryStore.loading"
+    class="flex w-full gap-4 md:gap-8 px-2 md:px-6 py-4 md:py-6 overflow-x-auto justify-center md:justify-center"
+    style="scroll-snap-type: x mandatory;"
+    dir="rtl"
+  >
     <div
-      v-for="category in categories"
-      :key="category.id"
-      class="bg-white rounded-2xl p-4 shadow hover:shadow-lg cursor-pointer flex flex-col items-center"
-    >
-      <img
-        v-if="category.image"
-        :src="category.image.url"
-        :alt="category.title"
-        class="w-20 h-20 object-cover rounded-full mb-2"
-      />
-      <span class="font-semibold text-center">{{ category.title }}</span>
-      <div v-if="category.children && category.children.length" class="mt-2 w-full">
+      v-for="i in 5"
+      :key="i"
+      class="min-w-[140px] md:min-w-[230px] w-36 md:w-60 h-40 md:h-64 bg-gray-200 rounded-xl animate-pulse flex-shrink-0"
+    ></div>
+  </div>
+
+  <!-- Cards -->
+  <div
+    v-else
+    class="flex w-full gap-4 md:gap-8 px-2 md:px-6 py-4 md:py-6 overflow-x-auto justify-center md:justify-center"
+    style="scroll-snap-type: x mandatory;"
+    dir="rtl"
+  >
+    <template v-if="categoryStore.mainCategories.length">
+      <div
+        v-for="cat in categoryStore.mainCategories"
+        :key="cat.id"
+        class="bg-white rounded-xl shadow-lg min-w-[140px] md:min-w-[230px] w-36 md:w-60 h-40 md:h-64 flex flex-col items-center justify-end p-2 md:p-3 hover:shadow-2xl transition-shadow duration-200 cursor-pointer snap-start flex-shrink-0"
+      >
         <div
-          v-for="child in category.children"
-          :key="child.id"
-          class="text-xs text-gray-500 py-1 text-center border-t border-gray-100"
-        >
-          {{ child.title }}
-        </div>
+          v-if="cat.image && !loadedImages[cat.id]"
+          class="w-full h-24 md:h-40 bg-gray-200 rounded-xl mb-2 md:mb-4 animate-pulse"
+        ></div>
+        <img
+          v-if="cat.image"
+          :src="cat.image.url"
+          :alt="cat.title"
+          loading="lazy"
+          class="w-full h-24 md:h-40 object-cover rounded-xl mb-2 md:mb-4 transition-opacity duration-700"
+          :class="{ 'opacity-0': !loadedImages[cat.id], 'opacity-100': loadedImages[cat.id], 'absolute': !loadedImages[cat.id] }"
+          @load="handleImageLoad(cat.id)"
+        />
+        <span class="font-bold text-base md:text-lg text-center mt-auto">{{ cat.title }}</span>
       </div>
-    </div>
+    </template>
+    <span v-else class="text-gray-400 mx-auto">دسته‌ای وجود ندارد</span>
   </div>
 </template>
-
-<script setup>
-import { ref, onMounted } from "vue";
-
-const categories = ref([]);
-
-onMounted(async () => {
-  const res = await fetch(
-    "https://api.atlasmode.shop/v1/front/get-categories?version=new2"
-  );
-  const data = await res.json();
-  categories.value = data;
-});
-</script>
