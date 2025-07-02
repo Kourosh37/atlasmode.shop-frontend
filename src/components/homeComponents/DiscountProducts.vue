@@ -1,18 +1,18 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import { useNewProductsStore } from "../stores/newProducts";
+import { useDiscountProductsStore } from "../../stores/discountProducts";
 import { Heart, Star, ChevronRight, ChevronLeft } from 'lucide-vue-next';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 
-const store = useNewProductsStore();
+const store = useDiscountProductsStore();
 const hovered = ref(null);
 const loadedImages = ref({});
 const swiperInstance = ref(null);
 
 onMounted(() => {
-  store.fetchNewProducts();
+  store.fetchDiscountProducts();
 });
 
 function handleImageLoad(id) {
@@ -40,7 +40,7 @@ function slidePrev() {
 <template>
   <div class="w-full min-h-[560px] bg-gray-50 py-8 flex flex-col items-center gap-8" dir="rtl">
     <div class="container flex justify-between items-center mb-2 px-2 md:px-8">
-      <h2 class="text-2xl md:text-3xl font-bold text-gray-700">جدیدترین محصولات اطلس</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-700">تخفیف‌دارهای اطلس</h2>
       <a href="#" class="font-semibold border-b-2 border-gray-800 text-gray-800 hover:text-blue-500 transition">مشاهده بیشتر</a>
     </div>
 
@@ -71,6 +71,11 @@ function slidePrev() {
         :space-between="24"
         :loop="store.products.length > 4"
         :autoplay="{ delay: 5000, disableOnInteraction: false }"
+        :breakpoints="{
+          0: { slidesPerView: 1 },
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 4 }
+        }"
         class="group w-full"
         dir="rtl"
         style="padding-bottom: 24px; max-width:calc(4*280px + 3*24px);" 
@@ -156,12 +161,8 @@ function slidePrev() {
 
 <style scoped>
 @keyframes shine {
-  0% {
-    background-position: -200px 0;
-  }
-  100% {
-    background-position: calc(200px + 100%) 0;
-  }
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
 }
 .animate-shine {
   background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);

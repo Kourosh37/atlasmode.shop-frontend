@@ -1,17 +1,15 @@
 <script setup>
-import Header from "../components/Header.vue";
-import HeroSlider from "../components/HeroSlider.vue";
-import Categories from "../components/Categories.vue";
-import DiscountProducts from "../components/DiscountProducts.vue";
-import mostSalesProducts from "../components/MostSales.vue";
-import newProducts from "../components/NewProducts.vue";
-import PostSlider from "../components/PostsSlider.vue";
-
-
+import HeroSlider from "../components/homeComponents/HeroSlider.vue";
+import Categories from "../components/homeComponents/Categories.vue";
+import DiscountProducts from "../components/homeComponents/DiscountProducts.vue";
+import mostSalesProducts from "../components/homeComponents/MostSales.vue";
+import newProducts from "../components/homeComponents/NewProducts.vue";
+import PostSlider from "../components/homeComponents/PostsSlider.vue";
+import HomeCategorySliders from "../components/homeComponents/HomeCategorySliders.vue";
+import Header from "../components/homeComponents/Header.vue";
 </script>
 
 <template>
-
   <Header />
 
   <HeroSlider />
@@ -24,7 +22,7 @@ import PostSlider from "../components/PostsSlider.vue";
 
   <newProducts />
 
+  <HomeCategorySliders />
 
   <PostSlider />
-
 </template>
