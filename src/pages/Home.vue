@@ -7,10 +7,11 @@ import newProducts from "../components/homeComponents/NewProducts.vue";
 import PostSlider from "../components/homeComponents/PostsSlider.vue";
 import HomeCategorySliders from "../components/homeComponents/HomeCategorySliders.vue";
 import Header from "../components/homeComponents/Header.vue";
+import Footer from "../components/homeComponents/Footer.vue";
 </script>
 
 <template>
-  <Header />
+    <Header />
 
   <HeroSlider />
 
@@ -25,4 +26,7 @@ import Header from "../components/homeComponents/Header.vue";
   <HomeCategorySliders />
 
   <PostSlider />
+
+  <Footer />
+  
 </template>
