@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import { useHomeCategoriesStore } from "../../stores/homeCategories";
+import { useHomeCategoriesStore } from "../../stores/homeStores/homeCategories";
 import { ChevronRight, ChevronLeft, Heart, Star } from 'lucide-vue-next';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';

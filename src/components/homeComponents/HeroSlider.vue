@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
-import { useSliderStore } from "../../stores/sliders";
+import { useSliderStore } from "../../stores/homeStores/sliders";
 
 const sliderStore = useSliderStore();
 const showImages = ref(false);

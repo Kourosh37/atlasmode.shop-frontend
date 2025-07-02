@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import { useDiscountProductsStore } from "../../stores/discountProducts";
+import { useDiscountProductsStore } from "../../stores/homeStores/discountProducts";
 import { Heart, Star, ChevronRight, ChevronLeft } from 'lucide-vue-next';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
