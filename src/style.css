@@ -1,2 +1,9 @@
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
 @import "tailwindcss";
+
+
+body, * {
+  font-family: 'Vazir', sans-serif !important;
+}
+
 
