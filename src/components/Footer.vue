@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted } from "vue";
-import { useFooterMenuStore } from "../../stores/homeStores/footerMenu";
+import { useFooterMenuStore } from "../stores/footerMenu";
 import { Icon } from "@iconify/vue";
 
 const store = useFooterMenuStore();

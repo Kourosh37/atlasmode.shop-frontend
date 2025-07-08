@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue"
 import { ShoppingBagIcon, HeartIcon, UserIcon, MagnifyingGlassIcon, Bars3Icon, ChevronDownIcon, HomeIcon } from '@heroicons/vue/24/outline'
-import { useHeaderMenuStore } from "../../stores/homeStores/headerMenu"
+import { useHeaderMenuStore } from "../stores/headerMenu"
 
 const showMenu = ref(false)
 const menuStore = useHeaderMenuStore()
