@@ -19,7 +19,6 @@ export const useProductsStore = defineStore("products", {
   }),
 
   actions: {
-    // دسته‌بندی‌ها
     async fetchCategories() {
       this.categoriesLoading = true;
       try {
@@ -32,7 +31,6 @@ export const useProductsStore = defineStore("products", {
       this.categoriesLoading = false;
     },
 
-    // محصولات تخفیف‌دار
     async fetchDiscountProducts() {
       this.discountLoading = true;
       try {
@@ -44,7 +42,6 @@ export const useProductsStore = defineStore("products", {
       this.discountLoading = false;
     },
 
-    // پرفروش‌ترین‌ها
     async fetchMostSalesProducts() {
       this.mostSalesLoading = true;
       this.mostSalesError = null;
@@ -59,7 +56,6 @@ export const useProductsStore = defineStore("products", {
       this.mostSalesLoading = false;
     },
 
-    // جدیدترین‌ها
     async fetchNewProducts() {
       this.newLoading = true;
       this.newError = null;

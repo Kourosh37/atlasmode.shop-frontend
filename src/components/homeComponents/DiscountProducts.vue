@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted } from "vue";
-import { useProductsStore } from "../stores/products"; // مسیر ایمپورت نسبت به ساختار پروژه‌ات
-import ProductSlider from "../components/ProductSlider.vue";
+import { useProductsStore } from "../../stores/products"; // مسیر ایمپورت نسبت به ساختار پروژه‌ات
+import ProductSlider from "./ProductSlider.vue";
 
 const store = useProductsStore();
 

@@ -5,8 +5,8 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 
-import ProductCard from "../components/ProductCard.vue";
-import ProductCardSkeletonLoading from "../components/ProductCardSkeletonLoading.vue";
+import ProductCard from "../ProductCard.vue";
+import ProductCardSkeletonLoading from "./ProductCardSkeletonLoading.vue";
 
 const props = defineProps({
   title: { type: String, required: true },

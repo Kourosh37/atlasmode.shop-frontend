@@ -41,13 +41,22 @@ function getProductImage(product, hover = false) {
         }"
         @load="handleImageLoad"
       />
+      <!-- ستاره‌ها و قلب فقط روی هاور -->
       <transition name="fade">
         <div
           v-if="hovered"
-          class="absolute left-4 top-4 flex flex-col items-center gap-2 z-10"
+          class="absolute top-1/2 right-2 -translate-y-1/2 flex flex-col items-center gap-1 z-20"
         >
-          <Star v-for="i in 5" :key="i" class="w-6 h-6 text-gray-400 mb-1 hover:text-yellow-400 cursor-pointer transition" />
-          <Heart class="w-7 h-7 text-gray-500 hover:text-red-400 cursor-pointer transition" />
+          <Star v-for="i in 5" :key="i" class="w-4 h-4 text-gray-400 mb-0.5" />
+          <Heart class="w-5 h-5 text-gray-500 mt-1" />
+        </div>
+      </transition>
+      <!-- مشاهده بیشتر فقط روی هاور -->
+      <transition name="fade">
+        <div v-if="hovered" class="absolute bottom-2 w-full flex justify-center z-20">
+          <span class="text-base font-semibold underline text-gray-600 bg-white/70 rounded-lg px-2 py-0.5">
+            مشاهده بیشتر
+          </span>
         </div>
       </transition>
     </div>
@@ -80,11 +89,6 @@ function getProductImage(product, hover = false) {
         </span>
       </div>
     </div>
-    <transition name="fade">
-      <div v-if="hovered" class="absolute bottom-4 w-full flex justify-center z-10">
-        <span class="text-base font-semibold underline text-gray-600">مشاهده بیشتر</span>
-      </div>
-    </transition>
   </div>
 </template>
 

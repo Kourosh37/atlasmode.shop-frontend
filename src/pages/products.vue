@@ -1,6 +1,6 @@
 <template>
     <div>
-        This is products page
+
     </div>
 </template>
 
@@ -8,6 +8,6 @@
 
 </script>
 
-<style scoped>
+<style  scoped>
 
 </style>

@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import { usePostsStore } from "../stores/posts";
+import { usePostsStore } from "../../stores/posts";
 import { ChevronRightIcon, ChevronLeftIcon } from '@heroicons/vue/24/outline'
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
