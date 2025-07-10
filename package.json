@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.7.23",
     "@heroicons/vue": "^2.2.0",
     "@iconify/vue": "^5.0.0",
     "@tailwindcss/vite": "^4.1.11",
@@ -18,7 +19,9 @@
     "swiper": "^11.2.10",
     "tailwindcss": "^4.1.11",
     "vue": "^3.5.17",
-    "vue-router": "^4.5.1"
+    "vue-router": "^4.5.1",
+    "vue-slider-component": "^4.1.0-beta.7",
+    "vue3-slider": "^1.10.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.0",

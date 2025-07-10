@@ -11,9 +11,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <footer class="bg-[#f4f7fb] py-14 mt-16 border-t border-gray-200" dir="rtl">
+  <footer class=" bg-gray-200 py-14 mt-16 border-t border-gray-200 px-[10%]" dir="rtl">
     <div class="container mx-auto max-w-7xl px-2 flex flex-col gap-12 md:flex-row md:gap-0 md:justify-between">
-      <!-- ستون اول: خبرنامه و شبکه اجتماعی -->
       <div class="w-full md:w-1/3 flex flex-col items-center gap-8 md:gap-6 mb-6 md:mb-0">
         <div class="bg-white/90 rounded-2xl shadow p-6 w-full max-w-sm mx-auto flex flex-col gap-3">
           <div class="font-extrabold text-lg text-gray-700 text-center">عضویت در خبرنامه</div>
@@ -35,9 +34,7 @@ onMounted(() => {
           </a>
         </div>
       </div>
-      <!-- جداکننده عمودی -->
       <div class="hidden md:block h-44 w-px bg-gray-200 mx-8"></div>
-      <!-- ستون دوم: اطلاعات تماس و آدرس -->
       <div class="w-full md:w-1/3 flex flex-col gap-6">
         <div class="flex flex-col gap-3 bg-white/90 rounded-2xl shadow p-6">
           <div class="flex items-center gap-2 text-base font-bold text-gray-700">
@@ -57,12 +54,10 @@ onMounted(() => {
         </div>
         
       </div>
-      <!-- جداکننده عمودی -->
       <div class="hidden md:block h-44 w-px bg-gray-200 mx-8"></div>
-      <!-- ستون سوم: منوها -->
       <div class="w-full md:w-1/3 flex flex-col items-center md:items-end gap-8 md:gap-0">
         <div class="w-full bg-white/90 rounded-2xl shadow p-6 flex flex-col gap-5">
-          <span class="font-bold text-lg text-gray-700 mb-2">صفحات سایت</span>
+          <span class="font-bold text-lg text-gray-700 mb-2">دسترسی سریع</span>
           <div class="flex flex-wrap gap-3 justify-center md:justify-end">
             <template v-if="!store.loading && store.menus.length">
               <a
@@ -83,7 +78,6 @@ onMounted(() => {
         </div>
       </div>
     </div>
-    <!-- کپی‌رایت -->
     <div class="container mx-auto max-w-7xl text-center text-xs text-gray-500 pt-8 mt-10 border-t border-gray-200">
       تمامی حقوق این سایت متعلق به <span class="font-bold text-gray-600">اطلس مد</span> می‌باشد. | طراحی با ❤️ توسط <span class="text-indigo-500 font-bold">شتاب</span>
     </div>

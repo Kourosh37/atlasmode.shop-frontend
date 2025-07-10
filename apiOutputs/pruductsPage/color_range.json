@@ -1,0 +1,108 @@
+{
+  "url": "https://api.atlasmode.shop/v1/front/color-ranges?version=new2",
+  "response": {
+    "success": true,
+    "message": "\u0644\u06cc\u0633\u062a \u062a\u0645\u0627\u0645\u06cc \u0645\u062d\u062f\u0648\u062f\u0647\u200c\u0647\u0627\u06cc \u0631\u0646\u06af\u06cc",
+    "data": {
+      "colorRanges": [
+        {
+          "id": 16,
+          "title": "\u0646\u0642\u0631\u0647 \u0627\u06cc",
+          "status": 1,
+          "created_at": "2025-04-26 10:20:00",
+          "updated_at": "2025-04-26 10:20:00",
+          "image": "https://api.atlasmode.shop/storage/d61a6707-73d9-4886-8e36-391c9b54e66a/cc3c51cc8a21764038bbcf381f538f40bc48e6a8_1670663991.png"
+        },
+        {
+          "id": 15,
+          "title": "\u0646\u0627\u0631\u0646\u062c\u06cc",
+          "status": 1,
+          "created_at": "2025-04-26 10:19:50",
+          "updated_at": "2025-04-26 10:19:50",
+          "image": "https://api.atlasmode.shop/storage/1cf3d40f-9157-4d1c-8282-64fa5ee34805/7da19e7628cff9a9eb242fa7f51cc4a529630a1a_1670664186.png"
+        },
+        {
+          "id": 14,
+          "title": "\u0628\u0646\u0641\u0634",
+          "status": 1,
+          "created_at": "2025-04-26 10:19:39",
+          "updated_at": "2025-04-26 10:19:39",
+          "image": "https://api.atlasmode.shop/storage/f5bb8803-6f30-450c-9081-ab42b3875577/f275e126421d91ecdaaf0aa80310d3ac39510346_1670664302.png"
+        },
+        {
+          "id": 13,
+          "title": "\u0642\u0647\u0648\u0647 \u0627\u06cc",
+          "status": 1,
+          "created_at": "2025-04-26 10:19:26",
+          "updated_at": "2025-04-26 10:19:26",
+          "image": "https://api.atlasmode.shop/storage/e4afa89a-26a9-4a61-a16c-386a151e2a28/3a2570fe27f72878c178bd68525708cf501b8be9_1670664076.png"
+        },
+        {
+          "id": 12,
+          "title": "\u0642\u0631\u0645\u0632",
+          "status": 1,
+          "created_at": "2025-04-26 10:18:54",
+          "updated_at": "2025-04-26 10:18:54",
+          "image": "https://api.atlasmode.shop/storage/695a9144-229c-44c8-9014-4ab71032b5c2/cb99d178c29f70ecd58b14390f685e2c5cf2b152_1670664354.png"
+        },
+        {
+          "id": 11,
+          "title": "\u0632\u0631\u062f",
+          "status": 1,
+          "created_at": "2025-04-26 10:18:45",
+          "updated_at": "2025-04-26 10:18:45",
+          "image": "https://api.atlasmode.shop/storage/2d0a35cc-633e-4ef3-8b23-ddc81d95c1cb/d019e79e841a500ebd4ce2b91ba11d28921a88b0_1670664216.png"
+        },
+        {
+          "id": 10,
+          "title": "\u0633\u0628\u0632",
+          "status": 1,
+          "created_at": "2025-04-26 10:16:41",
+          "updated_at": "2025-04-26 10:16:41",
+          "image": "https://api.atlasmode.shop/storage/8c419bbe-7c90-4f4d-a493-9b792f5d4871/e93523d755acd1851052687b30f231edea4cb9bc_1670664245.png"
+        },
+        {
+          "id": 9,
+          "title": "\u0637\u0648\u0633\u06cc",
+          "status": 1,
+          "created_at": "2025-04-26 10:16:30",
+          "updated_at": "2025-04-26 10:16:30",
+          "image": "https://api.atlasmode.shop/storage/f759d7b8-7a21-4688-9820-6ce5a40b9e7a/e3f34aeca4096bfb699fd8e1d19a632221599b8e_1670663944.png"
+        },
+        {
+          "id": 8,
+          "title": "\u0622\u0628\u06cc",
+          "status": 1,
+          "created_at": "2025-04-26 10:16:18",
+          "updated_at": "2025-04-26 10:16:18",
+          "image": "https://api.atlasmode.shop/storage/afb2ec06-7b45-4189-bde0-e43210ecee68/53cd2901b76a741e9011ace2659b9f4c0e52f578_1670664279.png"
+        },
+        {
+          "id": 7,
+          "title": "\u0635\u0648\u0631\u062a\u06cc",
+          "status": 1,
+          "created_at": "2025-04-26 10:16:09",
+          "updated_at": "2025-04-26 10:16:09",
+          "image": "https://api.atlasmode.shop/storage/3b052f6c-2963-4485-9446-da248e8baa08/82bb84f17b73bc116114c3d72d9fadaa6da3ea49_1670664327.png"
+        },
+        {
+          "id": 6,
+          "title": "\u0645\u0634\u06a9\u06cc",
+          "status": 1,
+          "created_at": "2025-04-26 10:14:36",
+          "updated_at": "2025-04-26 10:14:36",
+          "image": "https://api.atlasmode.shop/storage/1496245c-ca36-4e7d-8901-25588d2d1e4a/6b73478aca3fed39aafd08b3406536b5a1fcfbb1_1670663838.png"
+        },
+        {
+          "id": 5,
+          "title": "\u0633\u0641\u06cc\u062f",
+          "status": 1,
+          "created_at": "2025-04-26 10:14:24",
+          "updated_at": "2025-04-26 10:14:24",
+          "image": "https://api.atlasmode.shop/storage/4833af51-1985-460d-a43e-8c1c78718061/a16c557a142f56435d8501e7fbf1d2c0cf93a615_1670664037.png"
+        }
+      ]
+    },
+    "logs": []
+  }
+}
