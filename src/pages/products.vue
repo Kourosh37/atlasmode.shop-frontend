@@ -1,265 +1,355 @@
 <template>
-  <!-- Use a single transition for both loading and content -->
-  <transition name="fade" mode="out-in">
-    <!-- Loading overlay (shown when loadingInit is true) -->
-    <div v-if="loadingInit" key="loading" class="fixed inset-0 z-50 bg-black/40 flex flex-col justify-center items-center">
-      <div class="flex flex-col items-center gap-5">
-        <svg class="animate-spin h-14 w-14 text-amber-400 drop-shadow-xl" fill="none" viewBox="0 0 24 24">
-          <circle class="opacity-20" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-          <path class="opacity-90" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
-        </svg>
-        <span class="text-2xl font-bold text-amber-500 drop-shadow">Loading Kourosh Shop...</span>
-      </div>
-    </div>
-
-    <!-- Main content (shown when loadingInit is false) -->
-    <div v-else key="main" class="px-2 md:px-10 py-8 bg-gradient-to-tr from-amber-50 via-rose-100 to-violet-100 min-h-screen">
-      
-
-      <!-- Categories and Colors -->
-      <section class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Categories -->
-        <div>
-          <span class="font-bold text-gray-700">Categories:</span>
-          <div class="flex flex-wrap gap-2 mt-2">
-            <span
-              v-for="cat in categories"
-              :key="cat.id"
-              class="px-4 py-1.5 rounded-xl bg-white shadow hover:bg-amber-100 transition-all duration-150 cursor-pointer text-sm font-semibold text-violet-600"
-            >
-              {{ cat.title }}
-            </span>
+  <div class="max-w-7xl mx-auto py-8 px-2 md:px-6">
+    <div class="flex flex-col md:flex-row-reverse gap-6">
+      <!-- Filter Sidebar -->
+      <aside class="w-full md:w-1/4 bg-white rounded-2xl shadow-xl p-5 h-fit min-w-[310px]" dir="rtl">
+        <!-- Filter Title -->
+        <div class="flex items-center justify-between mb-3">
+          <span class="font-bold text-lg">فیلتر جستجو</span>
+          <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M3 4a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a1 1 0 0 1-.293.707L15 12.414V19a1 1 0 0 1-.553.894l-4 2A1 1 0 0 1 9 21v-8.586L3.293 6.707A1 1 0 0 1 3 6V4z" />
+          </svg>
+        </div>
+        <hr class="mb-5" />
+        <form @submit.prevent="handleFilter" class="flex flex-col gap-6">
+          <!-- Category Dropdown -->
+          <div>
+            <label class="block mb-1 text-xs font-bold text-gray-700">دسته بندی ها</label>
+            <select v-model="localFilter.category_id"
+              class="w-full rounded-xl border px-3 py-2 text-sm text-gray-500 bg-gray-50 focus:ring-2 focus:ring-primary-600">
+              <option value="">دسته بندی مورد نظر را انتخاب کنید</option>
+              <option v-for="cat in store.categoryList" :key="cat.id" :value="cat.id">
+                {{ cat.title }}
+              </option>
+            </select>
           </div>
-        </div>
-        <!-- Colors -->
-        <div>
-          <span class="font-bold text-gray-700">Colors:</span>
-          <div class="flex flex-wrap gap-2 mt-2">
-            <span
-              v-for="c in colors"
-              :key="c.id"
-              class="px-4 py-1.5 rounded-xl border border-amber-400 bg-gradient-to-r from-white to-amber-50 shadow hover:bg-amber-50 transition-all duration-150 cursor-pointer text-sm font-semibold text-rose-500"
-            >
-              {{ c.title }}
-            </span>
+          <!-- Title Input -->
+          <div>
+            <label class="block mb-1 text-xs font-bold text-gray-700">عنوان</label>
+            <input type="text" v-model="localFilter.title"
+              class="w-full rounded-xl border px-3 py-2 text-sm text-gray-700 bg-gray-50"
+              placeholder="عنوان جستجو را بنویسید" />
           </div>
-        </div>
-      </section>
-
-      <!-- Price and Sizes -->
-      <section class="mb-10 grid grid-cols-2 md:grid-cols-4 gap-6">
-        <!-- Max Price -->
-        <div class="bg-gradient-to-r from-violet-100 to-amber-100 rounded-2xl shadow-lg p-6 flex flex-col items-center scale-100 hover:scale-105 transition duration-150">
-          <span class="font-semibold text-gray-700 mb-2">Max Price</span>
-          <span class="text-2xl font-extrabold text-amber-600 drop-shadow">{{ max_price }} <span class="text-base font-light">تومان</span></span>
-        </div>
-        <!-- Min Price -->
-        <div class="bg-gradient-to-l from-amber-100 to-violet-100 rounded-2xl shadow-lg p-6 flex flex-col items-center scale-100 hover:scale-105 transition duration-150">
-          <span class="font-semibold text-gray-700 mb-2">Min Price</span>
-          <span class="text-2xl font-extrabold text-violet-600 drop-shadow">{{ min_price }} <span class="text-base font-light">تومان</span></span>
-        </div>
-        <!-- Sizes -->
-        <div class="col-span-2 flex flex-col gap-2">
-          <span class="font-bold text-gray-700">Sizes:</span>
-          <div class="flex flex-wrap gap-2 mt-2">
-            <span
-              v-for="s in sizes"
-              :key="s.id"
-              class="px-3 py-1.5 rounded-xl bg-white shadow border border-rose-200 text-sm font-bold text-rose-500 hover:bg-rose-50 transition-all duration-100"
-            >
-              {{ s.value }}
-            </span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Pagination info -->
-      <section class="flex justify-between items-center mb-6">
-        <span class="text-gray-700">First Page: <span class="font-bold text-amber-600">{{ firstPage }}</span></span>
-        <span class="text-gray-700">Last Page: <span class="font-bold text-violet-600">{{ lastPage }}</span></span>
-      </section>
-
-      <!-- Grid Control Switcher -->
-      <div class="flex flex-wrap items-center justify-center gap-2 mb-8">
-        <span class="text-gray-700 font-bold text-base mr-2">Grid:</span>
-        <button
-          v-for="g in [2,3,4]"
-          :key="g"
-          :class="[
-            'px-3 py-2 rounded-xl transition-all shadow font-bold border hover:scale-110 duration-200',
-            grid === g ? 'bg-gradient-to-r from-violet-500 to-amber-400 text-white scale-110 shadow-lg border-amber-300' : 'bg-white text-violet-600 border-violet-200 hover:bg-amber-50'
-          ]"
-          @click="grid = g"
-        >
-          <span class="flex items-center gap-1">
-            <svg v-for="i in g" :key="i" class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><rect width="20" height="20" rx="4"></rect></svg>
-            <span class="ml-1 text-xs font-normal text-gray-500 hidden sm:inline">{{ g }} col</span>
-          </span>
-        </button>
-      </div>
-
-      <!-- Pagination Buttons -->
-      <div class="flex flex-wrap gap-3 justify-center mb-10">
-        <button
-          v-for="page in pages"
-          :key="page"
-          :class="[
-            'w-10 h-10 rounded-full shadow-lg font-bold transition-all duration-200 border-2 border-violet-100 hover:scale-110 hover:border-amber-400',
-            activePage === page
-              ? 'bg-gradient-to-br from-amber-400 to-violet-500 text-white border-amber-500 scale-110'
-              : 'bg-white text-violet-500'
-          ]"
-          @click="handlePageClick(page)"
-        >
-          {{ page }}
-        </button>
-      </div>
-
-      <!-- Product grid for the active page -->
-      <section>
-        <!-- Loading spinner when fetching products for a page -->
-        <transition name="fade">
-          <div v-if="loadingProducts" class="flex flex-col items-center justify-center h-72">
-            <svg class="animate-spin h-14 w-14 text-violet-400 mb-3" fill="none" viewBox="0 0 24 24">
-              <circle class="opacity-20" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-              <path class="opacity-80" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
-            </svg>
-            <span class="text-lg font-bold text-violet-500 drop-shadow animate-pulse">Loading Products...</span>
-          </div>
-          <div v-else>
-            <div v-if="products[activePage]?.length">
-              <div class="mb-4 flex items-center gap-2 justify-center">
-                <span class="text-amber-700 font-extrabold text-lg drop-shadow">Products Page {{ activePage }}</span>
-                <span class="text-gray-400 text-xs">(Count: {{ products[activePage].length }})</span>
-              </div>
-              <div
-                :class="[
-                  'gap-6 transition-all duration-300',
-                  grid === 2 ? 'grid grid-cols-1 md:grid-cols-2' : '',
-                  grid === 3 ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' : '',
-                  grid === 4 ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4' : ''
-                ]"
-              >
-                <product-card v-for="p in products[activePage]" :key="p.id" :product="p" />
-              </div>
+          <!-- Size Multi-Select -->
+          <div>
+            <div @click="sizeOpen = !sizeOpen" class="flex items-center cursor-pointer select-none">
+              <svg :class="sizeOpen ? 'rotate-180' : ''" class="w-4 h-4 ml-1 transition-transform duration-200"
+                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 9l-7 7-7-7" />
+              </svg>
+              <span class="font-bold text-gray-700 text-base">سایز</span>
             </div>
-            <div v-else class="text-center text-rose-400 py-16 text-xl font-bold animate-pulse">
-              No products found.
+            <transition name="fade">
+              <div v-show="sizeOpen" class="grid grid-cols-3 gap-2 mt-3 pr-3">
+                <label v-for="size in store.sizeList" :key="size.id"
+                  class="flex items-center gap-1 cursor-pointer text-gray-600 text-sm">
+                  <input type="checkbox" v-model="localFilter.sizes" :value="size.value"
+                    class="accent-primary-600 rounded" />
+                  <span>{{ size.value }}</span>
+                </label>
+              </div>
+            </transition>
+          </div>
+          <!-- Color Multi-Select -->
+          <div>
+            <div @click="colorOpen = !colorOpen" class="flex items-center cursor-pointer select-none">
+              <svg :class="colorOpen ? 'rotate-180' : ''" class="w-4 h-4 ml-1 transition-transform duration-200"
+                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 9l-7 7-7-7" />
+              </svg>
+              <span class="font-bold text-gray-700 text-base">رنگ</span>
+            </div>
+            <transition name="fade">
+              <div v-show="colorOpen" class="grid grid-cols-3 gap-4 mt-3">
+                <div v-for="color in store.colorList" :key="color.id"
+                  class="flex flex-col items-center cursor-pointer" @click="toggleColor(color.value)">
+                  <div :class="[
+                    'w-14 h-8 rounded-xl border mb-1 flex items-center justify-center shadow transition-all',
+                    localFilter.colors.includes(color.value)
+                      ? 'border-primary-500 ring-2 ring-primary-300'
+                      : 'border-gray-200',
+                  ]" :style="{ background: color.gradient ? color.gradient : color.value }">
+                    <img v-if="color.image" :src="color.image" :alt="color.title"
+                      class="w-full h-full rounded-xl object-cover" />
+                  </div>
+                  <span class="text-xs font-medium mt-0.5"
+                    :class="localFilter.colors.includes(color.value) ? 'text-primary-600' : ''">
+                    {{ color.title }}
+                  </span>
+                </div>
+              </div>
+            </transition>
+            <div class="flex flex-wrap mt-2 gap-1" v-if="localFilter.colors.length">
+              <span v-for="color in selectedColors" :key="color.id"
+                class="flex items-center gap-1 px-2 py-1 border border-primary-500 rounded-xl text-xs bg-gray-50">
+                <span class="w-3 h-3 rounded-full border block"
+                  :style="{ background: color.gradient ? color.gradient : color.value }"></span>
+                {{ color.title }}
+                <span class="cursor-pointer text-red-400 hover:text-red-700 ml-1"
+                  @click.stop="removeColor(color.value)">×</span>
+              </span>
             </div>
           </div>
-        </transition>
-        
-      </section>
-
-      <!-- Error message -->
-      <transition name="fade">
-        <div
-          v-if="error"
-          class="fixed bottom-6 left-6 bg-gradient-to-br from-rose-100 to-amber-100 text-rose-600 p-4 rounded-2xl shadow-xl z-50 text-lg font-bold border-l-8 border-rose-400 animate-shake"
-        >
-          {{ error }}
+          <!-- Only Available Products Toggle -->
+          <div>
+            <label class="flex items-center gap-2 cursor-pointer select-none text-base text-gray-700 justify-between">
+              <span>فقط کالاهای موجود</span>
+              <span class="relative inline-flex items-center">
+                <input type="checkbox" v-model="localFilter.available" true-value="1" false-value="0"
+                  class="sr-only peer" />
+                <div class="w-11 h-6 rounded-full transition bg-gray-200 peer-checked:bg-gray-500"></div>
+                <div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition peer-checked:translate-x-5 border border-gray-300"></div>
+              </span>
+            </label>
+          </div>
+          <!-- Price Range Sliders -->
+          <div>
+            <label class="block mb-1 text-xs font-bold text-gray-700">قیمت ها</label>
+            <div class="flex flex-col gap-1">
+              <input type="range" v-model.number="localFilter.min_price"
+                :min="store.minPrice"
+                :max="localFilter.max_price || store.maxPrice"
+                step="10000"
+                class="w-full accent-primary-600" />
+              <input type="range" v-model.number="localFilter.max_price"
+                :min="localFilter.min_price || store.minPrice"
+                :max="store.maxPrice"
+                step="10000"
+                class="w-full accent-primary-600" />
+              <!-- Current prices (reactive) -->
+              <div class="flex justify-between text-xs text-gray-700 mt-2">
+                <span>
+                  حداقل: <span class="font-bold">{{ Number(localFilter.min_price).toLocaleString() }}</span> تومان
+                </span>
+                <span>
+                  حداکثر: <span class="font-bold">{{ Number(localFilter.max_price).toLocaleString() }}</span> تومان
+                </span>
+              </div>
+              <div class="flex justify-between text-xs text-gray-500 mt-1">
+                <span>از قیمت: {{ store.minPrice.toLocaleString() }} تومان</span>
+                <span>تا قیمت: {{ store.maxPrice.toLocaleString() }} تومان</span>
+              </div>
+            </div>
+          </div>
+          <!-- Apply Filters Button -->
+          <button type="submit"
+            class="bg-black hover:bg-gray-800 text-white px-6 py-2 rounded-xl shadow font-bold text-sm transition-all mt-2">
+            اعمال فیلتر
+          </button>
+        </form>
+      </aside>
+      <!-- Main Content (Products List) -->
+      <main class="flex-1 w-full">
+        <!-- Sort & Grid Controls -->
+        <div class="flex flex-wrap justify-between items-center mb-6 gap-4">
+          <div class="flex items-center gap-4">
+            <!-- Sort Dropdown -->
+            <div class="flex items-center gap-2" dir="rtl">
+              <span class="text-gray-600 text-xs">فیلتر:</span>
+              <div class="relative">
+                <button
+                  @click="showSort = !showSort"
+                  class="w-48 text-right border rounded-xl px-3 py-2 bg-white text-gray-700 font-bold flex items-center justify-between"
+                  type="button"
+                >
+                  {{ sortOptions.find(opt => opt.value === localFilter.sort)?.label || 'پربازدید ترین' }}
+                  <svg :class="showSort ? 'rotate-180' : ''" class="w-4 h-4 ml-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </button>
+                <ul v-show="showSort" @mouseleave="showSort = false"
+                  class="absolute w-full right-0 z-20 mt-2 border bg-white shadow-lg rounded-xl text-sm font-bold py-1"
+                  style="min-width: 180px">
+                  <li v-for="option in sortOptions" :key="option.value"
+                      @click="selectSort(option.value)"
+                      :class="[
+                        'px-4 py-2 cursor-pointer hover:bg-gray-100 transition',
+                        localFilter.sort === option.value ? 'bg-gray-700 text-white' : 'text-gray-900'
+                      ]">
+                    {{ option.label }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2" dir="rtl">
+            
+            <button v-for="g in [2, 3]" :key="g"
+              :class="[
+                'rounded-lg border text-xs font-bold transition-all flex items-center justify-center',
+                grid === g
+                  ? 'bg-primary-600 border-primary-600 text-white shadow'
+                  : 'bg-white border-gray-200 text-gray-600',
+              ]" @click="grid = g" style="width: 40px; height: 40px" :title="`${g} ستونه`">
+              <template v-if="g === 2">
+                <!-- 2 Columns Grid Icon -->
+                <svg width="24" height="24" viewBox="0 0 24 24" class="mx-auto" fill="none">
+                  <rect x="4" y="6" width="6" height="12" rx="2"
+                    :fill="grid === 2 ? '#fff' : '#6b7280'" />
+                  <rect x="14" y="6" width="6" height="12" rx="2"
+                    :fill="grid === 2 ? '#fff' : '#6b7280'" />
+                </svg>
+              </template>
+              <template v-else>
+                <!-- 3 Columns Grid Icon -->
+                <svg width="24" height="24" viewBox="0 0 24 24" class="mx-auto" fill="none">
+                  <rect x="3" y="6" width="5.5" height="12" rx="1.5"
+                    :fill="grid === 3 ? '#fff' : '#6b7280'" />
+                  <rect x="9.75" y="6" width="5.5" height="12" rx="1.5"
+                    :fill="grid === 3 ? '#fff' : '#6b7280'" />
+                  <rect x="16.5" y="6" width="5.5" height="12" rx="1.5"
+                    :fill="grid === 3 ? '#fff' : '#6b7280'" />
+                </svg>
+              </template>
+            </button>
+            <span class="text-gray-500 text-xs">نمایش محصولات موجود</span>
+            <input type="checkbox" v-model="localFilter.available" true-value="1" false-value="0" />
+          </div>
         </div>
-      </transition>
+        <!-- Product List -->
+        <div v-if="store.isLoadingProducts" class="py-16 text-center text-gray-400 text-lg animate-pulse">
+          در حال دریافت محصولات...
+        </div>
+        <div v-else>
+          <div v-if="productList && productList.length"
+            :class="[
+              'grid gap-5',
+              grid === 2 && 'grid-cols-1 sm:grid-cols-2',
+              grid === 3 && 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+            ]">
+            <ProductCard v-for="p in productList" :key="p.id" :product="p" />
+          </div>
+          <div v-else class="py-14 text-center text-gray-300 text-lg">
+            محصولی یافت نشد.
+          </div>
+        </div>
+        <!-- Pagination -->
+        <div v-if="store.pages.length > 1" class="flex justify-center mt-8 gap-2">
+          <button :disabled="store.pageCurrent === store.pageFirst" @click="changePage(store.pageCurrent - 1)"
+            class="w-9 h-9 rounded-xl border bg-white flex items-center justify-center text-gray-500 font-bold hover:bg-gray-100 disabled:text-gray-300 disabled:cursor-not-allowed">
+            ‹
+          </button>
+          <button v-for="page in store.pages" :key="page" @click="changePage(page)"
+            :class="[
+              'w-9 h-9 rounded-xl border flex items-center justify-center font-bold transition-all',
+              store.pageCurrent === page
+                ? 'bg-primary-600 border-primary-600 text-white shadow'
+                : 'bg-white border-gray-200 text-gray-700 hover:bg-gray-50',
+            ]">
+            {{ page }}
+          </button>
+          <button :disabled="store.pageCurrent === store.pageLast" @click="changePage(store.pageCurrent + 1)"
+            class="w-9 h-9 rounded-xl border bg-white flex items-center justify-center text-gray-500 font-bold hover:bg-gray-100 disabled:text-gray-300 disabled:cursor-not-allowed">
+            ›
+          </button>
+        </div>
+      </main>
     </div>
-  </transition>
+  </div>
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from "vue";
-import axios from "axios";
+import { ref, computed, onMounted } from "vue";
+import { useProductsPageStore } from "../stores/productsPageStore";
 import ProductCard from "../components/ProductCard.vue";
 
-const loadingInit = ref(true);
-const loadingProducts = ref(false);
-const error = ref("");
-const categories = ref([]);
-const colors = ref([]);
-const max_price = ref(0);
-const min_price = ref(0);
-const sizes = ref([]);
-const firstPage = ref(1);
-const lastPage = ref(1);
-const activePage = ref(1);
-const products = ref({});
-const grid = ref(4);
+const store = useProductsPageStore();
+const grid = ref(2);
 
-const pages = computed(() =>
-  Array.from({ length: lastPage.value - firstPage.value + 1 }, (_, i) => firstPage.value + i)
+const sortOptions = [
+  { value: "", label: "پربازدید ترین" },
+  { value: "low_to_high", label: "ارزان ترین" },
+  { value: "high_to_low", label: "گران ترین" },
+  { value: "most_sales", label: "پرفروش ترین" },
+  { value: "latest", label: "جدید ترین" },
+  { value: "special", label: "ویژه" }
+];
+
+const showSort = ref(false);
+
+const localFilter = ref({
+  category_id: "",
+  title: "",
+  sizes: [],
+  colors: [],
+  available: 0,
+  min_price: 0,
+  max_price: 0,
+  sort: ""
+});
+const sizeOpen = ref(true);
+const colorOpen = ref(true);
+
+const productList = computed(() => store.productPages[store.pageCurrent] || []);
+const selectedColors = computed(() =>
+  store.colorList.filter((color) =>
+    localFilter.value.colors.includes(color.value)
+  )
 );
 
-const fetchCategories = async () => {
-  const res = await axios.get(
-    "https://api.atlasmode.shop/v1/front/get-categories?version=new2"
-  );
-  categories.value = res.data[0]?.children ?? [];
-};
-const fetchColors = async () => {
-  const res = await axios.get(
-    "https://api.atlasmode.shop/v1/front/color-ranges?version=new2"
-  );
-  colors.value = res.data.data?.colorRanges ?? [];
-};
-const fetchProductsAttributes = async () => {
-  const res = await axios.get(
-    "https://api.atlasmode.shop/v1/front/products?version=new2&page=1&sort=&title=&flash_id=&max_price=0&min_price=0&available=0&category_id="
-  );
-  const data = res.data.data;
-  max_price.value = data.priceFilter?.max_price ?? 0;
-  min_price.value = data.priceFilter?.min_price ?? 0;
-  sizes.value = data.attributes?.values ?? [];
-  firstPage.value = data.products?.from ?? 1;
-  lastPage.value = data.products?.last_page ?? 1;
-};
-const fetchProductsPage = async (page) => {
-  if (products.value[page]) return;
-  loadingProducts.value = true;
-  try {
-    const res = await axios.get(
-      `https://api.atlasmode.shop/v1/front/products?page=${page}`
-    );
-    products.value[page] = res.data.data.products.data;
-  } catch (err) {
-    error.value = "Failed to fetch products for this page!";
-  } finally {
-    loadingProducts.value = false;
-  }
-};
-const handlePageClick = async (page) => {
-  activePage.value = page;
-  await fetchProductsPage(page);
+function toggleColor(val) {
+  const idx = localFilter.value.colors.indexOf(val);
+  if (idx === -1) localFilter.value.colors.push(val);
+  else localFilter.value.colors.splice(idx, 1);
+}
+function removeColor(val) {
+  localFilter.value.colors = localFilter.value.colors.filter((c) => c !== val);
+}
+
+function selectSort(value) {
+  localFilter.value.sort = value;
+  showSort.value = false;
+  handleFilter();
+}
+
+const handleFilter = async () => {
+  await store.applyFilters({
+    ...localFilter.value,
+    color: localFilter.value.colors.join(","),
+    size: localFilter.value.sizes.join(","),
+    min_price: localFilter.value.min_price || store.minPrice,
+    max_price: localFilter.value.max_price || store.maxPrice,
+    sort: localFilter.value.sort
+  });
 };
 
-onMounted(async () => {
-  loadingInit.value = true;
-  error.value = "";
-  try {
-    await fetchCategories();
-    await fetchColors();
-    await fetchProductsAttributes();
-    activePage.value = firstPage.value;
-    await fetchProductsPage(activePage.value);
-  } catch (err) {
-    error.value = "Failed to load data! Please try again.";
-  } finally {
-    loadingInit.value = false;
-  }
+const changePage = async (page) => {
+  await store.handlePageChange(page);
+};
+
+onMounted(() => {
+  store.initStore();
+  localFilter.value.min_price = store.minPrice;
+  localFilter.value.max_price = store.maxPrice;
 });
 </script>
 
 <style>
-@keyframes shake {
-  10%, 90% { transform: translateX(-2px); }
-  20%, 80% { transform: translateX(4px); }
-  30%, 50%, 70% { transform: translateX(-8px); }
-  40%, 60% { transform: translateX(8px); }
+.bg-primary-600 {
+  background-color: #3b82f6;
 }
-.animate-shake {
-  animation: shake 0.8s 1;
+.border-primary-500 {
+  border-color: #2563eb;
 }
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .35s cubic-bezier(0.4,0,0.2,1);
+.text-primary-600 {
+  color: #2563eb;
 }
-.fade-enter-from, .fade-leave-to {
+.ring-primary-300 {
+  box-shadow: 0 0 0 2px #93c5fd;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.2s;
+}
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
+  height: 0;
+}
+input[type="range"]::-webkit-slider-thumb {
+  background: #000;
 }
 </style>
