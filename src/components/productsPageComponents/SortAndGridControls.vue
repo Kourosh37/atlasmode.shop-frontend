@@ -20,18 +20,18 @@ const selectedSortLabel = computed(() => {
         <span class="text-gray-600 text-xs">فیلتر:</span>
         <div class="relative">
           <button
-            @click="showSort.value = !showSort.value"
+            @click="showSort = !showSort"
             class="w-48 text-right border rounded-xl px-3 py-2 bg-white text-gray-700 font-bold flex items-center justify-between"
             type="button"
           >
             {{ selectedSortLabel }}
-            <svg :class="showSort.value ? 'rotate-180' : ''"
+            <svg :class="showSort ? 'rotate-180' : ''"
               class="w-4 h-4 ml-1 transition-transform duration-200"
               fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </button>
-          <ul v-show="showSort.value" @mouseleave="showSort.value = false"
+          <ul v-show="showSort" @mouseleave="showSort = false"
             class="absolute w-full right-0 z-20 mt-2 border bg-white shadow-lg rounded-xl text-sm font-bold py-1"
             style="min-width: 180px">
             <li v-for="option in sortOptions" :key="option.value"
