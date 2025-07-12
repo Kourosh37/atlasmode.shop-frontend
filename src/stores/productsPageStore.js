@@ -66,8 +66,9 @@ export const useProductsPageStore = defineStore('productsPageStore', () => {
     sizeList.value = res.data.data?.attributes?.values ?? []
     minPrice.value = res.data.data?.priceFilter?.min_price ?? 0
     maxPrice.value = res.data.data?.priceFilter?.max_price ?? 0
-    pageFirst.value = res.data.data?.products?.from ?? 1
+    pageFirst.value = 1
     pageLast.value = res.data.data?.products?.last_page ?? 1
+    pageCurrent.value = res.data.data?.products?.current_page ?? 1
   }
 
   // Fetch products by filters
@@ -97,7 +98,7 @@ export const useProductsPageStore = defineStore('productsPageStore', () => {
       const data = res.data.data
       minPrice.value = data.priceFilter?.min_price ?? 0
       maxPrice.value = data.priceFilter?.max_price ?? 0
-      pageFirst.value = data.products?.from ?? 1
+      pageFirst.value = 1
       pageLast.value = data.products?.last_page ?? 1
       pageCurrent.value = data.products?.current_page ?? 1
       productPages.value = { [pageCurrent.value]: data.products?.data ?? [] }
@@ -124,6 +125,7 @@ export const useProductsPageStore = defineStore('productsPageStore', () => {
       const data = res.data.data
       productPages.value[page] = data.products?.data ?? []
       pageCurrent.value = page
+      pageLast.value = data.products?.last_page ?? pageLast.value
     } catch {
       errorMessage.value = 'Error loading this page!'
     } finally {
