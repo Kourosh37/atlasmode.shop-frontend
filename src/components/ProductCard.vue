@@ -13,7 +13,6 @@ const cardRef = ref(null);
 const starSize = ref(9);
 const heartSize = ref(12);
 
-// فقط این بخش تغییر کرده:
 function updateIconSize() {
   if (cardRef.value) {
     const w = cardRef.value.offsetWidth;
@@ -47,6 +46,7 @@ function getProductImage(product, hover = false) {
     class="relative bg-white rounded-2xl w-full aspect-[3/4] flex flex-col p-6 transition-all duration-300 cursor-pointer group overflow-hidden shadow-2xl"
     @mouseenter="hovered = true"
     @mouseleave="hovered = false"
+    @click="$emit('click')"
   >
     <!-- Stars and Heart (top-right, show on hover) -->
     <transition name="fade">

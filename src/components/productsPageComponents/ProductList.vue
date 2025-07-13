@@ -9,7 +9,12 @@
         grid === 2 && 'grid-cols-1 sm:grid-cols-2',
         grid === 3 && 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
       ]">
-      <ProductCard v-for="p in productList" :key="p.id" :product="p" />
+      <ProductCard
+        v-for="p in productList"
+        :key="p.id"
+        :product="p"
+        @click="goToProduct(p.id)"
+      />
     </div>
     <div v-else class="py-14 text-center text-gray-300 text-lg">
       محصولی یافت نشد.
@@ -20,7 +25,15 @@
 <script setup>
 import ProductCard from '../ProductCard.vue';
 import { inject } from 'vue';
+import { useRouter } from 'vue-router';
+
 const productList = inject('productList');
 const grid = inject('grid');
 const isLoading = inject('isLoading');
+
+const router = useRouter();
+
+function goToProduct(id) {
+  router.push(`/products/${id}`);
+}
 </script>
