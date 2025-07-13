@@ -3,7 +3,7 @@
 import { computed } from 'vue'
 import { useProductsPageStore } from '../../stores/productsPageStore'
 
-// Import grid state: if you want grid global, move it to store; if not, keep it local and use props
+// Import grid state
 import { inject } from 'vue'
 const grid = inject('grid', 2) // fallback 2, or move to store if you want it globally
 
@@ -78,46 +78,49 @@ function toggleAvailable(event) {
       </div>
     </div>
     <div class="flex items-center gap-2" dir="rtl">
-      <!-- 2-column button -->
-      <button
-        :class="[
-          'rounded-lg border text-xs font-bold transition-all flex items-center justify-center',
-          grid.value === 2
-            ? 'bg-primary-600 border-primary-600 text-white shadow'
-            : 'bg-white border-gray-200 text-gray-600',
-        ]"
-        @click="$emit('update:grid', 2)"
-        style="width: 40px; height: 40px"
-        title="2 ستونه"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" class="mx-auto" fill="none">
-          <rect x="4" y="6" width="6" height="12" rx="2"
-            :fill="grid.value === 2 ? '#fff' : '#6b7280'" />
-          <rect x="14" y="6" width="6" height="12" rx="2"
-            :fill="grid.value === 2 ? '#fff' : '#6b7280'" />
-        </svg>
-      </button>
-      <!-- 3-column button -->
-      <button
-        :class="[
-          'rounded-lg border text-xs font-bold transition-all flex items-center justify-center',
-          grid.value === 3
-            ? 'bg-primary-600 border-primary-600 text-white shadow'
-            : 'bg-white border-gray-200 text-gray-600',
-        ]"
-        @click="$emit('update:grid', 3)"
-        style="width: 40px; height: 40px"
-        title="3 ستونه"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" class="mx-auto" fill="none">
-          <rect x="3" y="6" width="5.5" height="12" rx="1.5"
-            :fill="grid.value === 3 ? '#fff' : '#6b7280'" />
-          <rect x="9.75" y="6" width="5.5" height="12" rx="1.5"
-            :fill="grid.value === 3 ? '#fff' : '#6b7280'" />
-          <rect x="16.5" y="6" width="5.5" height="12" rx="1.5"
-            :fill="grid.value === 3 ? '#fff' : '#6b7280'" />
-        </svg>
-      </button>
+ <!-- 2-column button -->
+<button
+  :class="[
+    'rounded-lg border text-xs font-bold transition-all flex items-center justify-center',
+    grid === 2
+      ? 'bg-black text-white shadow border-black'
+      : 'bg-gray-200 text-black border-gray-200',
+  ]"
+  @click="$emit('update:grid', 2)"
+  style="width: 28px; height: 28px; padding: 0"
+  title="2 ستونه"
+>
+  <svg width="20" height="20" viewBox="0 0 20 20" class="mx-auto" fill="none">
+    <rect x="5" y="3" width="4" height="14" rx="1.1"
+      :fill="grid === 2 ? '#fff' : '#000'" />
+    <rect x="10" y="3" width="4" height="14" rx="1.1"
+      :fill="grid === 2 ? '#fff' : '#000'" />
+  </svg>
+</button>
+<!-- 3-column button -->
+<button
+  :class="[
+    'rounded-lg border text-xs font-bold transition-all flex items-center justify-center',
+    grid === 3
+      ? 'bg-black text-white shadow border-black'
+      : 'bg-gray-200 text-black border-gray-200',
+  ]"
+  @click="$emit('update:grid', 3)"
+  style="width: 28px; height: 28px; padding: 0"
+  title="3 ستونه"
+>
+  <svg width="20" height="20" viewBox="0 0 20 20" class="mx-auto" fill="none">
+    <rect x="3" y="3" width="4" height="14" rx="1"
+      :fill="grid === 3 ? '#fff' : '#000'" />
+    <rect x="8" y="3" width="4" height="14" rx="1"
+      :fill="grid === 3 ? '#fff' : '#000'" />
+    <rect x="13" y="3" width="4" height="14" rx="1"
+      :fill="grid === 3 ? '#fff' : '#000'" />
+  </svg>
+</button>
+
+
+
       <span class="text-gray-500 text-xs">نمایش محصولات موجود</span>
       <input
         type="checkbox"

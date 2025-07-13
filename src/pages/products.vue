@@ -25,7 +25,7 @@
 
 <script setup>
 // Import necessary Vue and store tools
-import { ref, onMounted } from "vue";
+import { ref, onMounted, provide } from "vue";
 import { useProductsPageStore } from "../stores/productsPageStore";
 
 // Import all page sections/components
@@ -44,4 +44,7 @@ const grid = ref(2);
 onMounted(() => {
   store.init();
 });
+
+// Provide grid layout to child components
+provide("grid", grid);
 </script>
