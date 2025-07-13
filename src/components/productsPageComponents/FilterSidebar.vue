@@ -5,7 +5,7 @@
   >
     <div class="flex items-center justify-between mb-3">
       <span class="font-bold text-lg">فیلتر جستجو</span>
-      <!-- Icon -->
+      <!-- Filter icon -->
       <svg
         class="w-5 h-5 text-gray-400"
         fill="none"
@@ -21,17 +21,18 @@
       </svg>
     </div>
     <hr class="mb-5" />
-    <form @submit.prevent="handleFilter" class="flex flex-col gap-6">
+
+    <form @submit.prevent="store.applyFilters" class="flex flex-col gap-6">
       <!-- Category Dropdown -->
       <div>
         <label class="block mb-1 text-xs font-bold text-gray-700">دسته بندی ها</label>
         <select
-          v-model="store.filter.category_id"
+          v-model="store.filters.categoryId"
           class="w-full rounded-xl border px-3 py-2 text-sm text-gray-500 bg-gray-50 focus:ring-2 focus:ring-primary-600"
         >
           <option value="">دسته بندی مورد نظر را انتخاب کنید</option>
           <option
-            v-for="cat in store.categoryList"
+            v-for="cat in store.categories"
             :key="cat.id"
             :value="cat.id"
           >
@@ -39,24 +40,26 @@
           </option>
         </select>
       </div>
+
       <!-- Title Input -->
       <div>
         <label class="block mb-1 text-xs font-bold text-gray-700">عنوان</label>
         <input
           type="text"
-          v-model="store.filter.title"
+          v-model="store.filters.title"
           class="w-full rounded-xl border px-3 py-2 text-sm text-gray-700 bg-gray-50"
           placeholder="عنوان جستجو را بنویسید"
         />
       </div>
+
       <!-- Size Multi-Select -->
       <div>
         <div
-          @click="sizeOpen = !sizeOpen"
+          @click="store.ui.sizeOpen = !store.ui.sizeOpen"
           class="flex items-center cursor-pointer select-none"
         >
           <svg
-            :class="sizeOpen ? 'rotate-180' : ''"
+            :class="store.ui.sizeOpen ? 'rotate-180' : ''"
             class="w-4 h-4 ml-1 transition-transform duration-200"
             fill="none"
             stroke="currentColor"
@@ -72,15 +75,15 @@
           <span class="font-bold text-gray-700 text-base">سایز</span>
         </div>
         <transition name="fade">
-          <div v-show="sizeOpen" class="grid grid-cols-3 gap-2 mt-3 pr-3">
+          <div v-show="store.ui.sizeOpen" class="grid grid-cols-3 gap-2 mt-3 pr-3">
             <label
-              v-for="size in store.sizeList"
+              v-for="size in store.sizes"
               :key="size.id"
               class="flex items-center gap-1 cursor-pointer text-gray-600 text-sm"
             >
               <input
                 type="checkbox"
-                v-model="store.filter.sizes"
+                v-model="store.filters.sizes"
                 :value="size.value"
                 class="accent-primary-600 rounded"
               />
@@ -89,14 +92,15 @@
           </div>
         </transition>
       </div>
+
       <!-- Color Multi-Select -->
       <div>
         <div
-          @click="colorOpen = !colorOpen"
+          @click="store.ui.colorOpen = !store.ui.colorOpen"
           class="flex items-center cursor-pointer select-none"
         >
           <svg
-            :class="colorOpen ? 'rotate-180' : ''"
+            :class="store.ui.colorOpen ? 'rotate-180' : ''"
             class="w-4 h-4 ml-1 transition-transform duration-200"
             fill="none"
             stroke="currentColor"
@@ -112,10 +116,9 @@
           <span class="font-bold text-gray-700 text-base">رنگ</span>
         </div>
         <transition name="fade">
-          <div v-show="colorOpen" class="grid grid-cols-3 gap-4 mt-3">
-            <!-- Each color is an object from the API -->
+          <div v-show="store.ui.colorOpen" class="grid grid-cols-3 gap-4 mt-3">
             <div
-              v-for="color in store.colorList"
+              v-for="color in store.colors"
               :key="color.id"
               class="flex flex-col items-center cursor-pointer"
               @click="toggleColor(color)"
@@ -146,9 +149,9 @@
           </div>
         </transition>
         <!-- Show selected colors as tags below -->
-        <div class="flex flex-wrap mt-2 gap-1" v-if="store.filter.colors.length">
+        <div class="flex flex-wrap mt-2 gap-1" v-if="store.filters.colors.length">
           <span
-            v-for="color in store.filter.colors"
+            v-for="color in store.filters.colors"
             :key="color.id"
             class="flex items-center gap-1 px-2 py-1 border border-primary-500 rounded-xl text-xs bg-gray-50"
           >
@@ -165,6 +168,7 @@
           </span>
         </div>
       </div>
+
       <!-- Only Available Products Toggle -->
       <div>
         <label
@@ -174,7 +178,7 @@
           <span class="relative inline-flex items-center">
             <input
               type="checkbox"
-              v-model="store.filter.available"
+              v-model="store.filters.available"
               true-value="1"
               false-value="0"
               class="sr-only peer"
@@ -188,13 +192,14 @@
           </span>
         </label>
       </div>
+
       <!-- Price Range Slider -->
       <div>
         <label class="block mb-1 text-xs font-bold text-gray-700">قیمت ها</label>
         <VueSlider
-          v-model="priceRange"
-          :min="store.minPrice"
-          :max="store.maxPrice"
+          v-model="store.filters.priceRange"
+          :min="store.priceMin"
+          :max="store.priceMax"
           :interval="10000"
           :dot-size="20"
           :tooltip="'none'"
@@ -203,10 +208,12 @@
           :reverse="true"
         />
         <div class="flex justify-between text-xs text-gray-500 mt-1">
-          <span>از قیمت: {{ priceRange[0].toLocaleString() }} تومان</span>
-          <span>تا قیمت: {{ priceRange[1].toLocaleString() }} تومان</span>
+          <span>از قیمت: {{ store.filters.priceRange[0]?.toLocaleString() }} تومان</span>
+          <span>تا قیمت: {{ store.filters.priceRange[1]?.toLocaleString() }} تومان</span>
         </div>
       </div>
+
+      <!-- Submit Filter Button -->
       <button
         type="submit"
         class="bg-black hover:bg-gray-800 text-white px-6 py-2 rounded-xl shadow font-bold text-sm transition-all mt-2"
@@ -218,64 +225,42 @@
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+// 100% store-driven filter sidebar
 import { useProductsPageStore } from "../../stores/productsPageStore";
 import VueSlider from "vue-slider-component";
 import "vue-slider-component/theme/default.css";
 
-// Get Pinia store
 const store = useProductsPageStore();
 
-// Local state for collapse/expand for size and color
-const sizeOpen = ref(false);
-const colorOpen = ref(false);
-
-// Check if a color (object) is selected (by id)
-const isColorSelected = colorObj =>
-  store.filter.colors.some(c => c.id === colorObj.id);
-
-// Toggle color: add/remove color object from filter.colors
-const toggleColor = (colorObj) => {
-  const idx = store.filter.colors.findIndex(c => c.id === colorObj.id);
+/**
+ * Toggle color selection (adds or removes color from store.filters.colors)
+ * This operates entirely on the store, no local state
+ */
+function toggleColor(colorObj) {
+  const idx = store.filters.colors.findIndex(c => c.id === colorObj.id);
   if (idx > -1) {
-    // If color is already selected, remove it
-    store.filter.colors.splice(idx, 1);
+    // Remove from filter
+    store.filters.colors.splice(idx, 1);
   } else {
-    // Otherwise, add the whole color object as returned from API
-    store.filter.colors.push(colorObj);
+    // Add whole color object (from API)
+    store.filters.colors.push(colorObj);
   }
-};
+}
 
-// Remove color from filter.colors (by id)
-const removeColor = (colorId) => {
-  const idx = store.filter.colors.findIndex(c => c.id === colorId);
+/**
+ * Remove a color from selected colors (from its id)
+ */
+function removeColor(colorId) {
+  const idx = store.filters.colors.findIndex(c => c.id === colorId);
   if (idx > -1) {
-    store.filter.colors.splice(idx, 1);
+    store.filters.colors.splice(idx, 1);
   }
-};
+}
 
-// Price range slider (syncs with store.filter)
-const priceRange = ref([
-  store.filter.min_price || store.minPrice,
-  store.filter.max_price || store.maxPrice,
-]);
-
-// Keep priceRange and store.filter in sync
-watch(priceRange, (val) => {
-  store.filter.min_price = val[0];
-  store.filter.max_price = val[1];
-});
-watch(
-  [() => store.filter.min_price, () => store.filter.max_price],
-  ([min, max]) => {
-    if (priceRange.value[0] !== min || priceRange.value[1] !== max) {
-      priceRange.value = [min, max];
-    }
-  }
-);
-
-// Submit filter button
-const handleFilter = () => {
-  store.applyFilters();
-};
+/**
+ * Checks if color is selected by id (used for UI highlight)
+ */
+function isColorSelected(colorObj) {
+  return store.filters.colors.some(c => c.id === colorObj.id);
+}
 </script>

@@ -1,16 +1,47 @@
 <script setup>
-import { inject, computed } from 'vue';
+// All store-based: no inject or local filter
+import { computed } from 'vue'
+import { useProductsPageStore } from '../../stores/productsPageStore'
 
-const sortOptions = inject('sortOptions');   // array
-const showSort = inject('showSort');         // ref
-const localFilter = inject('localFilter');   // ref
-const selectSort = inject('selectSort');     // function
-const grid = inject('grid');                 // ref
+// Import grid state: if you want grid global, move it to store; if not, keep it local and use props
+import { inject } from 'vue'
+const grid = inject('grid', 2) // fallback 2, or move to store if you want it globally
 
+const store = useProductsPageStore()
+
+// Define your sort options directly here or fetch from store if you want dynamic
+const sortOptions = [
+  { value: '', label: 'پربازدید ترین' },
+  { value: 'low_to_high', label: 'ارزان ترین' },
+  { value: 'high_to_low', label: 'گران ترین' },
+  { value: 'most_sales', label: 'پرفروش ترین' },
+  { value: 'latest', label: 'جدید ترین' },
+  { value: 'special', label: 'ویژه' }
+]
+
+// Show/hide sort dropdown (UI state, can also be moved to store if you want)
+const showSort = computed({
+  get: () => store.ui.showSort ?? false,
+  set: v => { store.ui.showSort = v }
+})
+
+// Computed label for selected sort
 const selectedSortLabel = computed(() => {
-  if (!localFilter.value) return 'پربازدید ترین';
-  return sortOptions.find(opt => opt.value === localFilter.value.sort)?.label || 'پربازدید ترین';
-});
+  return sortOptions.find(opt => opt.value === store.filters.sort)?.label || 'پربازدید ترین'
+})
+
+// Handle changing the sort filter
+function selectSort(value) {
+  store.filters.sort = value
+  store.ui.showSort = false
+  store.applyFilters()
+}
+
+// Toggle available only checkbox
+function toggleAvailable(event) {
+  store.filters.available = event.target.checked ? 1 : 0
+  store.applyFilters()
+}
 </script>
 
 <template>
@@ -38,7 +69,7 @@ const selectedSortLabel = computed(() => {
                 @click="selectSort(option.value)"
                 :class="[
                   'px-4 py-2 cursor-pointer hover:bg-gray-100 transition',
-                  (localFilter.value && localFilter.value.sort) === option.value ? 'bg-gray-700 text-white' : 'text-gray-900'
+                  store.filters.sort === option.value ? 'bg-gray-700 text-white' : 'text-gray-900'
                 ]">
               {{ option.label }}
             </li>
@@ -47,7 +78,7 @@ const selectedSortLabel = computed(() => {
       </div>
     </div>
     <div class="flex items-center gap-2" dir="rtl">
-      <!-- دکمه ۲ ستونه -->
+      <!-- 2-column button -->
       <button
         :class="[
           'rounded-lg border text-xs font-bold transition-all flex items-center justify-center',
@@ -66,7 +97,7 @@ const selectedSortLabel = computed(() => {
             :fill="grid.value === 2 ? '#fff' : '#6b7280'" />
         </svg>
       </button>
-      <!-- دکمه ۳ ستونه -->
+      <!-- 3-column button -->
       <button
         :class="[
           'rounded-lg border text-xs font-bold transition-all flex items-center justify-center',
@@ -90,8 +121,8 @@ const selectedSortLabel = computed(() => {
       <span class="text-gray-500 text-xs">نمایش محصولات موجود</span>
       <input
         type="checkbox"
-        :checked="localFilter.value && localFilter.value.available === 1"
-        @change="localFilter.value.available = $event.target.checked ? 1 : 0"
+        :checked="store.filters.available === 1"
+        @change="toggleAvailable"
       />
     </div>
   </div>

@@ -1,190 +1,211 @@
-// stores/productsPageStore.js
 import { defineStore } from 'pinia'
-import { ref, computed, reactive } from 'vue'
+import { ref, computed, reactive, watch } from 'vue'
 import axios from 'axios'
 
-export const useProductsPageStore = defineStore('productsPageStore', () => {
-  // Simple refs for UI/loading/data
-  const isLoadingInit = ref(true)
-  const isLoadingProducts = ref(false)
-  const errorMessage = ref('')
+export const useProductsPageStore = defineStore('productsPage', () => {
+  // --- Loading & error state ---
+  const isInitialLoading = ref(true)
+  const isProductsLoading = ref(false)
+  const error = ref('')
 
-  // Lists from API
-  const categoryList = ref([])
-  const colorList = ref([])
-  const sizeList = ref([])
-  const minPrice = ref(0)
-  const maxPrice = ref(0)
-  const pageFirst = ref(1)
-  const pageLast = ref(1)
-  const pageCurrent = ref(1)
-  const productPages = ref({})
+  // --- API-driven lists/data ---
+  const categories = ref([])
+  const colors = ref([])
+  const sizes = ref([])
+  const priceMin = ref(0)
+  const priceMax = ref(0)
+  const pageStart = ref(1)
+  const pageEnd = ref(1)
+  const currentPage = ref(1)
+  const productsByPage = ref({})
 
-  // All filter fields in one reactive object
-  const filter = reactive({
-    category_id: '',
-    title: '',
-    sizes: [],
-    colors: [], // Array of color objects from API (not strings)
-    available: 0,
-    min_price: 0,
-    max_price: 0,
-    sort: ''
+  // --- UI state for sidebar collapses, etc. ---
+  // This allows the sidebar to be 100% store-driven, no local state in the component
+  const ui = reactive({
+    sizeOpen: true,
+    colorOpen: true,
   })
 
-  // Pages array for pagination controls
-  const pages = computed(() =>
-    Array.from({ length: pageLast.value - pageFirst.value + 1 }, (_, i) => pageFirst.value + i)
+  // --- Filter state (including priceRange) ---
+  // priceRange is an array [min, max], synced with slider and filters
+  const filters = reactive({
+    categoryId: '',
+    title: '',
+    sizes: [],
+    colors: [], // Array of color objects (from API)
+    available: 0,
+    priceRange: [0, 0], // Will be set after fetch
+    sort: '',
+  })
+
+  // --- Computed for pagination pages ---
+  const paginationPages = computed(() =>
+    Array.from({ length: pageEnd.value - pageStart.value + 1 }, (_, i) => pageStart.value + i)
   )
 
-  // Initialize all data and lists
-  const initStore = async () => {
-    isLoadingInit.value = true
-    errorMessage.value = ''
+  // --- Sync priceRange with fetched min/max ---
+  // After fetching prices, always update filter's priceRange accordingly
+  watch([priceMin, priceMax], ([min, max]) => {
+    if (filters.priceRange[0] !== min || filters.priceRange[1] !== max) {
+      filters.priceRange = [min, max]
+    }
+  })
+
+  // --- API fetchers ---
+  const fetchCategories = async () => {
+    const res = await axios.get('https://api.atlasmode.shop/v1/front/get-categories?version=new2')
+    categories.value = res.data[0]?.children ?? []
+  }
+
+  const fetchColors = async () => {
+    const res = await axios.get('https://api.atlasmode.shop/v1/front/color-ranges?version=new2')
+    colors.value = (res.data.data?.colorRanges ?? []).map(color => ({
+      ...color,
+      gradient: color.gradient || '',
+      image: color.image || '',
+      value: color.value || color.hex || color.title
+    }))
+  }
+
+  const fetchSizesAndInitPrices = async () => {
+    const res = await axios.get('https://api.atlasmode.shop/v1/front/products?version=new2&page=1')
+    sizes.value = res.data.data?.attributes?.values ?? []
+    priceMin.value = res.data.data?.priceFilter?.min_price ?? 0
+    priceMax.value = res.data.data?.priceFilter?.max_price ?? 0
+    pageStart.value = 1
+    pageEnd.value = res.data.data?.products?.last_page ?? 1
+    currentPage.value = res.data.data?.products?.current_page ?? 1
+    // Sync filter priceRange
+    filters.priceRange = [priceMin.value, priceMax.value]
+  }
+
+  // --- Main initializer ---
+  const init = async () => {
+    isInitialLoading.value = true
+    error.value = ''
     try {
       await Promise.all([
         fetchCategories(),
         fetchColors(),
         fetchSizesAndInitPrices(),
       ])
-      // Set filter price to range
-      filter.min_price = minPrice.value
-      filter.max_price = maxPrice.value
-      await applyFilters()
+      // Set initial price range filter to min/max
+      filters.priceRange = [priceMin.value, priceMax.value]
+      await fetchProductsWithFilters()
     } catch (err) {
-      errorMessage.value = 'Error loading data!'
+      error.value = 'Error loading data!'
     } finally {
-      isLoadingInit.value = false
+      isInitialLoading.value = false
     }
   }
 
-  // Fetch category list from API
-  const fetchCategories = async () => {
-    const res = await axios.get('https://api.atlasmode.shop/v1/front/get-categories?version=new2')
-    categoryList.value = res.data[0]?.children ?? []
-  }
-
-  // Fetch color list from API (object structure as-is)
-  const fetchColors = async () => {
-    const res = await axios.get('https://api.atlasmode.shop/v1/front/color-ranges?version=new2')
-    colorList.value = (res.data.data?.colorRanges ?? []).map(color => ({
-      ...color,
-      gradient: color.gradient || '',
-      image: color.image || '',
-      value: color.value || color.hex || color.title
-    }))
-    // No change needed: API returns array of objects
-  }
-
-  // Fetch sizes and set min/max price
-  const fetchSizesAndInitPrices = async () => {
-    const res = await axios.get('https://api.atlasmode.shop/v1/front/products?version=new2&page=1')
-    sizeList.value = res.data.data?.attributes?.values ?? []
-    minPrice.value = res.data.data?.priceFilter?.min_price ?? 0
-    maxPrice.value = res.data.data?.priceFilter?.max_price ?? 0
-    pageFirst.value = 1
-    pageLast.value = res.data.data?.products?.last_page ?? 1
-    pageCurrent.value = res.data.data?.products?.current_page ?? 1
-  }
-
-  // Main filter API call
-  const applyFilters = async () => {
-    isLoadingProducts.value = true
-    errorMessage.value = ''
-    // Convert filter.colors (array of objects) to comma-separated values for API
-    const params = {
+  // --- Helper: build query params from store.filters (and priceRange) ---
+  function buildFilterParams(page = 1) {
+    return {
       version: 'new2',
-      page: 1,
-      category_id: filter.category_id || '',
-      color: Array.isArray(filter.colors)
-        ? filter.colors.map(c => c.value).join(',')
+      page,
+      category_id: filters.categoryId || '',
+      color: Array.isArray(filters.colors)
+        ? filters.colors.map(c => c.value).join(',')
         : '',
-      size: Array.isArray(filter.sizes) ? filter.sizes.join(',') : filter.sizes || '',
-      title: filter.title || '',
-      available: filter.available || 0,
-      min_price: filter.min_price || minPrice.value || 0,
-      max_price: filter.max_price || maxPrice.value || 0,
-      sort: filter.sort || '',
+      size: Array.isArray(filters.sizes) ? filters.sizes.join(',') : filters.sizes || '',
+      title: filters.title || '',
+      available: filters.available || 0,
+      min_price: filters.priceRange[0] || priceMin.value || 0,
+      max_price: filters.priceRange[1] || priceMax.value || 0,
+      sort: filters.sort || '',
       flash_id: ''
     }
+  }
+
+  // --- Fetch products based on filters ---
+  const fetchProductsWithFilters = async () => {
+    isProductsLoading.value = true
+    error.value = ''
+    const params = buildFilterParams(1)
+    // Remove empty keys
     Object.keys(params).forEach(key => {
       if (params[key] === '' || params[key] === null || params[key] === undefined) delete params[key]
     })
     try {
       const res = await axios.get('https://api.atlasmode.shop/v1/front/products', { params })
       const data = res.data.data
-      minPrice.value = data.priceFilter?.min_price ?? 0
-      maxPrice.value = data.priceFilter?.max_price ?? 0
-      filter.min_price = Math.max(filter.min_price, minPrice.value)
-      filter.max_price = Math.min(filter.max_price, maxPrice.value)
-      pageFirst.value = 1
-      pageLast.value = data.products?.last_page ?? 1
-      pageCurrent.value = data.products?.current_page ?? 1
-      productPages.value = { [pageCurrent.value]: data.products?.data ?? [] }
+      priceMin.value = data.priceFilter?.min_price ?? 0
+      priceMax.value = data.priceFilter?.max_price ?? 0
+      // Sync filter price range after new fetch
+      filters.priceRange = [
+        Math.max(filters.priceRange[0], priceMin.value),
+        Math.min(filters.priceRange[1], priceMax.value)
+      ]
+      pageStart.value = 1
+      pageEnd.value = data.products?.last_page ?? 1
+      currentPage.value = data.products?.current_page ?? 1
+      productsByPage.value = { [currentPage.value]: data.products?.data ?? [] }
     } catch (err) {
-      errorMessage.value = 'Error fetching products!'
+      error.value = 'Error fetching products!'
     } finally {
-      isLoadingProducts.value = false
+      isProductsLoading.value = false
     }
   }
 
-  // Pagination logic
-  const handlePageChange = async (page) => {
-    if (productPages.value[page]) {
-      pageCurrent.value = page
+  // --- Main handler for filter form (called by sidebar) ---
+  const applyFilters = async () => {
+    await fetchProductsWithFilters()
+  }
+
+  // --- Pagination handler ---
+  const goToPage = async (page) => {
+    if (productsByPage.value[page]) {
+      currentPage.value = page
       return
     }
-    isLoadingProducts.value = true
-    errorMessage.value = ''
+    isProductsLoading.value = true
+    error.value = ''
+    const params = buildFilterParams(page)
+    Object.keys(params).forEach(key => {
+      if (params[key] === '' || params[key] === null || params[key] === undefined) delete params[key]
+    })
     try {
-      const params = {
-        version: 'new2',
-        page,
-        category_id: filter.category_id || '',
-        color: Array.isArray(filter.colors)
-          ? filter.colors.map(c => c.value).join(',')
-          : '',
-        size: Array.isArray(filter.sizes) ? filter.sizes.join(',') : filter.sizes || '',
-        title: filter.title || '',
-        available: filter.available || 0,
-        min_price: filter.min_price || minPrice.value || 0,
-        max_price: filter.max_price || maxPrice.value || 0,
-        sort: filter.sort || '',
-        flash_id: ''
-      }
-      Object.keys(params).forEach(key => {
-        if (params[key] === '' || params[key] === null || params[key] === undefined) delete params[key]
-      })
       const res = await axios.get('https://api.atlasmode.shop/v1/front/products', { params })
       const data = res.data.data
-      productPages.value[page] = data.products?.data ?? []
-      pageCurrent.value = page
-      pageLast.value = data.products?.last_page ?? pageLast.value
+      productsByPage.value[page] = data.products?.data ?? []
+      currentPage.value = page
+      pageEnd.value = data.products?.last_page ?? pageEnd.value
     } catch (err) {
-      errorMessage.value = 'Error loading this page!'
+      error.value = 'Error loading this page!'
     } finally {
-      isLoadingProducts.value = false
+      isProductsLoading.value = false
     }
   }
 
-  // Return state and methods for use in your components
+  // --- Expose everything for component use ---
   return {
-    isLoadingInit,
-    isLoadingProducts,
-    errorMessage,
-    categoryList,
-    colorList,
-    sizeList,
-    minPrice,
-    maxPrice,
-    pageFirst,
-    pageLast,
-    pageCurrent,
-    productPages,
-    pages,
-    filter,
-    initStore,
+    // UI + API state
+    isInitialLoading,
+    isProductsLoading,
+    error,
+
+    // Data
+    categories,
+    colors,
+    sizes,
+    priceMin,
+    priceMax,
+    pageStart,
+    pageEnd,
+    currentPage,
+    productsByPage,
+    paginationPages,
+
+    // Sidebar UI state
+    ui,
+
+    // Filters
+    filters,
+
+    // Main methods
+    init,
     applyFilters,
-    handlePageChange
+    goToPage,
   }
 })
