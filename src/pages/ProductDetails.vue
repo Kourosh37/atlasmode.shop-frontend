@@ -4,7 +4,6 @@
     v-if="loading"
     class="flex flex-col items-center justify-center w-full h-60 bg-white/70 backdrop-blur rounded-2xl p-8"
   >
-    <!-- Loading spinner icon -->
     <svg
       class="animate-spin h-12 w-12 text-gray-500 drop-shadow-lg mb-4"
       xmlns="http://www.w3.org/2000/svg"
@@ -59,89 +58,131 @@
   <!-- Product Details Section -->
   <div v-else dir="rtl">
     <!-- Product Details Card -->
-    <div
-      class="bg-white p-6 w-full max-w-4xl mx-auto rounded-2xl shadow-xl flex flex-col gap-7"
-    >
-      <!-- Product Title -->
-      <h2 class="text-3xl font-black text-amber-900 text-center tracking-tight">
-        {{ productTitle }}
-      </h2>
-
-      <!-- Price & Status Row -->
-      <div class="flex flex-wrap justify-between items-center gap-4">
-        <!-- Price Box -->
+<div
+  class="bg-white w-full max-w-4xl mx-auto rounded-2xl shadow-xl p-4 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-7 items-start"
+>
+  <!-- Images Sidebar -->
+  <div class="col-span-1 flex flex-col gap-4">
+    <span class="font-bold text-gray-800 mb-2">تصاویر:</span>
+    <div class="flex flex-row md:flex-col gap-4 md:gap-2">
+      <div
+        v-for="image in productImages"
+        :key="image.url"
+        class="relative aspect-square group cursor-pointer overflow-hidden rounded-2xl shadow-lg bg-amber-50 hover:ring-4 hover:ring-amber-500 transition-all w-28 h-28 md:w-full md:h-32"
+        @click="openZoom(image.url)"
+      >
+        <img
+          :src="image.url"
+          alt="Product image"
+          class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-200"
+        />
         <div
-          class="flex flex-col gap-2 bg-amber-50 border-r-4 border-amber-700 rounded-lg px-6 py-4 min-w-[180px] shadow-inner"
+          class="absolute inset-0 bg-black/15 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all"
         >
-          <span class="text-base font-bold text-gray-700">قیمت:</span>
-          <span class="text-2xl font-black text-emerald-700"
-            >{{ numberFormat(productPrice) }} تومان</span
+          <svg
+            class="w-8 h-8 text-white drop-shadow-lg"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
           >
-          <!-- Show discount info only if discount exists -->
-          <template v-if="productsDiscountPercent > 0">
-            <span class="text-sm text-gray-500"
-              >تخفیف: {{ productsDiscountPercent }}٪</span
-            >
-            <span class="text-xs text-rose-600"
-              >مهلت تخفیف: {{ productDiscountDeadline || "-" }}</span
-            >
-            <span class="text-lg font-bold text-green-700"
-              >قیمت نهایی: {{ numberFormat(finalPrice) }} تومان</span
-            >
-          </template>
-        </div>
-        <!-- Status Box -->
-        <div
-          class="flex flex-col gap-1 bg-gray-100 border-r-4 border-gray-400 rounded-lg px-5 py-4 min-w-[130px] shadow-inner"
-        >
-          <span class="text-base font-bold">وضعیت:</span>
-          <span
-            :class="
-              productAvailibilityStatus === 'available'
-                ? 'text-green-700'
-                : 'text-gray-500'
-            "
-          >
-            {{
-              productAvailibilityStatus === "available" ? "موجود" : "ناموجود"
-            }}
-          </span>
-          <span class="text-xs text-gray-500 mt-2"
-            >تعداد: {{ productQuantity }}</span
-          >
+            <circle cx="11" cy="11" r="8" stroke="currentColor" />
+            <path
+              d="M21 21l-4.35-4.35"
+              stroke="currentColor"
+              stroke-linecap="round"
+            />
+          </svg>
         </div>
       </div>
+    </div>
+  </div>
 
-      <!-- Categories List -->
-      <div>
-        <span class="font-bold text-gray-800">دسته‌بندی‌ها:</span>
-        <ul class="flex gap-2 flex-wrap mt-2">
-          <li
-            v-for="cat in productCategories"
-            :key="cat.id"
-            class="bg-amber-100 rounded-xl px-4 py-1 text-sm text-amber-800 font-semibold shadow"
-          >
-            {{ cat.title }}
-          </li>
-        </ul>
+  <!-- Details Section -->
+  <div class="col-span-2 flex flex-col gap-6">
+    <!-- Title -->
+    <h2 class="text-2xl md:text-3xl font-extrabold text-amber-900 text-center md:text-right mb-2">
+      {{ productTitle }}
+    </h2>
+    <!-- Price & Status Row -->
+    <div class="flex flex-wrap gap-4 items-center justify-center md:justify-start">
+      <!-- Price Box -->
+      <div class="flex flex-col gap-1 bg-amber-50 border-r-4 border-amber-700 rounded-lg px-6 py-4 min-w-[140px] shadow-inner">
+        <span class="text-base font-bold text-gray-700">قیمت:</span>
+        <span class="text-xl font-black text-emerald-700">{{ numberFormat(productPrice) }} تومان</span>
+        <template v-if="productsDiscountPercent > 0">
+          <span class="text-xs text-gray-500">تخفیف: {{ productsDiscountPercent }}٪</span>
+          <span class="text-xs text-rose-600">مهلت تخفیف: {{ productDiscountDeadline || '-' }}</span>
+          <span class="text-base font-bold text-green-700">قیمت نهایی: {{ numberFormat(finalPrice) }} تومان</span>
+        </template>
       </div>
+      <!-- Status Box -->
+      <div class="flex flex-col gap-1 bg-gray-100 border-r-4 border-gray-400 rounded-lg px-5 py-4 min-w-[100px] shadow-inner">
+        <span class="text-base font-bold">وضعیت:</span>
+        <span :class="productAvailibilityStatus === 'available' ? 'text-green-700' : 'text-gray-500'">
+          {{ productAvailibilityStatus === "available" ? "موجود" : "ناموجود" }}
+        </span>
+        <span class="text-xs text-gray-500 mt-2">تعداد: {{ productQuantity }}</span>
+      </div>
+    </div>
 
-      <!-- Size Chart Button -->
-      <div>
-        <button
-          class="bg-gradient-to-l from-amber-800 to-amber-500 hover:from-amber-900 hover:to-amber-700 text-white px-5 py-3 rounded-xl shadow-xl font-bold tracking-wider transition-all text-lg"
-          @click="showSizeModal = true"
+    <!-- Categories -->
+    <div class="flex flex-wrap items-center gap-2">
+      <span class="font-bold text-gray-800">دسته‌بندی‌ها:</span>
+      <ul class="flex gap-2 flex-wrap">
+        <li
+          v-for="cat in productCategories"
+          :key="cat.id"
+          class="bg-amber-100 rounded-xl px-3 py-0.5 text-xs md:text-sm text-amber-800 font-semibold shadow"
         >
-          مشاهده جدول سایز
-        </button>
+          {{ cat.title }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Size Chart + Size/Variety/Quantity: in a row -->
+    <div class="flex flex-col md:flex-row gap-5 items-center md:items-end w-full mt-1">
+      <!-- Size Chart Modal Button -->
+      <button
+        class="bg-gradient-to-l from-amber-800 to-amber-500 hover:from-amber-900 hover:to-amber-700 text-white px-4 py-2 rounded-xl shadow-xl font-bold tracking-wider transition-all text-base min-w-[120px]"
+        @click="showSizeModal = true"
+        type="button"
+      >
+        جدول سایز
+      </button>
+
+      <!-- Size Select (Available Sizes) -->
+      <div class="flex flex-col gap-1 min-w-[120px]">
+        <label class="font-bold text-gray-800 mb-1">سایز:</label>
+        <div class="flex flex-wrap gap-2">
+          <button
+            v-for="size in availableSizes"
+            :key="size"
+            :class="[
+              'rounded-xl px-4 py-1 font-bold border-2 transition-all text-sm shadow-sm min-w-[50px]',
+              selectedSize === size
+                ? 'bg-amber-500 border-amber-700 text-white scale-105'
+                : 'bg-white border-gray-300 text-gray-700 hover:bg-amber-50'
+            ]"
+            @click="selectSize(size)"
+            type="button"
+          >
+            {{ size }}
+          </button>
+        </div>
+        <span
+          v-if="availableSizes.length === 0"
+          class="text-rose-600 font-bold text-xs mt-1"
+          >سایز موجود نیست</span
+        >
       </div>
 
-      <!-- Product Varieties Selector -->
-      <div class="flex flex-col gap-2 mt-2">
-        <label class="font-bold text-gray-800 mb-1">انتخاب طرح:</label>
+      <!-- Variety Select -->
+      <div class="flex flex-col gap-1 min-w-[120px]">
+        <label class="font-bold text-gray-800 mb-1">طرح:</label>
         <select
           v-model="selectedVarity"
-          class="border-2 border-amber-600 rounded-lg px-3 py-2 outline-none focus:ring-2 ring-amber-500 transition-all bg-white text-gray-800 font-semibold"
+          class="border-2 border-amber-600 rounded-lg px-2 py-1 outline-none focus:ring-2 ring-amber-500 transition-all bg-white text-gray-800 font-semibold text-sm"
         >
           <option
             v-for="varity in productVarities"
@@ -153,36 +194,24 @@
         </select>
       </div>
 
-      <div class="flex flex-col gap-2 mt-2 w-fit">
+      <!-- Quantity Selector -->
+      <div class="flex flex-col gap-1 min-w-[105px]">
         <label class="font-bold text-gray-800 mb-1">تعداد:</label>
-        <div
-          class="flex items-center gap-2 bg-gray-50 border border-gray-300 rounded-xl px-3 py-2 w-fit"
-        >
-          <!-- Plus button -->
+        <div class="flex items-center gap-2 bg-gray-50 border border-gray-300 rounded-xl px-2 py-1 w-fit">
           <button
-            class="w-8 h-8 rounded-full flex items-center justify-center bg-gray-200 hover:bg-amber-500 hover:text-white transition-colors text-2xl font-bold disabled:bg-gray-100 disabled:text-gray-400"
+            class="w-8 h-8 rounded-full flex items-center justify-center bg-gray-200 hover:bg-amber-500 hover:text-white transition-colors text-xl font-bold disabled:bg-gray-100 disabled:text-gray-400"
             @mousedown="startChange('inc')"
             @mouseup="stopChange"
             @mouseleave="stopChange"
             @touchstart.prevent="startChange('inc')"
             @touchend="stopChange"
-            :disabled="
-              selectedCount >= productQuantity || productQuantity === 0
-            "
+            :disabled="selectedCount >= productQuantity || productQuantity === 0"
             type="button"
             aria-label="اضافه کردن"
-          >
-            +
-          </button>
-
-          <!-- Display count -->
-          <span class="w-8 text-center font-bold text-lg select-none">{{
-            selectedCount
-          }}</span>
-
-          <!-- Minus button -->
+          >+</button>
+          <span class="w-7 text-center font-bold text-base select-none">{{ selectedCount }}</span>
           <button
-            class="w-8 h-8 rounded-full flex items-center justify-center bg-gray-200 hover:bg-amber-500 hover:text-white transition-colors text-2xl font-bold disabled:bg-gray-100 disabled:text-gray-400"
+            class="w-8 h-8 rounded-full flex items-center justify-center bg-gray-200 hover:bg-amber-500 hover:text-white transition-colors text-xl font-bold disabled:bg-gray-100 disabled:text-gray-400"
             @mousedown="startChange('dec')"
             @mouseup="stopChange"
             @mouseleave="stopChange"
@@ -191,60 +220,19 @@
             :disabled="selectedCount <= 1"
             type="button"
             aria-label="کم کردن"
-          >
-            -
-          </button>
+          >-</button>
         </div>
-        <div
-          v-if="productQuantity === 0"
-          class="text-xs text-rose-500 font-bold mt-1"
-        >
+        <div v-if="productQuantity === 0" class="text-xs text-rose-500 font-bold mt-1">
           ناموجود
         </div>
         <div v-else class="text-xs text-gray-500 mt-1">
-          حداکثر قابل سفارش: {{ productQuantity }}
-        </div>
-      </div>
-
-      <!-- Product Images Grid -->
-      <div>
-        <span class="font-bold text-gray-800">تصاویر:</span>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 mt-4">
-          <!-- Image Card with zoom (magnifier) -->
-          <div
-            v-for="image in productImages"
-            :key="image.url"
-            class="relative aspect-square group cursor-pointer overflow-hidden rounded-2xl shadow-lg bg-amber-50 hover:ring-4 hover:ring-amber-500 transition-all"
-            @click="openZoom(image.url)"
-          >
-            <img
-              :src="image.url"
-              alt="Product image"
-              class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-200"
-            />
-            <!-- Magnifier Icon on image -->
-            <div
-              class="absolute inset-0 bg-black/15 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all"
-            >
-              <svg
-                class="w-12 h-12 text-white drop-shadow-lg"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <circle cx="11" cy="11" r="8" stroke="currentColor" />
-                <path
-                  d="M21 21l-4.35-4.35"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                />
-              </svg>
-            </div>
-          </div>
+          حداکثر: {{ productQuantity }}
         </div>
       </div>
     </div>
+  </div>
+</div>
+
 
     <!-- Size Chart Modal -->
     <div
@@ -255,7 +243,6 @@
         class="bg-white rounded-2xl px-4 py-7 w-full max-w-3xl shadow-xl relative animate-fadeIn flex flex-col"
         style="max-height: 85vh"
       >
-        <!-- Close Button for size modal -->
         <button
           class="absolute top-4 left-4 text-gray-500 hover:text-rose-500"
           @click="showSizeModal = false"
@@ -300,7 +287,24 @@
                       :key="'d' + idx"
                       class="py-2 px-4 border-b border-gray-100 text-base"
                     >
-                      {{ size }}
+                      <span v-if="size">
+                        {{ size }}
+                      </span>
+                      <span
+                        v-else
+                        class="flex items-center justify-center gap-1"
+                      >
+                        <svg
+                          class="w-4 h-4 text-gray-400"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle cx="12" cy="12" r="10" />
+                          <path d="M8 8l8 8M16 8l-8 8" stroke-linecap="round" />
+                        </svg>
+                      </span>
                     </td>
                   </tr>
                 </tbody>
@@ -318,7 +322,6 @@
       @click="zoomImage = null"
     >
       <div class="relative" @click.stop style="direction: ltr">
-        <!-- Magnifier Toggle Button -->
         <button
           class="absolute top-3 right-3 z-30 bg-white rounded-full p-2 shadow-xl hover:bg-amber-500 transition-colors"
           @click="magnifierEnabled = !magnifierEnabled"
@@ -355,7 +358,6 @@
             />
           </svg>
         </button>
-        <!-- Main Image with magnifier effect -->
         <div
           class="rounded-2xl shadow-2xl border-4 border-amber-600 relative overflow-hidden"
           style="max-width: 80vw; max-height: 80vh"
@@ -369,7 +371,6 @@
             class="max-w-[80vw] max-h-[80vh] object-contain select-none"
             draggable="false"
           />
-          <!-- Magnifier Circle -->
           <div
             v-if="magnifierEnabled && magnifier.show"
             :style="{
@@ -390,7 +391,6 @@
             }"
           ></div>
         </div>
-        <!-- Close Button for image modal -->
         <button
           class="absolute top-3 left-3 z-40 bg-white rounded-full p-2 shadow-xl hover:bg-rose-500 transition-colors group"
           @click.stop="zoomImage = null"
@@ -419,7 +419,6 @@
     />
   </div>
 </template>
-
 <script setup>
 // Import Vue composition functions and dependencies
 import { ref, onMounted, computed } from "vue";
@@ -448,6 +447,20 @@ const productVarities = ref([]);
 const selectedVarity = ref("");
 const showSizeModal = ref(false);
 const zoomImage = ref(null);
+
+// ---- Extracted Sizes State ----
+const availableSizes = ref([]);
+const selectedSize = ref("");
+
+// Helper: Guess the attribute name for size for any category
+function getSizeAttrName() {
+  // You can enhance this if you support more types
+  return (
+    productVarities.value?.[0]?.attributes?.find((a) =>
+      ["sizePants", "sizeClothes", "sizeShoes"].includes(a.name)
+    )?.name || "sizePants"
+  );
+}
 
 // Magnifier logic for image modal
 const magnifierEnabled = ref(false);
@@ -480,7 +493,6 @@ onMounted(async () => {
       `https://api.atlasmode.shop/v1/front/products/${props.id}?version=new2`
     );
     const p = res.data.data.product;
-    // If product does not exist, set notFound
     if (!p) {
       notFound.value = true;
       return;
@@ -498,13 +510,31 @@ onMounted(async () => {
     productSizeCharts.value = p.size_charts;
     productVarities.value = p.varieties || [];
     selectedVarity.value = productVarities.value?.[0]?.id || "";
+
+    // --- Extract available sizes: Only varieties with quantity > 0 and unique sizes ---
+    const sizeAttrName = getSizeAttrName();
+    const sizes = [];
+    for (const variety of productVarities.value) {
+      if (variety.quantity > 0) {
+        const sizeAttr = variety.attributes?.find(
+          (attr) => attr.name === sizeAttrName
+        );
+        if (sizeAttr?.pivot?.value) sizes.push(sizeAttr.pivot.value);
+      }
+    }
+    availableSizes.value = [...new Set(sizes)];
+    selectedSize.value = availableSizes.value[0] || "";
   } catch (e) {
-    // On API error, show Not Found page
     notFound.value = true;
   } finally {
     loading.value = false;
   }
 });
+
+// Handle size select
+function selectSize(size) {
+  selectedSize.value = size;
+}
 
 // Magnifier effect handlers
 function handleMagnifier(e) {
@@ -512,24 +542,16 @@ function handleMagnifier(e) {
   const rect = zoomImgContainer.value.getBoundingClientRect();
   const mx = e.clientX - rect.left;
   const my = e.clientY - rect.top;
-
   const width = img.width;
   const height = img.height;
-
-  // Magnifier size and zoom factor
   const size = magnifier.value.size;
-  const zoom = 2.2; // magnifier zoom factor
-
-  // Prevent overflow of magnifier
+  const zoom = 2.2;
   let x = mx - size / 2;
   let y = my - size / 2;
   x = Math.max(0, Math.min(x, width - size));
   y = Math.max(0, Math.min(y, height - size));
-
-  // Calculate background position for magnifier
   const bgX = -(mx * zoom - size / 2);
   const bgY = -(my * zoom - size / 2);
-
   magnifier.value = {
     show: true,
     x,
@@ -539,44 +561,31 @@ function handleMagnifier(e) {
     bgPos: `${bgX}px ${bgY}px`,
   };
 }
-
-// Hide magnifier when mouse leaves the image
 function hideMagnifier() {
   magnifier.value.show = false;
 }
-
-// Open image in zoom modal, disable magnifier initially
 function openZoom(url) {
   zoomImage.value = url;
   magnifierEnabled.value = false;
   hideMagnifier();
 }
 
-// ----------------------------------------------
 // Counter logic for quantity selector with hold
-// ----------------------------------------------
 const selectedCount = ref(1);
 let interval = null;
 let timeout = null;
-
-// Increase quantity (max: productQuantity)
 function incrementQuantity() {
   if (selectedCount.value < productQuantity.value) {
     selectedCount.value++;
   }
 }
-
-// Decrease quantity (min: 1)
 function decrementQuantity() {
   if (selectedCount.value > 1) {
     selectedCount.value--;
   }
 }
-
-// Start hold-to-change (for mouse/touch hold)
 function startChange(type) {
-  stopChange(); // Clear previous timers for safety
-  // If at bounds, do nothing
+  stopChange();
   if (
     (type === "inc" &&
       (selectedCount.value >= productQuantity.value ||
@@ -585,9 +594,7 @@ function startChange(type) {
   ) {
     return;
   }
-  // First change is instant
   type === "inc" ? incrementQuantity() : decrementQuantity();
-  // After a short delay, start rapid changing
   timeout = setTimeout(() => {
     interval = setInterval(() => {
       if (type === "inc") {
@@ -599,11 +606,9 @@ function startChange(type) {
           decrementQuantity();
         }
       }
-    }, 90); // Repeat speed (ms)
-  }, 400); // Initial hold delay (ms)
+    }, 90);
+  }, 400);
 }
-
-// Stop hold-to-change on mouse/touch up/leave
 function stopChange() {
   if (timeout) {
     clearTimeout(timeout);
@@ -617,7 +622,6 @@ function stopChange() {
 </script>
 
 <style scoped>
-/* Fade in animation for modals */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -631,8 +635,6 @@ function stopChange() {
 .animate-fadeIn {
   animation: fadeIn 0.25s cubic-bezier(0.38, 1.15, 0.7, 1);
 }
-
-/* Custom scrollbar style for modals */
 ::-webkit-scrollbar {
   width: 8px;
   background: #f5f5f5;
