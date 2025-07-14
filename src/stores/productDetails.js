@@ -86,20 +86,19 @@ export const useProductStore = defineStore('product', () => {
   }
 
   /**
-   * For a given design+size, return variety id (for cart)
-   * @param {string} design
-   * @param {string|number} size
-   * @returns {number|null}
-   */
-  function findVariety(design, size) {
-    const sizeAttrName = getSizeAttrName()
-    const foundVariety = productVarities.value.find(
-      v =>
-        v.attributes?.some(attr => attr.name === sizeAttrName && attr.pivot?.value === size) &&
-        v.attributes?.some(attr => attr.name === 'tarh' && attr.pivot?.value === design)
-    )
-    return foundVariety ? foundVariety.id : null
-  }
+ * For a given design+size, return the variety object (for cart and quantity)
+ * @param {string} design
+ * @param {string|number} size
+ * @returns {object|null}
+ */
+function findVariety(design, size) {
+  const sizeAttrName = getSizeAttrName();
+  return productVarities.value.find(
+    v =>
+      v.attributes?.some(attr => attr.name === sizeAttrName && attr.pivot?.value === size) &&
+      v.attributes?.some(attr => attr.name === "tarh" && attr.pivot?.value === design)
+  ) || null;
+}
 
   /**
    * Final price after discount (computed)
