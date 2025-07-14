@@ -202,7 +202,7 @@ export const useProductStore = defineStore('product', () => {
     resetProduct,
     availableSizesForDesign,
     maxQuantityForDesignAndSize,
-    getVarietyIdFor,
+    findVariety,
     numberFormat,
     getSizeAttrName,
   }
