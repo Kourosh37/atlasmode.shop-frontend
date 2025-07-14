@@ -1,0 +1,2691 @@
+{
+  "url": "https://api.atlasmode.shop/v1/front/products/209?version=new2",
+  "response": {
+    "success": true,
+    "message": "",
+    "data": {
+      "product": {
+        "id": 209,
+        "title": "ست  مخمل زنانه 4186",
+        "slug": "ست-مخمل-زنانه-4186",
+        "short_description": null,
+        "description": null,
+        "discount_type": "percentage",
+        "discount": 20,
+        "SKU": "",
+        "barcode": "",
+        "chargeable": 0,
+        "threshold_quantity": null,
+        "threshold_date": "2025-05-13",
+        "brand_id": null,
+        "unit_id": 1,
+        "meta_description": null,
+        "meta_title": null,
+        "low_stock_quantity_warning": 0,
+        "show_quantity": 0,
+        "status": "available",
+        "created_at": "2025-05-13 15:00:15",
+        "updated_at": "2025-07-13 16:51:25",
+        "discount_until": "2025-07-23 00:00:00",
+        "image_alt": null,
+        "images": [
+          {
+            "id": 766,
+            "type": "image",
+            "name": "product-209.jpg",
+            "url": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/product-209.jpg",
+            "conversions": {
+              "lg": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_lg.jpg",
+              "md": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_md.jpg",
+              "sm": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_sm.jpg"
+            }
+          },
+          {
+            "id": 767,
+            "type": "image",
+            "name": "product-209.jpg",
+            "url": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/product-209.jpg",
+            "conversions": {
+              "lg": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/conversions/product-209-thumb_lg.jpg",
+              "md": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/conversions/product-209-thumb_md.jpg",
+              "sm": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/conversions/product-209-thumb_sm.jpg"
+            }
+          },
+          {
+            "id": 768,
+            "type": "image",
+            "name": "product-209.jpg",
+            "url": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/product-209.jpg",
+            "conversions": {
+              "lg": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/conversions/product-209-thumb_lg.jpg",
+              "md": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/conversions/product-209-thumb_md.jpg",
+              "sm": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/conversions/product-209-thumb_sm.jpg"
+            }
+          }
+        ],
+        "total_quantity": 69,
+        "price": 319200,
+        "rate": "0.0",
+        "color_ranges": [
+          {
+            "id": 7,
+            "title": "صورتی",
+            "status": 1,
+            "created_at": "2025-04-26 10:16:09",
+            "updated_at": "2025-04-26 10:16:09",
+            "image": "https://api.atlasmode.shop/storage/3b052f6c-2963-4485-9446-da248e8baa08/82bb84f17b73bc116114c3d72d9fadaa6da3ea49_1670664327.png",
+            "pivot": {
+              "variety_id": 2183,
+              "color_range_id": 7
+            }
+          },
+          {
+            "id": 11,
+            "title": "زرد",
+            "status": 1,
+            "created_at": "2025-04-26 10:18:45",
+            "updated_at": "2025-04-26 10:18:45",
+            "image": "https://api.atlasmode.shop/storage/2d0a35cc-633e-4ef3-8b23-ddc81d95c1cb/d019e79e841a500ebd4ce2b91ba11d28921a88b0_1670664216.png",
+            "pivot": {
+              "variety_id": 2184,
+              "color_range_id": 11
+            }
+          },
+          {
+            "id": 10,
+            "title": "سبز",
+            "status": 1,
+            "created_at": "2025-04-26 10:16:41",
+            "updated_at": "2025-04-26 10:16:41",
+            "image": "https://api.atlasmode.shop/storage/8c419bbe-7c90-4f4d-a493-9b792f5d4871/e93523d755acd1851052687b30f231edea4cb9bc_1670664245.png",
+            "pivot": {
+              "variety_id": 2185,
+              "color_range_id": 10
+            }
+          },
+          {
+            "id": 5,
+            "title": "سفید",
+            "status": 1,
+            "created_at": "2025-04-26 10:14:24",
+            "updated_at": "2025-04-26 10:14:24",
+            "image": "https://api.atlasmode.shop/storage/4833af51-1985-460d-a43e-8c1c78718061/a16c557a142f56435d8501e7fbf1d2c0cf93a615_1670664037.png",
+            "pivot": {
+              "variety_id": 2187,
+              "color_range_id": 5
+            }
+          },
+          {
+            "id": 6,
+            "title": "مشکی",
+            "status": 1,
+            "created_at": "2025-04-26 10:14:36",
+            "updated_at": "2025-04-26 10:14:36",
+            "image": "https://api.atlasmode.shop/storage/1496245c-ca36-4e7d-8901-25588d2d1e4a/6b73478aca3fed39aafd08b3406536b5a1fcfbb1_1670663838.png",
+            "pivot": {
+              "variety_id": 2188,
+              "color_range_id": 6
+            }
+          }
+        ],
+        "major_discount_amount": 79800,
+        "major_image": {
+          "id": 766,
+          "type": "image",
+          "name": "product-209.jpg",
+          "url": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/product-209.jpg",
+          "conversions": {
+            "lg": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_lg.jpg",
+            "md": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_md.jpg",
+            "sm": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_sm.jpg"
+          }
+        },
+        "major_final_price": {
+          "discount_model": "product",
+          "discount_type": "percentage",
+          "discount": 20,
+          "discount_price": 79800,
+          "amount": 319200
+        },
+        "views_count": 507,
+        "video_cover": [],
+        "video": [],
+        "is_vip": false,
+        "active_flash": [],
+        "images_new": [
+          {
+            "url": "f2547f43-73c8-48e0-a73d-a736f06454ea/product-209.jpg",
+            "model_id": 209
+          },
+          {
+            "url": "d7026186-5193-4c7e-a1b5-9d6e158358ae/product-209.jpg",
+            "model_id": 209
+          },
+          {
+            "url": "58af049b-dbc6-44f1-861c-156ed33208c1/product-209.jpg",
+            "model_id": 209
+          }
+        ],
+        "varieties": [
+          {
+            "id": 2183,
+            "price": 399000,
+            "SKU": "",
+            "barcode": 12108,
+            "purchase_price": null,
+            "product_id": null,
+            "color_id": null,
+            "discount_type": null,
+            "discount": null,
+            "created_at": "2025-06-04 14:29:14",
+            "updated_at": "2025-07-13 16:51:25",
+            "order": 99999,
+            "deleted_at": null,
+            "max_number_purchases": 999999,
+            "discount_until": null,
+            "name": null,
+            "description": null,
+            "is_head": 0,
+            "low_stock_quantity_warning": null,
+            "unique_attributes_key": "ca1طرح-1-بنفش2FREE53",
+            "images": [],
+            "quantity": 13,
+            "final_price": {
+              "discount_model": "product",
+              "discount_type": "percentage",
+              "discount": 20,
+              "discount_price": 79800,
+              "amount": 319200
+            },
+            "store": {
+              "id": 2183,
+              "variety_id": 2183,
+              "balance": 13,
+              "created_at": "2025-06-04 14:29:14",
+              "updated_at": "2025-07-04 22:11:34"
+            },
+            "attributes": [
+              {
+                "id": 1,
+                "name": "tarh",
+                "label": "طرح",
+                "type": "text",
+                "show_filter": 0,
+                "style": "select",
+                "public": 0,
+                "status": 1,
+                "creator_id": 1,
+                "updater_id": 1,
+                "created_at": "2025-04-17 13:02:10",
+                "updated_at": "2025-04-26 16:09:24",
+                "pivot": {
+                  "variety_id": 2183,
+                  "attribute_id": 1,
+                  "attribute_value_id": null,
+                  "value": "طرح-1-بنفش",
+                  "attribute_value": null
+                }
+              },
+              {
+                "id": 2,
+                "name": "sizeClothes",
+                "label": "سایز لباس",
+                "type": "select",
+                "show_filter": 0,
+                "style": "box",
+                "public": 0,
+                "status": 1,
+                "creator_id": 1,
+                "updater_id": 1,
+                "created_at": "2025-04-17 13:03:58",
+                "updated_at": "2025-04-26 16:09:05",
+                "pivot": {
+                  "variety_id": 2183,
+                  "attribute_id": 2,
+                  "attribute_value_id": 53,
+                  "value": "FREE",
+                  "attribute_value": {
+                    "id": 53,
+                    "attribute_id": 2,
+                    "value": "FREE",
+                    "selected": 0,
+                    "creator_id": 49,
+                    "updater_id": 49,
+                    "created_at": "2025-05-15T07:02:21.000000Z",
+                    "updated_at": "2025-05-15T07:02:21.000000Z"
+                  }
+                }
+              }
+            ],
+            "color": null,
+            "product": {
+              "id": 209,
+              "title": "ست  مخمل زنانه 4186",
+              "slug": "ست-مخمل-زنانه-4186",
+              "short_description": null,
+              "description": null,
+              "discount_type": "percentage",
+              "discount": 20,
+              "SKU": "",
+              "barcode": "",
+              "chargeable": 0,
+              "threshold_quantity": null,
+              "threshold_date": "2025-05-13",
+              "brand_id": null,
+              "unit_id": 1,
+              "meta_description": null,
+              "meta_title": null,
+              "low_stock_quantity_warning": 0,
+              "show_quantity": 0,
+              "status": "available",
+              "created_at": "2025-05-13 15:00:15",
+              "updated_at": "2025-07-13 16:51:25",
+              "discount_until": "2025-07-23 00:00:00",
+              "image_alt": null,
+              "images": [
+                {
+                  "id": 766,
+                  "type": "image",
+                  "name": "product-209.jpg",
+                  "url": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/product-209.jpg",
+                  "conversions": {
+                    "lg": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_lg.jpg",
+                    "md": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_md.jpg",
+                    "sm": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_sm.jpg"
+                  }
+                },
+                {
+                  "id": 767,
+                  "type": "image",
+                  "name": "product-209.jpg",
+                  "url": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/product-209.jpg",
+                  "conversions": {
+                    "lg": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/conversions/product-209-thumb_lg.jpg",
+                    "md": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/conversions/product-209-thumb_md.jpg",
+                    "sm": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/conversions/product-209-thumb_sm.jpg"
+                  }
+                },
+                {
+                  "id": 768,
+                  "type": "image",
+                  "name": "product-209.jpg",
+                  "url": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/product-209.jpg",
+                  "conversions": {
+                    "lg": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/conversions/product-209-thumb_lg.jpg",
+                    "md": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/conversions/product-209-thumb_md.jpg",
+                    "sm": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/conversions/product-209-thumb_sm.jpg"
+                  }
+                }
+              ],
+              "total_quantity": 69,
+              "price": 319200,
+              "rate": "0.0",
+              "color_ranges": [
+                {
+                  "id": 7,
+                  "title": "صورتی",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:16:09",
+                  "updated_at": "2025-04-26 10:16:09",
+                  "image": "https://api.atlasmode.shop/storage/3b052f6c-2963-4485-9446-da248e8baa08/82bb84f17b73bc116114c3d72d9fadaa6da3ea49_1670664327.png",
+                  "pivot": {
+                    "variety_id": 2183,
+                    "color_range_id": 7
+                  }
+                },
+                {
+                  "id": 11,
+                  "title": "زرد",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:18:45",
+                  "updated_at": "2025-04-26 10:18:45",
+                  "image": "https://api.atlasmode.shop/storage/2d0a35cc-633e-4ef3-8b23-ddc81d95c1cb/d019e79e841a500ebd4ce2b91ba11d28921a88b0_1670664216.png",
+                  "pivot": {
+                    "variety_id": 2184,
+                    "color_range_id": 11
+                  }
+                },
+                {
+                  "id": 10,
+                  "title": "سبز",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:16:41",
+                  "updated_at": "2025-04-26 10:16:41",
+                  "image": "https://api.atlasmode.shop/storage/8c419bbe-7c90-4f4d-a493-9b792f5d4871/e93523d755acd1851052687b30f231edea4cb9bc_1670664245.png",
+                  "pivot": {
+                    "variety_id": 2185,
+                    "color_range_id": 10
+                  }
+                },
+                {
+                  "id": 5,
+                  "title": "سفید",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:14:24",
+                  "updated_at": "2025-04-26 10:14:24",
+                  "image": "https://api.atlasmode.shop/storage/4833af51-1985-460d-a43e-8c1c78718061/a16c557a142f56435d8501e7fbf1d2c0cf93a615_1670664037.png",
+                  "pivot": {
+                    "variety_id": 2187,
+                    "color_range_id": 5
+                  }
+                },
+                {
+                  "id": 6,
+                  "title": "مشکی",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:14:36",
+                  "updated_at": "2025-04-26 10:14:36",
+                  "image": "https://api.atlasmode.shop/storage/1496245c-ca36-4e7d-8901-25588d2d1e4a/6b73478aca3fed39aafd08b3406536b5a1fcfbb1_1670663838.png",
+                  "pivot": {
+                    "variety_id": 2188,
+                    "color_range_id": 6
+                  }
+                }
+              ],
+              "major_discount_amount": 79800,
+              "major_image": {
+                "id": 766,
+                "type": "image",
+                "name": "product-209.jpg",
+                "url": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/product-209.jpg",
+                "conversions": {
+                  "lg": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_lg.jpg",
+                  "md": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_md.jpg",
+                  "sm": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_sm.jpg"
+                }
+              },
+              "major_final_price": {
+                "discount_model": "product",
+                "discount_type": "percentage",
+                "discount": 20,
+                "discount_price": 79800,
+                "amount": 319200
+              },
+              "views_count": 507,
+              "video_cover": [],
+              "video": [],
+              "is_vip": false,
+              "active_flash": []
+            }
+          },
+          {
+            "id": 2184,
+            "price": 399000,
+            "SKU": "",
+            "barcode": 12109,
+            "purchase_price": null,
+            "product_id": null,
+            "color_id": null,
+            "discount_type": null,
+            "discount": null,
+            "created_at": "2025-06-04 14:29:14",
+            "updated_at": "2025-07-13 16:51:25",
+            "order": 99998,
+            "deleted_at": null,
+            "max_number_purchases": 999999,
+            "discount_until": null,
+            "name": null,
+            "description": null,
+            "is_head": 0,
+            "low_stock_quantity_warning": null,
+            "unique_attributes_key": "ca1طرح-3-زرد2FREE53",
+            "images": [],
+            "quantity": 13,
+            "final_price": {
+              "discount_model": "product",
+              "discount_type": "percentage",
+              "discount": 20,
+              "discount_price": 79800,
+              "amount": 319200
+            },
+            "store": {
+              "id": 2184,
+              "variety_id": 2184,
+              "balance": 13,
+              "created_at": "2025-06-04 14:29:14",
+              "updated_at": "2025-06-05 22:39:22"
+            },
+            "attributes": [
+              {
+                "id": 1,
+                "name": "tarh",
+                "label": "طرح",
+                "type": "text",
+                "show_filter": 0,
+                "style": "select",
+                "public": 0,
+                "status": 1,
+                "creator_id": 1,
+                "updater_id": 1,
+                "created_at": "2025-04-17 13:02:10",
+                "updated_at": "2025-04-26 16:09:24",
+                "pivot": {
+                  "variety_id": 2184,
+                  "attribute_id": 1,
+                  "attribute_value_id": null,
+                  "value": "طرح-3-زرد",
+                  "attribute_value": null
+                }
+              },
+              {
+                "id": 2,
+                "name": "sizeClothes",
+                "label": "سایز لباس",
+                "type": "select",
+                "show_filter": 0,
+                "style": "box",
+                "public": 0,
+                "status": 1,
+                "creator_id": 1,
+                "updater_id": 1,
+                "created_at": "2025-04-17 13:03:58",
+                "updated_at": "2025-04-26 16:09:05",
+                "pivot": {
+                  "variety_id": 2184,
+                  "attribute_id": 2,
+                  "attribute_value_id": 53,
+                  "value": "FREE",
+                  "attribute_value": {
+                    "id": 53,
+                    "attribute_id": 2,
+                    "value": "FREE",
+                    "selected": 0,
+                    "creator_id": 49,
+                    "updater_id": 49,
+                    "created_at": "2025-05-15T07:02:21.000000Z",
+                    "updated_at": "2025-05-15T07:02:21.000000Z"
+                  }
+                }
+              }
+            ],
+            "color": null,
+            "product": {
+              "id": 209,
+              "title": "ست  مخمل زنانه 4186",
+              "slug": "ست-مخمل-زنانه-4186",
+              "short_description": null,
+              "description": null,
+              "discount_type": "percentage",
+              "discount": 20,
+              "SKU": "",
+              "barcode": "",
+              "chargeable": 0,
+              "threshold_quantity": null,
+              "threshold_date": "2025-05-13",
+              "brand_id": null,
+              "unit_id": 1,
+              "meta_description": null,
+              "meta_title": null,
+              "low_stock_quantity_warning": 0,
+              "show_quantity": 0,
+              "status": "available",
+              "created_at": "2025-05-13 15:00:15",
+              "updated_at": "2025-07-13 16:51:25",
+              "discount_until": "2025-07-23 00:00:00",
+              "image_alt": null,
+              "images": [
+                {
+                  "id": 766,
+                  "type": "image",
+                  "name": "product-209.jpg",
+                  "url": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/product-209.jpg",
+                  "conversions": {
+                    "lg": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_lg.jpg",
+                    "md": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_md.jpg",
+                    "sm": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_sm.jpg"
+                  }
+                },
+                {
+                  "id": 767,
+                  "type": "image",
+                  "name": "product-209.jpg",
+                  "url": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/product-209.jpg",
+                  "conversions": {
+                    "lg": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/conversions/product-209-thumb_lg.jpg",
+                    "md": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/conversions/product-209-thumb_md.jpg",
+                    "sm": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/conversions/product-209-thumb_sm.jpg"
+                  }
+                },
+                {
+                  "id": 768,
+                  "type": "image",
+                  "name": "product-209.jpg",
+                  "url": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/product-209.jpg",
+                  "conversions": {
+                    "lg": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/conversions/product-209-thumb_lg.jpg",
+                    "md": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/conversions/product-209-thumb_md.jpg",
+                    "sm": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/conversions/product-209-thumb_sm.jpg"
+                  }
+                }
+              ],
+              "total_quantity": 69,
+              "price": 319200,
+              "rate": "0.0",
+              "color_ranges": [
+                {
+                  "id": 7,
+                  "title": "صورتی",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:16:09",
+                  "updated_at": "2025-04-26 10:16:09",
+                  "image": "https://api.atlasmode.shop/storage/3b052f6c-2963-4485-9446-da248e8baa08/82bb84f17b73bc116114c3d72d9fadaa6da3ea49_1670664327.png",
+                  "pivot": {
+                    "variety_id": 2183,
+                    "color_range_id": 7
+                  }
+                },
+                {
+                  "id": 11,
+                  "title": "زرد",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:18:45",
+                  "updated_at": "2025-04-26 10:18:45",
+                  "image": "https://api.atlasmode.shop/storage/2d0a35cc-633e-4ef3-8b23-ddc81d95c1cb/d019e79e841a500ebd4ce2b91ba11d28921a88b0_1670664216.png",
+                  "pivot": {
+                    "variety_id": 2184,
+                    "color_range_id": 11
+                  }
+                },
+                {
+                  "id": 10,
+                  "title": "سبز",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:16:41",
+                  "updated_at": "2025-04-26 10:16:41",
+                  "image": "https://api.atlasmode.shop/storage/8c419bbe-7c90-4f4d-a493-9b792f5d4871/e93523d755acd1851052687b30f231edea4cb9bc_1670664245.png",
+                  "pivot": {
+                    "variety_id": 2185,
+                    "color_range_id": 10
+                  }
+                },
+                {
+                  "id": 5,
+                  "title": "سفید",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:14:24",
+                  "updated_at": "2025-04-26 10:14:24",
+                  "image": "https://api.atlasmode.shop/storage/4833af51-1985-460d-a43e-8c1c78718061/a16c557a142f56435d8501e7fbf1d2c0cf93a615_1670664037.png",
+                  "pivot": {
+                    "variety_id": 2187,
+                    "color_range_id": 5
+                  }
+                },
+                {
+                  "id": 6,
+                  "title": "مشکی",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:14:36",
+                  "updated_at": "2025-04-26 10:14:36",
+                  "image": "https://api.atlasmode.shop/storage/1496245c-ca36-4e7d-8901-25588d2d1e4a/6b73478aca3fed39aafd08b3406536b5a1fcfbb1_1670663838.png",
+                  "pivot": {
+                    "variety_id": 2188,
+                    "color_range_id": 6
+                  }
+                }
+              ],
+              "major_discount_amount": 79800,
+              "major_image": {
+                "id": 766,
+                "type": "image",
+                "name": "product-209.jpg",
+                "url": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/product-209.jpg",
+                "conversions": {
+                  "lg": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_lg.jpg",
+                  "md": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_md.jpg",
+                  "sm": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_sm.jpg"
+                }
+              },
+              "major_final_price": {
+                "discount_model": "product",
+                "discount_type": "percentage",
+                "discount": 20,
+                "discount_price": 79800,
+                "amount": 319200
+              },
+              "views_count": 507,
+              "video_cover": [],
+              "video": [],
+              "is_vip": false,
+              "active_flash": []
+            }
+          },
+          {
+            "id": 2185,
+            "price": 399000,
+            "SKU": "",
+            "barcode": 12110,
+            "purchase_price": null,
+            "product_id": null,
+            "color_id": null,
+            "discount_type": null,
+            "discount": null,
+            "created_at": "2025-06-04 14:29:14",
+            "updated_at": "2025-07-13 16:51:25",
+            "order": 99997,
+            "deleted_at": null,
+            "max_number_purchases": 999999,
+            "discount_until": null,
+            "name": null,
+            "description": null,
+            "is_head": 0,
+            "low_stock_quantity_warning": null,
+            "unique_attributes_key": "ca1طرح-3-سبز2FREE53",
+            "images": [],
+            "quantity": 16,
+            "final_price": {
+              "discount_model": "product",
+              "discount_type": "percentage",
+              "discount": 20,
+              "discount_price": 79800,
+              "amount": 319200
+            },
+            "store": {
+              "id": 2185,
+              "variety_id": 2185,
+              "balance": 16,
+              "created_at": "2025-06-04 14:29:14",
+              "updated_at": "2025-06-04 14:29:14"
+            },
+            "attributes": [
+              {
+                "id": 1,
+                "name": "tarh",
+                "label": "طرح",
+                "type": "text",
+                "show_filter": 0,
+                "style": "select",
+                "public": 0,
+                "status": 1,
+                "creator_id": 1,
+                "updater_id": 1,
+                "created_at": "2025-04-17 13:02:10",
+                "updated_at": "2025-04-26 16:09:24",
+                "pivot": {
+                  "variety_id": 2185,
+                  "attribute_id": 1,
+                  "attribute_value_id": null,
+                  "value": "طرح-3-سبز",
+                  "attribute_value": null
+                }
+              },
+              {
+                "id": 2,
+                "name": "sizeClothes",
+                "label": "سایز لباس",
+                "type": "select",
+                "show_filter": 0,
+                "style": "box",
+                "public": 0,
+                "status": 1,
+                "creator_id": 1,
+                "updater_id": 1,
+                "created_at": "2025-04-17 13:03:58",
+                "updated_at": "2025-04-26 16:09:05",
+                "pivot": {
+                  "variety_id": 2185,
+                  "attribute_id": 2,
+                  "attribute_value_id": 53,
+                  "value": "FREE",
+                  "attribute_value": {
+                    "id": 53,
+                    "attribute_id": 2,
+                    "value": "FREE",
+                    "selected": 0,
+                    "creator_id": 49,
+                    "updater_id": 49,
+                    "created_at": "2025-05-15T07:02:21.000000Z",
+                    "updated_at": "2025-05-15T07:02:21.000000Z"
+                  }
+                }
+              }
+            ],
+            "color": null,
+            "product": {
+              "id": 209,
+              "title": "ست  مخمل زنانه 4186",
+              "slug": "ست-مخمل-زنانه-4186",
+              "short_description": null,
+              "description": null,
+              "discount_type": "percentage",
+              "discount": 20,
+              "SKU": "",
+              "barcode": "",
+              "chargeable": 0,
+              "threshold_quantity": null,
+              "threshold_date": "2025-05-13",
+              "brand_id": null,
+              "unit_id": 1,
+              "meta_description": null,
+              "meta_title": null,
+              "low_stock_quantity_warning": 0,
+              "show_quantity": 0,
+              "status": "available",
+              "created_at": "2025-05-13 15:00:15",
+              "updated_at": "2025-07-13 16:51:25",
+              "discount_until": "2025-07-23 00:00:00",
+              "image_alt": null,
+              "images": [
+                {
+                  "id": 766,
+                  "type": "image",
+                  "name": "product-209.jpg",
+                  "url": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/product-209.jpg",
+                  "conversions": {
+                    "lg": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_lg.jpg",
+                    "md": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_md.jpg",
+                    "sm": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_sm.jpg"
+                  }
+                },
+                {
+                  "id": 767,
+                  "type": "image",
+                  "name": "product-209.jpg",
+                  "url": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/product-209.jpg",
+                  "conversions": {
+                    "lg": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/conversions/product-209-thumb_lg.jpg",
+                    "md": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/conversions/product-209-thumb_md.jpg",
+                    "sm": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/conversions/product-209-thumb_sm.jpg"
+                  }
+                },
+                {
+                  "id": 768,
+                  "type": "image",
+                  "name": "product-209.jpg",
+                  "url": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/product-209.jpg",
+                  "conversions": {
+                    "lg": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/conversions/product-209-thumb_lg.jpg",
+                    "md": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/conversions/product-209-thumb_md.jpg",
+                    "sm": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/conversions/product-209-thumb_sm.jpg"
+                  }
+                }
+              ],
+              "total_quantity": 69,
+              "price": 319200,
+              "rate": "0.0",
+              "color_ranges": [
+                {
+                  "id": 7,
+                  "title": "صورتی",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:16:09",
+                  "updated_at": "2025-04-26 10:16:09",
+                  "image": "https://api.atlasmode.shop/storage/3b052f6c-2963-4485-9446-da248e8baa08/82bb84f17b73bc116114c3d72d9fadaa6da3ea49_1670664327.png",
+                  "pivot": {
+                    "variety_id": 2183,
+                    "color_range_id": 7
+                  }
+                },
+                {
+                  "id": 11,
+                  "title": "زرد",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:18:45",
+                  "updated_at": "2025-04-26 10:18:45",
+                  "image": "https://api.atlasmode.shop/storage/2d0a35cc-633e-4ef3-8b23-ddc81d95c1cb/d019e79e841a500ebd4ce2b91ba11d28921a88b0_1670664216.png",
+                  "pivot": {
+                    "variety_id": 2184,
+                    "color_range_id": 11
+                  }
+                },
+                {
+                  "id": 10,
+                  "title": "سبز",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:16:41",
+                  "updated_at": "2025-04-26 10:16:41",
+                  "image": "https://api.atlasmode.shop/storage/8c419bbe-7c90-4f4d-a493-9b792f5d4871/e93523d755acd1851052687b30f231edea4cb9bc_1670664245.png",
+                  "pivot": {
+                    "variety_id": 2185,
+                    "color_range_id": 10
+                  }
+                },
+                {
+                  "id": 5,
+                  "title": "سفید",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:14:24",
+                  "updated_at": "2025-04-26 10:14:24",
+                  "image": "https://api.atlasmode.shop/storage/4833af51-1985-460d-a43e-8c1c78718061/a16c557a142f56435d8501e7fbf1d2c0cf93a615_1670664037.png",
+                  "pivot": {
+                    "variety_id": 2187,
+                    "color_range_id": 5
+                  }
+                },
+                {
+                  "id": 6,
+                  "title": "مشکی",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:14:36",
+                  "updated_at": "2025-04-26 10:14:36",
+                  "image": "https://api.atlasmode.shop/storage/1496245c-ca36-4e7d-8901-25588d2d1e4a/6b73478aca3fed39aafd08b3406536b5a1fcfbb1_1670663838.png",
+                  "pivot": {
+                    "variety_id": 2188,
+                    "color_range_id": 6
+                  }
+                }
+              ],
+              "major_discount_amount": 79800,
+              "major_image": {
+                "id": 766,
+                "type": "image",
+                "name": "product-209.jpg",
+                "url": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/product-209.jpg",
+                "conversions": {
+                  "lg": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_lg.jpg",
+                  "md": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_md.jpg",
+                  "sm": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_sm.jpg"
+                }
+              },
+              "major_final_price": {
+                "discount_model": "product",
+                "discount_type": "percentage",
+                "discount": 20,
+                "discount_price": 79800,
+                "amount": 319200
+              },
+              "views_count": 507,
+              "video_cover": [],
+              "video": [],
+              "is_vip": false,
+              "active_flash": []
+            }
+          },
+          {
+            "id": 2186,
+            "price": 399000,
+            "SKU": "",
+            "barcode": 12111,
+            "purchase_price": null,
+            "product_id": null,
+            "color_id": null,
+            "discount_type": null,
+            "discount": null,
+            "created_at": "2025-06-04 14:29:14",
+            "updated_at": "2025-07-13 16:51:25",
+            "order": 99996,
+            "deleted_at": null,
+            "max_number_purchases": 999999,
+            "discount_until": null,
+            "name": null,
+            "description": null,
+            "is_head": 0,
+            "low_stock_quantity_warning": null,
+            "unique_attributes_key": "ca1طرح-4-صورتی2FREE53",
+            "images": [],
+            "quantity": 9,
+            "final_price": {
+              "discount_model": "product",
+              "discount_type": "percentage",
+              "discount": 20,
+              "discount_price": 79800,
+              "amount": 319200
+            },
+            "store": {
+              "id": 2186,
+              "variety_id": 2186,
+              "balance": 9,
+              "created_at": "2025-06-04 14:29:14",
+              "updated_at": "2025-07-07 23:33:47"
+            },
+            "attributes": [
+              {
+                "id": 1,
+                "name": "tarh",
+                "label": "طرح",
+                "type": "text",
+                "show_filter": 0,
+                "style": "select",
+                "public": 0,
+                "status": 1,
+                "creator_id": 1,
+                "updater_id": 1,
+                "created_at": "2025-04-17 13:02:10",
+                "updated_at": "2025-04-26 16:09:24",
+                "pivot": {
+                  "variety_id": 2186,
+                  "attribute_id": 1,
+                  "attribute_value_id": null,
+                  "value": "طرح-4-صورتی",
+                  "attribute_value": null
+                }
+              },
+              {
+                "id": 2,
+                "name": "sizeClothes",
+                "label": "سایز لباس",
+                "type": "select",
+                "show_filter": 0,
+                "style": "box",
+                "public": 0,
+                "status": 1,
+                "creator_id": 1,
+                "updater_id": 1,
+                "created_at": "2025-04-17 13:03:58",
+                "updated_at": "2025-04-26 16:09:05",
+                "pivot": {
+                  "variety_id": 2186,
+                  "attribute_id": 2,
+                  "attribute_value_id": 53,
+                  "value": "FREE",
+                  "attribute_value": {
+                    "id": 53,
+                    "attribute_id": 2,
+                    "value": "FREE",
+                    "selected": 0,
+                    "creator_id": 49,
+                    "updater_id": 49,
+                    "created_at": "2025-05-15T07:02:21.000000Z",
+                    "updated_at": "2025-05-15T07:02:21.000000Z"
+                  }
+                }
+              }
+            ],
+            "color": null,
+            "product": {
+              "id": 209,
+              "title": "ست  مخمل زنانه 4186",
+              "slug": "ست-مخمل-زنانه-4186",
+              "short_description": null,
+              "description": null,
+              "discount_type": "percentage",
+              "discount": 20,
+              "SKU": "",
+              "barcode": "",
+              "chargeable": 0,
+              "threshold_quantity": null,
+              "threshold_date": "2025-05-13",
+              "brand_id": null,
+              "unit_id": 1,
+              "meta_description": null,
+              "meta_title": null,
+              "low_stock_quantity_warning": 0,
+              "show_quantity": 0,
+              "status": "available",
+              "created_at": "2025-05-13 15:00:15",
+              "updated_at": "2025-07-13 16:51:25",
+              "discount_until": "2025-07-23 00:00:00",
+              "image_alt": null,
+              "images": [
+                {
+                  "id": 766,
+                  "type": "image",
+                  "name": "product-209.jpg",
+                  "url": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/product-209.jpg",
+                  "conversions": {
+                    "lg": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_lg.jpg",
+                    "md": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_md.jpg",
+                    "sm": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_sm.jpg"
+                  }
+                },
+                {
+                  "id": 767,
+                  "type": "image",
+                  "name": "product-209.jpg",
+                  "url": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/product-209.jpg",
+                  "conversions": {
+                    "lg": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/conversions/product-209-thumb_lg.jpg",
+                    "md": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/conversions/product-209-thumb_md.jpg",
+                    "sm": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/conversions/product-209-thumb_sm.jpg"
+                  }
+                },
+                {
+                  "id": 768,
+                  "type": "image",
+                  "name": "product-209.jpg",
+                  "url": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/product-209.jpg",
+                  "conversions": {
+                    "lg": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/conversions/product-209-thumb_lg.jpg",
+                    "md": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/conversions/product-209-thumb_md.jpg",
+                    "sm": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/conversions/product-209-thumb_sm.jpg"
+                  }
+                }
+              ],
+              "total_quantity": 69,
+              "price": 319200,
+              "rate": "0.0",
+              "color_ranges": [
+                {
+                  "id": 7,
+                  "title": "صورتی",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:16:09",
+                  "updated_at": "2025-04-26 10:16:09",
+                  "image": "https://api.atlasmode.shop/storage/3b052f6c-2963-4485-9446-da248e8baa08/82bb84f17b73bc116114c3d72d9fadaa6da3ea49_1670664327.png",
+                  "pivot": {
+                    "variety_id": 2183,
+                    "color_range_id": 7
+                  }
+                },
+                {
+                  "id": 11,
+                  "title": "زرد",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:18:45",
+                  "updated_at": "2025-04-26 10:18:45",
+                  "image": "https://api.atlasmode.shop/storage/2d0a35cc-633e-4ef3-8b23-ddc81d95c1cb/d019e79e841a500ebd4ce2b91ba11d28921a88b0_1670664216.png",
+                  "pivot": {
+                    "variety_id": 2184,
+                    "color_range_id": 11
+                  }
+                },
+                {
+                  "id": 10,
+                  "title": "سبز",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:16:41",
+                  "updated_at": "2025-04-26 10:16:41",
+                  "image": "https://api.atlasmode.shop/storage/8c419bbe-7c90-4f4d-a493-9b792f5d4871/e93523d755acd1851052687b30f231edea4cb9bc_1670664245.png",
+                  "pivot": {
+                    "variety_id": 2185,
+                    "color_range_id": 10
+                  }
+                },
+                {
+                  "id": 5,
+                  "title": "سفید",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:14:24",
+                  "updated_at": "2025-04-26 10:14:24",
+                  "image": "https://api.atlasmode.shop/storage/4833af51-1985-460d-a43e-8c1c78718061/a16c557a142f56435d8501e7fbf1d2c0cf93a615_1670664037.png",
+                  "pivot": {
+                    "variety_id": 2187,
+                    "color_range_id": 5
+                  }
+                },
+                {
+                  "id": 6,
+                  "title": "مشکی",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:14:36",
+                  "updated_at": "2025-04-26 10:14:36",
+                  "image": "https://api.atlasmode.shop/storage/1496245c-ca36-4e7d-8901-25588d2d1e4a/6b73478aca3fed39aafd08b3406536b5a1fcfbb1_1670663838.png",
+                  "pivot": {
+                    "variety_id": 2188,
+                    "color_range_id": 6
+                  }
+                }
+              ],
+              "major_discount_amount": 79800,
+              "major_image": {
+                "id": 766,
+                "type": "image",
+                "name": "product-209.jpg",
+                "url": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/product-209.jpg",
+                "conversions": {
+                  "lg": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_lg.jpg",
+                  "md": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_md.jpg",
+                  "sm": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_sm.jpg"
+                }
+              },
+              "major_final_price": {
+                "discount_model": "product",
+                "discount_type": "percentage",
+                "discount": 20,
+                "discount_price": 79800,
+                "amount": 319200
+              },
+              "views_count": 507,
+              "video_cover": [],
+              "video": [],
+              "is_vip": false,
+              "active_flash": []
+            }
+          },
+          {
+            "id": 2187,
+            "price": 399000,
+            "SKU": "",
+            "barcode": 12112,
+            "purchase_price": null,
+            "product_id": null,
+            "color_id": null,
+            "discount_type": null,
+            "discount": null,
+            "created_at": "2025-06-04 14:29:14",
+            "updated_at": "2025-07-13 16:51:25",
+            "order": 99995,
+            "deleted_at": null,
+            "max_number_purchases": 999999,
+            "discount_until": null,
+            "name": null,
+            "description": null,
+            "is_head": 0,
+            "low_stock_quantity_warning": null,
+            "unique_attributes_key": "ca1طرح-5-سفید2FREE53",
+            "images": [],
+            "quantity": 12,
+            "final_price": {
+              "discount_model": "product",
+              "discount_type": "percentage",
+              "discount": 20,
+              "discount_price": 79800,
+              "amount": 319200
+            },
+            "store": {
+              "id": 2187,
+              "variety_id": 2187,
+              "balance": 12,
+              "created_at": "2025-06-04 14:29:14",
+              "updated_at": "2025-06-04 14:47:09"
+            },
+            "attributes": [
+              {
+                "id": 1,
+                "name": "tarh",
+                "label": "طرح",
+                "type": "text",
+                "show_filter": 0,
+                "style": "select",
+                "public": 0,
+                "status": 1,
+                "creator_id": 1,
+                "updater_id": 1,
+                "created_at": "2025-04-17 13:02:10",
+                "updated_at": "2025-04-26 16:09:24",
+                "pivot": {
+                  "variety_id": 2187,
+                  "attribute_id": 1,
+                  "attribute_value_id": null,
+                  "value": "طرح-5-سفید",
+                  "attribute_value": null
+                }
+              },
+              {
+                "id": 2,
+                "name": "sizeClothes",
+                "label": "سایز لباس",
+                "type": "select",
+                "show_filter": 0,
+                "style": "box",
+                "public": 0,
+                "status": 1,
+                "creator_id": 1,
+                "updater_id": 1,
+                "created_at": "2025-04-17 13:03:58",
+                "updated_at": "2025-04-26 16:09:05",
+                "pivot": {
+                  "variety_id": 2187,
+                  "attribute_id": 2,
+                  "attribute_value_id": 53,
+                  "value": "FREE",
+                  "attribute_value": {
+                    "id": 53,
+                    "attribute_id": 2,
+                    "value": "FREE",
+                    "selected": 0,
+                    "creator_id": 49,
+                    "updater_id": 49,
+                    "created_at": "2025-05-15T07:02:21.000000Z",
+                    "updated_at": "2025-05-15T07:02:21.000000Z"
+                  }
+                }
+              }
+            ],
+            "color": null,
+            "product": {
+              "id": 209,
+              "title": "ست  مخمل زنانه 4186",
+              "slug": "ست-مخمل-زنانه-4186",
+              "short_description": null,
+              "description": null,
+              "discount_type": "percentage",
+              "discount": 20,
+              "SKU": "",
+              "barcode": "",
+              "chargeable": 0,
+              "threshold_quantity": null,
+              "threshold_date": "2025-05-13",
+              "brand_id": null,
+              "unit_id": 1,
+              "meta_description": null,
+              "meta_title": null,
+              "low_stock_quantity_warning": 0,
+              "show_quantity": 0,
+              "status": "available",
+              "created_at": "2025-05-13 15:00:15",
+              "updated_at": "2025-07-13 16:51:25",
+              "discount_until": "2025-07-23 00:00:00",
+              "image_alt": null,
+              "images": [
+                {
+                  "id": 766,
+                  "type": "image",
+                  "name": "product-209.jpg",
+                  "url": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/product-209.jpg",
+                  "conversions": {
+                    "lg": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_lg.jpg",
+                    "md": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_md.jpg",
+                    "sm": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_sm.jpg"
+                  }
+                },
+                {
+                  "id": 767,
+                  "type": "image",
+                  "name": "product-209.jpg",
+                  "url": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/product-209.jpg",
+                  "conversions": {
+                    "lg": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/conversions/product-209-thumb_lg.jpg",
+                    "md": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/conversions/product-209-thumb_md.jpg",
+                    "sm": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/conversions/product-209-thumb_sm.jpg"
+                  }
+                },
+                {
+                  "id": 768,
+                  "type": "image",
+                  "name": "product-209.jpg",
+                  "url": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/product-209.jpg",
+                  "conversions": {
+                    "lg": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/conversions/product-209-thumb_lg.jpg",
+                    "md": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/conversions/product-209-thumb_md.jpg",
+                    "sm": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/conversions/product-209-thumb_sm.jpg"
+                  }
+                }
+              ],
+              "total_quantity": 69,
+              "price": 319200,
+              "rate": "0.0",
+              "color_ranges": [
+                {
+                  "id": 7,
+                  "title": "صورتی",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:16:09",
+                  "updated_at": "2025-04-26 10:16:09",
+                  "image": "https://api.atlasmode.shop/storage/3b052f6c-2963-4485-9446-da248e8baa08/82bb84f17b73bc116114c3d72d9fadaa6da3ea49_1670664327.png",
+                  "pivot": {
+                    "variety_id": 2183,
+                    "color_range_id": 7
+                  }
+                },
+                {
+                  "id": 11,
+                  "title": "زرد",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:18:45",
+                  "updated_at": "2025-04-26 10:18:45",
+                  "image": "https://api.atlasmode.shop/storage/2d0a35cc-633e-4ef3-8b23-ddc81d95c1cb/d019e79e841a500ebd4ce2b91ba11d28921a88b0_1670664216.png",
+                  "pivot": {
+                    "variety_id": 2184,
+                    "color_range_id": 11
+                  }
+                },
+                {
+                  "id": 10,
+                  "title": "سبز",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:16:41",
+                  "updated_at": "2025-04-26 10:16:41",
+                  "image": "https://api.atlasmode.shop/storage/8c419bbe-7c90-4f4d-a493-9b792f5d4871/e93523d755acd1851052687b30f231edea4cb9bc_1670664245.png",
+                  "pivot": {
+                    "variety_id": 2185,
+                    "color_range_id": 10
+                  }
+                },
+                {
+                  "id": 5,
+                  "title": "سفید",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:14:24",
+                  "updated_at": "2025-04-26 10:14:24",
+                  "image": "https://api.atlasmode.shop/storage/4833af51-1985-460d-a43e-8c1c78718061/a16c557a142f56435d8501e7fbf1d2c0cf93a615_1670664037.png",
+                  "pivot": {
+                    "variety_id": 2187,
+                    "color_range_id": 5
+                  }
+                },
+                {
+                  "id": 6,
+                  "title": "مشکی",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:14:36",
+                  "updated_at": "2025-04-26 10:14:36",
+                  "image": "https://api.atlasmode.shop/storage/1496245c-ca36-4e7d-8901-25588d2d1e4a/6b73478aca3fed39aafd08b3406536b5a1fcfbb1_1670663838.png",
+                  "pivot": {
+                    "variety_id": 2188,
+                    "color_range_id": 6
+                  }
+                }
+              ],
+              "major_discount_amount": 79800,
+              "major_image": {
+                "id": 766,
+                "type": "image",
+                "name": "product-209.jpg",
+                "url": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/product-209.jpg",
+                "conversions": {
+                  "lg": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_lg.jpg",
+                  "md": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_md.jpg",
+                  "sm": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_sm.jpg"
+                }
+              },
+              "major_final_price": {
+                "discount_model": "product",
+                "discount_type": "percentage",
+                "discount": 20,
+                "discount_price": 79800,
+                "amount": 319200
+              },
+              "views_count": 507,
+              "video_cover": [],
+              "video": [],
+              "is_vip": false,
+              "active_flash": []
+            }
+          },
+          {
+            "id": 2188,
+            "price": 399000,
+            "SKU": "",
+            "barcode": 12113,
+            "purchase_price": null,
+            "product_id": null,
+            "color_id": null,
+            "discount_type": null,
+            "discount": null,
+            "created_at": "2025-06-04 14:29:14",
+            "updated_at": "2025-07-13 16:51:25",
+            "order": 99994,
+            "deleted_at": null,
+            "max_number_purchases": 999999,
+            "discount_until": null,
+            "name": null,
+            "description": null,
+            "is_head": 0,
+            "low_stock_quantity_warning": null,
+            "unique_attributes_key": "ca1طرح-6-سورمه ای2FREE53",
+            "images": [],
+            "quantity": 6,
+            "final_price": {
+              "discount_model": "product",
+              "discount_type": "percentage",
+              "discount": 20,
+              "discount_price": 79800,
+              "amount": 319200
+            },
+            "store": {
+              "id": 2188,
+              "variety_id": 2188,
+              "balance": 6,
+              "created_at": "2025-06-04 14:29:14",
+              "updated_at": "2025-07-09 20:39:54"
+            },
+            "attributes": [
+              {
+                "id": 1,
+                "name": "tarh",
+                "label": "طرح",
+                "type": "text",
+                "show_filter": 0,
+                "style": "select",
+                "public": 0,
+                "status": 1,
+                "creator_id": 1,
+                "updater_id": 1,
+                "created_at": "2025-04-17 13:02:10",
+                "updated_at": "2025-04-26 16:09:24",
+                "pivot": {
+                  "variety_id": 2188,
+                  "attribute_id": 1,
+                  "attribute_value_id": null,
+                  "value": "طرح-6-سورمه ای",
+                  "attribute_value": null
+                }
+              },
+              {
+                "id": 2,
+                "name": "sizeClothes",
+                "label": "سایز لباس",
+                "type": "select",
+                "show_filter": 0,
+                "style": "box",
+                "public": 0,
+                "status": 1,
+                "creator_id": 1,
+                "updater_id": 1,
+                "created_at": "2025-04-17 13:03:58",
+                "updated_at": "2025-04-26 16:09:05",
+                "pivot": {
+                  "variety_id": 2188,
+                  "attribute_id": 2,
+                  "attribute_value_id": 53,
+                  "value": "FREE",
+                  "attribute_value": {
+                    "id": 53,
+                    "attribute_id": 2,
+                    "value": "FREE",
+                    "selected": 0,
+                    "creator_id": 49,
+                    "updater_id": 49,
+                    "created_at": "2025-05-15T07:02:21.000000Z",
+                    "updated_at": "2025-05-15T07:02:21.000000Z"
+                  }
+                }
+              }
+            ],
+            "color": null,
+            "product": {
+              "id": 209,
+              "title": "ست  مخمل زنانه 4186",
+              "slug": "ست-مخمل-زنانه-4186",
+              "short_description": null,
+              "description": null,
+              "discount_type": "percentage",
+              "discount": 20,
+              "SKU": "",
+              "barcode": "",
+              "chargeable": 0,
+              "threshold_quantity": null,
+              "threshold_date": "2025-05-13",
+              "brand_id": null,
+              "unit_id": 1,
+              "meta_description": null,
+              "meta_title": null,
+              "low_stock_quantity_warning": 0,
+              "show_quantity": 0,
+              "status": "available",
+              "created_at": "2025-05-13 15:00:15",
+              "updated_at": "2025-07-13 16:51:25",
+              "discount_until": "2025-07-23 00:00:00",
+              "image_alt": null,
+              "images": [
+                {
+                  "id": 766,
+                  "type": "image",
+                  "name": "product-209.jpg",
+                  "url": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/product-209.jpg",
+                  "conversions": {
+                    "lg": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_lg.jpg",
+                    "md": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_md.jpg",
+                    "sm": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_sm.jpg"
+                  }
+                },
+                {
+                  "id": 767,
+                  "type": "image",
+                  "name": "product-209.jpg",
+                  "url": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/product-209.jpg",
+                  "conversions": {
+                    "lg": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/conversions/product-209-thumb_lg.jpg",
+                    "md": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/conversions/product-209-thumb_md.jpg",
+                    "sm": "https://api.atlasmode.shop/storage/d7026186-5193-4c7e-a1b5-9d6e158358ae/conversions/product-209-thumb_sm.jpg"
+                  }
+                },
+                {
+                  "id": 768,
+                  "type": "image",
+                  "name": "product-209.jpg",
+                  "url": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/product-209.jpg",
+                  "conversions": {
+                    "lg": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/conversions/product-209-thumb_lg.jpg",
+                    "md": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/conversions/product-209-thumb_md.jpg",
+                    "sm": "https://api.atlasmode.shop/storage/58af049b-dbc6-44f1-861c-156ed33208c1/conversions/product-209-thumb_sm.jpg"
+                  }
+                }
+              ],
+              "total_quantity": 69,
+              "price": 319200,
+              "rate": "0.0",
+              "color_ranges": [
+                {
+                  "id": 7,
+                  "title": "صورتی",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:16:09",
+                  "updated_at": "2025-04-26 10:16:09",
+                  "image": "https://api.atlasmode.shop/storage/3b052f6c-2963-4485-9446-da248e8baa08/82bb84f17b73bc116114c3d72d9fadaa6da3ea49_1670664327.png",
+                  "pivot": {
+                    "variety_id": 2183,
+                    "color_range_id": 7
+                  }
+                },
+                {
+                  "id": 11,
+                  "title": "زرد",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:18:45",
+                  "updated_at": "2025-04-26 10:18:45",
+                  "image": "https://api.atlasmode.shop/storage/2d0a35cc-633e-4ef3-8b23-ddc81d95c1cb/d019e79e841a500ebd4ce2b91ba11d28921a88b0_1670664216.png",
+                  "pivot": {
+                    "variety_id": 2184,
+                    "color_range_id": 11
+                  }
+                },
+                {
+                  "id": 10,
+                  "title": "سبز",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:16:41",
+                  "updated_at": "2025-04-26 10:16:41",
+                  "image": "https://api.atlasmode.shop/storage/8c419bbe-7c90-4f4d-a493-9b792f5d4871/e93523d755acd1851052687b30f231edea4cb9bc_1670664245.png",
+                  "pivot": {
+                    "variety_id": 2185,
+                    "color_range_id": 10
+                  }
+                },
+                {
+                  "id": 5,
+                  "title": "سفید",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:14:24",
+                  "updated_at": "2025-04-26 10:14:24",
+                  "image": "https://api.atlasmode.shop/storage/4833af51-1985-460d-a43e-8c1c78718061/a16c557a142f56435d8501e7fbf1d2c0cf93a615_1670664037.png",
+                  "pivot": {
+                    "variety_id": 2187,
+                    "color_range_id": 5
+                  }
+                },
+                {
+                  "id": 6,
+                  "title": "مشکی",
+                  "status": 1,
+                  "created_at": "2025-04-26 10:14:36",
+                  "updated_at": "2025-04-26 10:14:36",
+                  "image": "https://api.atlasmode.shop/storage/1496245c-ca36-4e7d-8901-25588d2d1e4a/6b73478aca3fed39aafd08b3406536b5a1fcfbb1_1670663838.png",
+                  "pivot": {
+                    "variety_id": 2188,
+                    "color_range_id": 6
+                  }
+                }
+              ],
+              "major_discount_amount": 79800,
+              "major_image": {
+                "id": 766,
+                "type": "image",
+                "name": "product-209.jpg",
+                "url": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/product-209.jpg",
+                "conversions": {
+                  "lg": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_lg.jpg",
+                  "md": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_md.jpg",
+                  "sm": "https://api.atlasmode.shop/storage/f2547f43-73c8-48e0-a73d-a736f06454ea/conversions/product-209-thumb_sm.jpg"
+                }
+              },
+              "major_final_price": {
+                "discount_model": "product",
+                "discount_type": "percentage",
+                "discount": 20,
+                "discount_price": 79800,
+                "amount": 319200
+              },
+              "views_count": 507,
+              "video_cover": [],
+              "video": [],
+              "is_vip": false,
+              "active_flash": []
+            }
+          }
+        ],
+        "categories": [
+          {
+            "id": 1,
+            "title": "لباس زنانه",
+            "slug": "",
+            "en_title": "لباس-زنانه",
+            "parent_id": null,
+            "status": 1,
+            "special": 0,
+            "priority": 999999,
+            "level": 1,
+            "order": 1,
+            "creator_id": 1,
+            "updater_id": 1,
+            "created_at": "2025-04-19 09:44:32",
+            "updated_at": "2025-07-10 09:45:30",
+            "show_in_home": 0,
+            "products_count": 402,
+            "image": null,
+            "icon": null,
+            "pivot": {
+              "product_id": 209,
+              "category_id": 1
+            }
+          },
+          {
+            "id": 87,
+            "title": "ست زنانه",
+            "slug": "",
+            "en_title": "ست-زنانه",
+            "parent_id": 1,
+            "status": 1,
+            "special": 0,
+            "priority": 999968,
+            "level": 2,
+            "order": 1,
+            "creator_id": 1,
+            "updater_id": 1,
+            "created_at": "2025-04-19 13:27:34",
+            "updated_at": "2025-06-04 08:45:34",
+            "show_in_home": 0,
+            "products_count": 15,
+            "image": null,
+            "icon": null,
+            "pivot": {
+              "product_id": 209,
+              "category_id": 87
+            }
+          },
+          {
+            "id": 98,
+            "title": "ست لباس راحتی زنانه",
+            "slug": "",
+            "en_title": "ست-لباس-راحتی-زنانه",
+            "parent_id": 56,
+            "status": 1,
+            "special": 0,
+            "priority": 999997,
+            "level": 3,
+            "order": 1,
+            "creator_id": 1,
+            "updater_id": 1,
+            "created_at": "2025-04-19 13:41:43",
+            "updated_at": "2025-05-17 14:03:34",
+            "show_in_home": 0,
+            "products_count": 8,
+            "image": null,
+            "icon": null,
+            "pivot": {
+              "product_id": 209,
+              "category_id": 98
+            }
+          }
+        ],
+        "specifications": [
+          {
+            "id": 32,
+            "name": "آبرفت",
+            "label": "آبرفت",
+            "group": "public",
+            "type": "select",
+            "required": 0,
+            "public": 1,
+            "show_filter": 0,
+            "status": 1,
+            "creator_id": 14,
+            "updater_id": 14,
+            "created_at": "2025-04-19 14:21:17",
+            "updated_at": "2025-04-19 14:24:54",
+            "order": 999999,
+            "pivot": {
+              "product_id": 209,
+              "specification_id": 32,
+              "id": 16246,
+              "value": null,
+              "specification_value_id": 3,
+              "specification_values": [],
+              "specification_value": {
+                "id": 3,
+                "specification_id": 32,
+                "value": "ندارد",
+                "selected": 0,
+                "created_at": "2025-04-26T10:44:31.000000Z",
+                "updated_at": "2025-04-26T10:44:31.000000Z"
+              }
+            }
+          },
+          {
+            "id": 25,
+            "name": "نحوه بسته شدن",
+            "label": "نحوه بسته شدن",
+            "group": "public",
+            "type": "multi_select",
+            "required": 0,
+            "public": 1,
+            "show_filter": 0,
+            "status": 1,
+            "creator_id": 1,
+            "updater_id": 56,
+            "created_at": "2021-08-21 10:21:35",
+            "updated_at": "2024-10-20 09:47:27",
+            "order": 999997,
+            "pivot": {
+              "product_id": 209,
+              "specification_id": 25,
+              "id": 16245,
+              "value": null,
+              "specification_value_id": null,
+              "specification_values": [
+                {
+                  "id": 17,
+                  "specification_id": 25,
+                  "value": "جلو بسته",
+                  "selected": 0,
+                  "created_at": "2025-04-26T10:47:45.000000Z",
+                  "updated_at": "2025-04-26T10:47:45.000000Z",
+                  "pivot": {
+                    "product_specification_id": 16245,
+                    "specification_value_id": 17
+                  }
+                }
+              ],
+              "specification_value": null
+            }
+          },
+          {
+            "id": 23,
+            "name": "متناسب برای فصول",
+            "label": "متناسب برای فصول",
+            "group": "public",
+            "type": "multi_select",
+            "required": 1,
+            "public": 1,
+            "show_filter": 0,
+            "status": 1,
+            "creator_id": 1,
+            "updater_id": 21,
+            "created_at": "2021-08-21 09:53:49",
+            "updated_at": "2024-05-01 11:31:19",
+            "order": 999995,
+            "pivot": {
+              "product_id": 209,
+              "specification_id": 23,
+              "id": 16244,
+              "value": null,
+              "specification_value_id": null,
+              "specification_values": [
+                {
+                  "id": 29,
+                  "specification_id": 23,
+                  "value": "تمامی فصول",
+                  "selected": 0,
+                  "created_at": "2025-04-26T10:48:50.000000Z",
+                  "updated_at": "2025-04-26T10:48:50.000000Z",
+                  "pivot": {
+                    "product_specification_id": 16244,
+                    "specification_value_id": 29
+                  }
+                }
+              ],
+              "specification_value": null
+            }
+          },
+          {
+            "id": 22,
+            "name": "امکان استفاده از سفید کننده",
+            "label": "امکان استفاده از سفید کننده",
+            "group": "public",
+            "type": "multi_select",
+            "required": 0,
+            "public": 1,
+            "show_filter": 0,
+            "status": 1,
+            "creator_id": 1,
+            "updater_id": 21,
+            "created_at": "2021-08-21 09:52:56",
+            "updated_at": "2024-05-01 11:31:19",
+            "order": 999994,
+            "pivot": {
+              "product_id": 209,
+              "specification_id": 22,
+              "id": 16243,
+              "value": null,
+              "specification_value_id": null,
+              "specification_values": [
+                {
+                  "id": 32,
+                  "specification_id": 22,
+                  "value": "ندارد",
+                  "selected": 0,
+                  "created_at": "2025-04-26T10:49:45.000000Z",
+                  "updated_at": "2025-04-26T10:49:45.000000Z",
+                  "pivot": {
+                    "product_specification_id": 16243,
+                    "specification_value_id": 32
+                  }
+                }
+              ],
+              "specification_value": null
+            }
+          },
+          {
+            "id": 20,
+            "name": "ماکزیمم دمای شستشو",
+            "label": "ماکزیمم دمای شستشو",
+            "group": "public",
+            "type": "select",
+            "required": 0,
+            "public": 1,
+            "show_filter": 0,
+            "status": 1,
+            "creator_id": 1,
+            "updater_id": 21,
+            "created_at": "2021-08-21 09:52:07",
+            "updated_at": "2024-05-01 11:31:19",
+            "order": 999993,
+            "pivot": {
+              "product_id": 209,
+              "specification_id": 20,
+              "id": 16241,
+              "value": null,
+              "specification_value_id": 33,
+              "specification_values": [],
+              "specification_value": {
+                "id": 33,
+                "specification_id": 20,
+                "value": "30 درجه سانتی گراد",
+                "selected": 0,
+                "created_at": "2025-04-26T10:50:16.000000Z",
+                "updated_at": "2025-04-26T10:50:16.000000Z"
+              }
+            }
+          },
+          {
+            "id": 21,
+            "name": "امکان خشک شویی",
+            "label": "امکان خشک شویی",
+            "group": "public",
+            "type": "select",
+            "required": 0,
+            "public": 1,
+            "show_filter": 0,
+            "status": 1,
+            "creator_id": 1,
+            "updater_id": 21,
+            "created_at": "2021-08-21 09:52:30",
+            "updated_at": "2024-05-01 11:31:19",
+            "order": 999992,
+            "pivot": {
+              "product_id": 209,
+              "specification_id": 21,
+              "id": 16242,
+              "value": null,
+              "specification_value_id": 37,
+              "specification_values": [],
+              "specification_value": {
+                "id": 37,
+                "specification_id": 21,
+                "value": "ندارد",
+                "selected": 0,
+                "created_at": "2025-04-26T10:50:42.000000Z",
+                "updated_at": "2025-04-26T10:50:42.000000Z"
+              }
+            }
+          },
+          {
+            "id": 18,
+            "name": "اتو کشی",
+            "label": "اتو کشی",
+            "group": "public",
+            "type": "select",
+            "required": 0,
+            "public": 1,
+            "show_filter": 0,
+            "status": 1,
+            "creator_id": 1,
+            "updater_id": 21,
+            "created_at": "2021-08-21 09:50:32",
+            "updated_at": "2024-05-01 11:31:19",
+            "order": 999990,
+            "pivot": {
+              "product_id": 209,
+              "specification_id": 18,
+              "id": 16240,
+              "value": null,
+              "specification_value_id": 45,
+              "specification_values": [],
+              "specification_value": {
+                "id": 45,
+                "specification_id": 18,
+                "value": "ندارد",
+                "selected": 0,
+                "created_at": "2025-04-26T10:51:55.000000Z",
+                "updated_at": "2025-04-26T10:51:55.000000Z"
+              }
+            }
+          },
+          {
+            "id": 17,
+            "name": "نحوه شستشو",
+            "label": "نحوه شستشو",
+            "group": "public",
+            "type": "multi_select",
+            "required": 0,
+            "public": 1,
+            "show_filter": 0,
+            "status": 1,
+            "creator_id": 1,
+            "updater_id": 21,
+            "created_at": "2021-08-21 09:50:07",
+            "updated_at": "2024-05-01 11:31:19",
+            "order": 999989,
+            "pivot": {
+              "product_id": 209,
+              "specification_id": 17,
+              "id": 16239,
+              "value": null,
+              "specification_value_id": null,
+              "specification_values": [
+                {
+                  "id": 47,
+                  "specification_id": 17,
+                  "value": "دستی /ماشینی",
+                  "selected": 0,
+                  "created_at": "2025-04-26T10:52:37.000000Z",
+                  "updated_at": "2025-04-26T10:52:37.000000Z",
+                  "pivot": {
+                    "product_specification_id": 16239,
+                    "specification_value_id": 47
+                  }
+                }
+              ],
+              "specification_value": null
+            }
+          },
+          {
+            "id": 13,
+            "name": "نوع شستشو",
+            "label": "نوع شستشو",
+            "group": "public",
+            "type": "multi_select",
+            "required": 1,
+            "public": 1,
+            "show_filter": 0,
+            "status": 1,
+            "creator_id": 1,
+            "updater_id": 21,
+            "created_at": "2021-08-21 09:44:16",
+            "updated_at": "2024-05-01 11:31:19",
+            "order": 999985,
+            "pivot": {
+              "product_id": 209,
+              "specification_id": 13,
+              "id": 16238,
+              "value": null,
+              "specification_value_id": null,
+              "specification_values": [
+                {
+                  "id": 67,
+                  "specification_id": 13,
+                  "value": "دستی /ماشینی",
+                  "selected": 0,
+                  "created_at": "2025-04-26T10:55:41.000000Z",
+                  "updated_at": "2025-04-26T10:55:41.000000Z",
+                  "pivot": {
+                    "product_specification_id": 16238,
+                    "specification_value_id": 67
+                  }
+                }
+              ],
+              "specification_value": null
+            }
+          },
+          {
+            "id": 12,
+            "name": "جنس",
+            "label": "جنس",
+            "group": "public",
+            "type": "select",
+            "required": 0,
+            "public": 1,
+            "show_filter": 0,
+            "status": 1,
+            "creator_id": 1,
+            "updater_id": 21,
+            "created_at": "2021-08-21 09:43:27",
+            "updated_at": "2024-05-01 11:31:19",
+            "order": 999984,
+            "pivot": {
+              "product_id": 209,
+              "specification_id": 12,
+              "id": 16237,
+              "value": null,
+              "specification_value_id": 76,
+              "specification_values": [],
+              "specification_value": {
+                "id": 76,
+                "specification_id": 12,
+                "value": "مخمل",
+                "selected": 0,
+                "created_at": "2025-04-26T11:03:47.000000Z",
+                "updated_at": "2025-04-26T11:03:47.000000Z"
+              }
+            }
+          }
+        ],
+        "brand": null,
+        "size_charts": [
+          {
+            "id": 1899,
+            "product_id": 209,
+            "type_id": 1,
+            "title": "تیشرت",
+            "chart": "[[\"\\u0633\\u0627\\u06cc\\u0632\\u0628\\u0646\\u062f\\u06cc\",\"\\u062f\\u0648\\u0631 \\u0633\\u06cc\\u0646\\u0647\",\"\\u06a9\\u0634\\u0633\\u0627\\u0646\\u06cc \\u062f\\u0648\\u0631 \\u0633\\u06cc\\u0646\\u0647\",\"\\u0633\\u0631\\u0634\\u0627\\u0646\\u0647\",\"\\u062f\\u0648\\u0631 \\u0628\\u0627\\u0632\\u0648\",\"\\u06a9\\u0634\\u0633\\u0627\\u0646\\u06cc \\u062f\\u0648\\u0631 \\u0628\\u0627\\u0632\\u0648\",\"\\u0642\\u062f \\u0622\\u0633\\u062a\\u06cc\\u0646\",\"\\u0642\\u062f \\u062c\\u0644\\u0648\",\"\\u0642\\u062f \\u067e\\u0634\\u062a\",\"\\u0642\\u062f \\u06a9\\u0627\\u0645\\u0644\"],[\"FREE\",\"124\",null,\"16\",\"46\",\"50\",\"23\",null,null,\"61\"]]",
+            "created_at": "2025-07-13 16:51:25",
+            "updated_at": "2025-07-13 16:51:25"
+          },
+          {
+            "id": 1900,
+            "product_id": 209,
+            "type_id": 2,
+            "title": "شلوار",
+            "chart": "[[\"\\u0633\\u0627\\u06cc\\u0632\\u0628\\u0646\\u062f\\u06cc\",\"\\u062f\\u0648\\u0631 \\u06a9\\u0645\\u0631\",\"\\u06a9\\u0634\\u0633\\u0627\\u0646\\u06cc \\u062f\\u0648\\u0631 \\u06a9\\u0645\\u0631\",\"\\u062f\\u0648\\u0631 \\u0628\\u0627\\u0633\\u0646\",\"\\u06a9\\u0634\\u0633\\u0627\\u0646\\u06cc \\u062f\\u0648\\u0631 \\u0628\\u0627\\u0633\\u0646\",\"\\u062f\\u0648\\u0631 \\u0631\\u0627\\u0646\",\"\\u06a9\\u0634\\u0633\\u0627\\u0646\\u06cc \\u062f\\u0648\\u0631 \\u0631\\u0627\\u0646\",\"\\u0642\\u062f \\u0641\\u0627\\u0642\",\"\\u0642\\u062f \\u06a9\\u0627\\u0645\\u0644 \\u06a9\\u0627\\u0631\"],[\"FREE\",\"66\",\"100\",\"130\",null,\"76\",null,\"35\",\"44\"]]",
+            "created_at": "2025-07-13 16:51:25",
+            "updated_at": "2025-07-13 16:51:25"
+          }
+        ],
+        "unit": {
+          "id": 1,
+          "name": "تعداد",
+          "symbol": "تعداد",
+          "precision": "1",
+          "status": 1,
+          "creator_id": 1,
+          "updater_id": 1,
+          "created_at": "2021-08-04 14:10:52",
+          "updated_at": "2021-08-04 14:10:52"
+        },
+        "tags": []
+      },
+      "relatedProducts": [
+        {
+          "id": 81,
+          "title": "ست شومیز دامن زنانه گت دار 4007",
+          "slug": "ست-شومیز-دامن-زنانه-گت-دار-4007",
+          "status": "available",
+          "images": [
+            {
+              "id": 287,
+              "type": "image",
+              "name": "product-81.jpg",
+              "url": "https://api.atlasmode.shop/storage/6ba590e8-6215-4a09-a9c5-c79291277925/product-81.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/6ba590e8-6215-4a09-a9c5-c79291277925/conversions/product-81-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/6ba590e8-6215-4a09-a9c5-c79291277925/conversions/product-81-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/6ba590e8-6215-4a09-a9c5-c79291277925/conversions/product-81-thumb_sm.jpg"
+              }
+            },
+            {
+              "id": 288,
+              "type": "image",
+              "name": "product-81.jpg",
+              "url": "https://api.atlasmode.shop/storage/e04cea79-e430-41b5-8a67-9964cbb913cb/product-81.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/e04cea79-e430-41b5-8a67-9964cbb913cb/conversions/product-81-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/e04cea79-e430-41b5-8a67-9964cbb913cb/conversions/product-81-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/e04cea79-e430-41b5-8a67-9964cbb913cb/conversions/product-81-thumb_sm.jpg"
+              }
+            },
+            {
+              "id": 289,
+              "type": "image",
+              "name": "product-81.jpg",
+              "url": "https://api.atlasmode.shop/storage/23db8705-70b0-4140-9f53-9d8442894037/product-81.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/23db8705-70b0-4140-9f53-9d8442894037/conversions/product-81-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/23db8705-70b0-4140-9f53-9d8442894037/conversions/product-81-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/23db8705-70b0-4140-9f53-9d8442894037/conversions/product-81-thumb_sm.jpg"
+              }
+            }
+          ],
+          "price": 1299000,
+          "rate": "0.0",
+          "color_ranges": [
+            {
+              "id": 5,
+              "title": "سفید",
+              "status": 1,
+              "created_at": "2025-04-26 10:14:24",
+              "updated_at": "2025-04-26 10:14:24",
+              "image": "https://api.atlasmode.shop/storage/4833af51-1985-460d-a43e-8c1c78718061/a16c557a142f56435d8501e7fbf1d2c0cf93a615_1670664037.png",
+              "pivot": {
+                "variety_id": 2141,
+                "color_range_id": 5
+              }
+            }
+          ],
+          "major_discount_amount": 0,
+          "major_image": {
+            "id": 287,
+            "type": "image",
+            "name": "product-81.jpg",
+            "url": "https://api.atlasmode.shop/storage/6ba590e8-6215-4a09-a9c5-c79291277925/product-81.jpg",
+            "conversions": {
+              "lg": "https://api.atlasmode.shop/storage/6ba590e8-6215-4a09-a9c5-c79291277925/conversions/product-81-thumb_lg.jpg",
+              "md": "https://api.atlasmode.shop/storage/6ba590e8-6215-4a09-a9c5-c79291277925/conversions/product-81-thumb_md.jpg",
+              "sm": "https://api.atlasmode.shop/storage/6ba590e8-6215-4a09-a9c5-c79291277925/conversions/product-81-thumb_sm.jpg"
+            }
+          },
+          "major_final_price": {
+            "discount_model": "none",
+            "discount_type": "none",
+            "discount": 0,
+            "discount_price": 0,
+            "amount": 1299000
+          },
+          "views_count": 77,
+          "video_cover": [],
+          "video": [],
+          "is_vip": false
+        },
+        {
+          "id": 369,
+          "title": "پیراهن چین دار 4179",
+          "slug": "پیراهن-چین-دار-4179",
+          "status": "available",
+          "images": [
+            {
+              "id": 1496,
+              "type": "image",
+              "name": "product-369.jpg",
+              "url": "https://api.atlasmode.shop/storage/daa7711e-8308-41a3-90c8-53ac4e40030f/product-369.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/daa7711e-8308-41a3-90c8-53ac4e40030f/conversions/product-369-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/daa7711e-8308-41a3-90c8-53ac4e40030f/conversions/product-369-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/daa7711e-8308-41a3-90c8-53ac4e40030f/conversions/product-369-thumb_sm.jpg"
+              }
+            },
+            {
+              "id": 1497,
+              "type": "image",
+              "name": "product-369.jpg",
+              "url": "https://api.atlasmode.shop/storage/e64f242b-a2e0-422b-92de-bd9d680164d1/product-369.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/e64f242b-a2e0-422b-92de-bd9d680164d1/conversions/product-369-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/e64f242b-a2e0-422b-92de-bd9d680164d1/conversions/product-369-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/e64f242b-a2e0-422b-92de-bd9d680164d1/conversions/product-369-thumb_sm.jpg"
+              }
+            },
+            {
+              "id": 1498,
+              "type": "image",
+              "name": "product-369.jpg",
+              "url": "https://api.atlasmode.shop/storage/45cddcea-2607-494c-96be-4a16ba2f9072/product-369.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/45cddcea-2607-494c-96be-4a16ba2f9072/conversions/product-369-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/45cddcea-2607-494c-96be-4a16ba2f9072/conversions/product-369-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/45cddcea-2607-494c-96be-4a16ba2f9072/conversions/product-369-thumb_sm.jpg"
+              }
+            }
+          ],
+          "price": 399000,
+          "rate": "0.0",
+          "color_ranges": [
+            {
+              "id": 7,
+              "title": "صورتی",
+              "status": 1,
+              "created_at": "2025-04-26 10:16:09",
+              "updated_at": "2025-04-26 10:16:09",
+              "image": "https://api.atlasmode.shop/storage/3b052f6c-2963-4485-9446-da248e8baa08/82bb84f17b73bc116114c3d72d9fadaa6da3ea49_1670664327.png",
+              "pivot": {
+                "variety_id": 1788,
+                "color_range_id": 7
+              }
+            },
+            {
+              "id": 8,
+              "title": "آبی",
+              "status": 1,
+              "created_at": "2025-04-26 10:16:18",
+              "updated_at": "2025-04-26 10:16:18",
+              "image": "https://api.atlasmode.shop/storage/afb2ec06-7b45-4189-bde0-e43210ecee68/53cd2901b76a741e9011ace2659b9f4c0e52f578_1670664279.png",
+              "pivot": {
+                "variety_id": 1792,
+                "color_range_id": 8
+              }
+            },
+            {
+              "id": 6,
+              "title": "مشکی",
+              "status": 1,
+              "created_at": "2025-04-26 10:14:36",
+              "updated_at": "2025-04-26 10:14:36",
+              "image": "https://api.atlasmode.shop/storage/1496245c-ca36-4e7d-8901-25588d2d1e4a/6b73478aca3fed39aafd08b3406536b5a1fcfbb1_1670663838.png",
+              "pivot": {
+                "variety_id": 1793,
+                "color_range_id": 6
+              }
+            }
+          ],
+          "major_discount_amount": 0,
+          "major_image": {
+            "id": 1496,
+            "type": "image",
+            "name": "product-369.jpg",
+            "url": "https://api.atlasmode.shop/storage/daa7711e-8308-41a3-90c8-53ac4e40030f/product-369.jpg",
+            "conversions": {
+              "lg": "https://api.atlasmode.shop/storage/daa7711e-8308-41a3-90c8-53ac4e40030f/conversions/product-369-thumb_lg.jpg",
+              "md": "https://api.atlasmode.shop/storage/daa7711e-8308-41a3-90c8-53ac4e40030f/conversions/product-369-thumb_md.jpg",
+              "sm": "https://api.atlasmode.shop/storage/daa7711e-8308-41a3-90c8-53ac4e40030f/conversions/product-369-thumb_sm.jpg"
+            }
+          },
+          "major_final_price": {
+            "discount_model": "none",
+            "discount_type": "none",
+            "discount": 0,
+            "discount_price": 0,
+            "amount": 399000
+          },
+          "views_count": 396,
+          "video_cover": [],
+          "video": [],
+          "is_vip": false
+        },
+        {
+          "id": 75,
+          "title": "ست تیشرت شورتک پایین ریش زنانه 4040",
+          "slug": "ست-تیشرت-شورتک-پایین-ریش4040",
+          "status": "available",
+          "images": [
+            {
+              "id": 268,
+              "type": "image",
+              "name": "product-75.jpg",
+              "url": "https://api.atlasmode.shop/storage/62447d90-5ec9-4776-8522-28a225fb43f1/product-75.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/62447d90-5ec9-4776-8522-28a225fb43f1/conversions/product-75-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/62447d90-5ec9-4776-8522-28a225fb43f1/conversions/product-75-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/62447d90-5ec9-4776-8522-28a225fb43f1/conversions/product-75-thumb_sm.jpg"
+              }
+            },
+            {
+              "id": 269,
+              "type": "image",
+              "name": "product-75.jpg",
+              "url": "https://api.atlasmode.shop/storage/a38ad8fb-7ba3-4f24-936b-22d686d238e0/product-75.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/a38ad8fb-7ba3-4f24-936b-22d686d238e0/conversions/product-75-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/a38ad8fb-7ba3-4f24-936b-22d686d238e0/conversions/product-75-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/a38ad8fb-7ba3-4f24-936b-22d686d238e0/conversions/product-75-thumb_sm.jpg"
+              }
+            },
+            {
+              "id": 270,
+              "type": "image",
+              "name": "product-75.jpg",
+              "url": "https://api.atlasmode.shop/storage/58ead805-e2d6-44d6-8694-fbd47960a6cd/product-75.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/58ead805-e2d6-44d6-8694-fbd47960a6cd/conversions/product-75-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/58ead805-e2d6-44d6-8694-fbd47960a6cd/conversions/product-75-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/58ead805-e2d6-44d6-8694-fbd47960a6cd/conversions/product-75-thumb_sm.jpg"
+              }
+            }
+          ],
+          "price": 399000,
+          "rate": "0.0",
+          "color_ranges": [
+            {
+              "id": 7,
+              "title": "صورتی",
+              "status": 1,
+              "created_at": "2025-04-26 10:16:09",
+              "updated_at": "2025-04-26 10:16:09",
+              "image": "https://api.atlasmode.shop/storage/3b052f6c-2963-4485-9446-da248e8baa08/82bb84f17b73bc116114c3d72d9fadaa6da3ea49_1670664327.png",
+              "pivot": {
+                "variety_id": 376,
+                "color_range_id": 7
+              }
+            },
+            {
+              "id": 11,
+              "title": "زرد",
+              "status": 1,
+              "created_at": "2025-04-26 10:18:45",
+              "updated_at": "2025-04-26 10:18:45",
+              "image": "https://api.atlasmode.shop/storage/2d0a35cc-633e-4ef3-8b23-ddc81d95c1cb/d019e79e841a500ebd4ce2b91ba11d28921a88b0_1670664216.png",
+              "pivot": {
+                "variety_id": 378,
+                "color_range_id": 11
+              }
+            },
+            {
+              "id": 13,
+              "title": "قهوه ای",
+              "status": 1,
+              "created_at": "2025-04-26 10:19:26",
+              "updated_at": "2025-04-26 10:19:26",
+              "image": "https://api.atlasmode.shop/storage/e4afa89a-26a9-4a61-a16c-386a151e2a28/3a2570fe27f72878c178bd68525708cf501b8be9_1670664076.png",
+              "pivot": {
+                "variety_id": 379,
+                "color_range_id": 13
+              }
+            },
+            {
+              "id": 6,
+              "title": "مشکی",
+              "status": 1,
+              "created_at": "2025-04-26 10:14:36",
+              "updated_at": "2025-04-26 10:14:36",
+              "image": "https://api.atlasmode.shop/storage/1496245c-ca36-4e7d-8901-25588d2d1e4a/6b73478aca3fed39aafd08b3406536b5a1fcfbb1_1670663838.png",
+              "pivot": {
+                "variety_id": 380,
+                "color_range_id": 6
+              }
+            }
+          ],
+          "major_discount_amount": 0,
+          "major_image": {
+            "id": 268,
+            "type": "image",
+            "name": "product-75.jpg",
+            "url": "https://api.atlasmode.shop/storage/62447d90-5ec9-4776-8522-28a225fb43f1/product-75.jpg",
+            "conversions": {
+              "lg": "https://api.atlasmode.shop/storage/62447d90-5ec9-4776-8522-28a225fb43f1/conversions/product-75-thumb_lg.jpg",
+              "md": "https://api.atlasmode.shop/storage/62447d90-5ec9-4776-8522-28a225fb43f1/conversions/product-75-thumb_md.jpg",
+              "sm": "https://api.atlasmode.shop/storage/62447d90-5ec9-4776-8522-28a225fb43f1/conversions/product-75-thumb_sm.jpg"
+            }
+          },
+          "major_final_price": {
+            "discount_model": "none",
+            "discount_type": "none",
+            "discount": 0,
+            "discount_price": 0,
+            "amount": 399000
+          },
+          "views_count": 221,
+          "video_cover": [],
+          "video": [],
+          "is_vip": false
+        },
+        {
+          "id": 131,
+          "title": "ست دورس و شلوار زنانه 3863",
+          "slug": "ست-دورس-و-شلوار-زنانه-3863",
+          "status": "available",
+          "images": [
+            {
+              "id": 451,
+              "type": "image",
+              "name": "product-131.jpg",
+              "url": "https://api.atlasmode.shop/storage/6411f370-7dcd-4b04-9f72-b15c67b6f7b8/product-131.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/6411f370-7dcd-4b04-9f72-b15c67b6f7b8/conversions/product-131-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/6411f370-7dcd-4b04-9f72-b15c67b6f7b8/conversions/product-131-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/6411f370-7dcd-4b04-9f72-b15c67b6f7b8/conversions/product-131-thumb_sm.jpg"
+              }
+            },
+            {
+              "id": 452,
+              "type": "image",
+              "name": "product-131.jpg",
+              "url": "https://api.atlasmode.shop/storage/a61256a1-a892-4fd3-88c8-4862336ebeb6/product-131.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/a61256a1-a892-4fd3-88c8-4862336ebeb6/conversions/product-131-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/a61256a1-a892-4fd3-88c8-4862336ebeb6/conversions/product-131-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/a61256a1-a892-4fd3-88c8-4862336ebeb6/conversions/product-131-thumb_sm.jpg"
+              }
+            },
+            {
+              "id": 453,
+              "type": "image",
+              "name": "product-131.jpg",
+              "url": "https://api.atlasmode.shop/storage/af1b085f-13a4-454c-94f3-401b25d54974/product-131.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/af1b085f-13a4-454c-94f3-401b25d54974/conversions/product-131-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/af1b085f-13a4-454c-94f3-401b25d54974/conversions/product-131-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/af1b085f-13a4-454c-94f3-401b25d54974/conversions/product-131-thumb_sm.jpg"
+              }
+            },
+            {
+              "id": 454,
+              "type": "image",
+              "name": "product-131.jpg",
+              "url": "https://api.atlasmode.shop/storage/a04a718f-8339-44bd-a34a-329bc11fdc7b/product-131.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/a04a718f-8339-44bd-a34a-329bc11fdc7b/conversions/product-131-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/a04a718f-8339-44bd-a34a-329bc11fdc7b/conversions/product-131-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/a04a718f-8339-44bd-a34a-329bc11fdc7b/conversions/product-131-thumb_sm.jpg"
+              }
+            },
+            {
+              "id": 455,
+              "type": "image",
+              "name": "product-131.jpg",
+              "url": "https://api.atlasmode.shop/storage/b6d4b3a1-3022-4df3-a493-e88ce5802ecd/product-131.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/b6d4b3a1-3022-4df3-a493-e88ce5802ecd/conversions/product-131-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/b6d4b3a1-3022-4df3-a493-e88ce5802ecd/conversions/product-131-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/b6d4b3a1-3022-4df3-a493-e88ce5802ecd/conversions/product-131-thumb_sm.jpg"
+              }
+            },
+            {
+              "id": 456,
+              "type": "image",
+              "name": "product-131.jpg",
+              "url": "https://api.atlasmode.shop/storage/04091ecc-9131-4f23-9b81-7fca65c56c3d/product-131.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/04091ecc-9131-4f23-9b81-7fca65c56c3d/conversions/product-131-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/04091ecc-9131-4f23-9b81-7fca65c56c3d/conversions/product-131-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/04091ecc-9131-4f23-9b81-7fca65c56c3d/conversions/product-131-thumb_sm.jpg"
+              }
+            },
+            {
+              "id": 457,
+              "type": "image",
+              "name": "product-131.jpg",
+              "url": "https://api.atlasmode.shop/storage/782c404d-43b7-44fc-88aa-b7595dca64c1/product-131.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/782c404d-43b7-44fc-88aa-b7595dca64c1/conversions/product-131-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/782c404d-43b7-44fc-88aa-b7595dca64c1/conversions/product-131-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/782c404d-43b7-44fc-88aa-b7595dca64c1/conversions/product-131-thumb_sm.jpg"
+              }
+            }
+          ],
+          "price": 799000,
+          "rate": "0.0",
+          "color_ranges": [
+            {
+              "id": 10,
+              "title": "سبز",
+              "status": 1,
+              "created_at": "2025-04-26 10:16:41",
+              "updated_at": "2025-04-26 10:16:41",
+              "image": "https://api.atlasmode.shop/storage/8c419bbe-7c90-4f4d-a493-9b792f5d4871/e93523d755acd1851052687b30f231edea4cb9bc_1670664245.png",
+              "pivot": {
+                "variety_id": 572,
+                "color_range_id": 10
+              }
+            }
+          ],
+          "major_discount_amount": 0,
+          "major_image": {
+            "id": 451,
+            "type": "image",
+            "name": "product-131.jpg",
+            "url": "https://api.atlasmode.shop/storage/6411f370-7dcd-4b04-9f72-b15c67b6f7b8/product-131.jpg",
+            "conversions": {
+              "lg": "https://api.atlasmode.shop/storage/6411f370-7dcd-4b04-9f72-b15c67b6f7b8/conversions/product-131-thumb_lg.jpg",
+              "md": "https://api.atlasmode.shop/storage/6411f370-7dcd-4b04-9f72-b15c67b6f7b8/conversions/product-131-thumb_md.jpg",
+              "sm": "https://api.atlasmode.shop/storage/6411f370-7dcd-4b04-9f72-b15c67b6f7b8/conversions/product-131-thumb_sm.jpg"
+            }
+          },
+          "major_final_price": {
+            "discount_model": "none",
+            "discount_type": "none",
+            "discount": 0,
+            "discount_price": 0,
+            "amount": 799000
+          },
+          "views_count": 61,
+          "video_cover": [],
+          "video": [],
+          "is_vip": false
+        },
+        {
+          "id": 64,
+          "title": "ست راحتی  زنانه  4021",
+          "slug": "ست-راحتی-زنانه-4021",
+          "status": "available",
+          "images": [
+            {
+              "id": 229,
+              "type": "image",
+              "name": "product-64.jpg",
+              "url": "https://api.atlasmode.shop/storage/ff2a6d80-4458-4b9c-8180-c0efe5cd191f/product-64.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/ff2a6d80-4458-4b9c-8180-c0efe5cd191f/conversions/product-64-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/ff2a6d80-4458-4b9c-8180-c0efe5cd191f/conversions/product-64-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/ff2a6d80-4458-4b9c-8180-c0efe5cd191f/conversions/product-64-thumb_sm.jpg"
+              }
+            },
+            {
+              "id": 230,
+              "type": "image",
+              "name": "product-64.jpg",
+              "url": "https://api.atlasmode.shop/storage/d0d0f6da-ea7f-477a-8568-87dac148c963/product-64.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/d0d0f6da-ea7f-477a-8568-87dac148c963/conversions/product-64-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/d0d0f6da-ea7f-477a-8568-87dac148c963/conversions/product-64-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/d0d0f6da-ea7f-477a-8568-87dac148c963/conversions/product-64-thumb_sm.jpg"
+              }
+            },
+            {
+              "id": 231,
+              "type": "image",
+              "name": "product-64.jpg",
+              "url": "https://api.atlasmode.shop/storage/8ef96066-7260-4bda-a3ad-90a8a73e5086/product-64.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/8ef96066-7260-4bda-a3ad-90a8a73e5086/conversions/product-64-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/8ef96066-7260-4bda-a3ad-90a8a73e5086/conversions/product-64-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/8ef96066-7260-4bda-a3ad-90a8a73e5086/conversions/product-64-thumb_sm.jpg"
+              }
+            },
+            {
+              "id": 232,
+              "type": "image",
+              "name": "product-64.jpg",
+              "url": "https://api.atlasmode.shop/storage/3c640574-8074-412c-a4e4-2bb0d5573271/product-64.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/3c640574-8074-412c-a4e4-2bb0d5573271/conversions/product-64-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/3c640574-8074-412c-a4e4-2bb0d5573271/conversions/product-64-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/3c640574-8074-412c-a4e4-2bb0d5573271/conversions/product-64-thumb_sm.jpg"
+              }
+            },
+            {
+              "id": 233,
+              "type": "image",
+              "name": "product-64.jpg",
+              "url": "https://api.atlasmode.shop/storage/cd6e57a6-977e-45c5-a13e-57de83d5372e/product-64.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/cd6e57a6-977e-45c5-a13e-57de83d5372e/conversions/product-64-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/cd6e57a6-977e-45c5-a13e-57de83d5372e/conversions/product-64-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/cd6e57a6-977e-45c5-a13e-57de83d5372e/conversions/product-64-thumb_sm.jpg"
+              }
+            }
+          ],
+          "price": 559000,
+          "rate": "0.0",
+          "color_ranges": [
+            {
+              "id": 5,
+              "title": "سفید",
+              "status": 1,
+              "created_at": "2025-04-26 10:14:24",
+              "updated_at": "2025-04-26 10:14:24",
+              "image": "https://api.atlasmode.shop/storage/4833af51-1985-460d-a43e-8c1c78718061/a16c557a142f56435d8501e7fbf1d2c0cf93a615_1670664037.png",
+              "pivot": {
+                "variety_id": 309,
+                "color_range_id": 5
+              }
+            }
+          ],
+          "major_discount_amount": 0,
+          "major_image": {
+            "id": 229,
+            "type": "image",
+            "name": "product-64.jpg",
+            "url": "https://api.atlasmode.shop/storage/ff2a6d80-4458-4b9c-8180-c0efe5cd191f/product-64.jpg",
+            "conversions": {
+              "lg": "https://api.atlasmode.shop/storage/ff2a6d80-4458-4b9c-8180-c0efe5cd191f/conversions/product-64-thumb_lg.jpg",
+              "md": "https://api.atlasmode.shop/storage/ff2a6d80-4458-4b9c-8180-c0efe5cd191f/conversions/product-64-thumb_md.jpg",
+              "sm": "https://api.atlasmode.shop/storage/ff2a6d80-4458-4b9c-8180-c0efe5cd191f/conversions/product-64-thumb_sm.jpg"
+            }
+          },
+          "major_final_price": {
+            "discount_model": "none",
+            "discount_type": "none",
+            "discount": 0,
+            "discount_price": 0,
+            "amount": 559000
+          },
+          "views_count": 789,
+          "video_cover": [],
+          "video": [],
+          "is_vip": false
+        },
+        {
+          "id": 132,
+          "title": "ست تیشرت و شورتک زنانه  4085",
+          "slug": "ست-تیشرت-و-شورتک-زنانه-4085",
+          "status": "available",
+          "images": [
+            {
+              "id": 459,
+              "type": "image",
+              "name": "product-132.jpg",
+              "url": "https://api.atlasmode.shop/storage/602c2f24-1fc3-4c39-a8eb-1441f64d6d7d/product-132.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/602c2f24-1fc3-4c39-a8eb-1441f64d6d7d/conversions/product-132-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/602c2f24-1fc3-4c39-a8eb-1441f64d6d7d/conversions/product-132-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/602c2f24-1fc3-4c39-a8eb-1441f64d6d7d/conversions/product-132-thumb_sm.jpg"
+              }
+            },
+            {
+              "id": 460,
+              "type": "image",
+              "name": "product-132.jpg",
+              "url": "https://api.atlasmode.shop/storage/b21af1ce-a77b-4129-8106-5bc77d903473/product-132.jpg",
+              "conversions": {
+                "lg": "https://api.atlasmode.shop/storage/b21af1ce-a77b-4129-8106-5bc77d903473/conversions/product-132-thumb_lg.jpg",
+                "md": "https://api.atlasmode.shop/storage/b21af1ce-a77b-4129-8106-5bc77d903473/conversions/product-132-thumb_md.jpg",
+                "sm": "https://api.atlasmode.shop/storage/b21af1ce-a77b-4129-8106-5bc77d903473/conversions/product-132-thumb_sm.jpg"
+              }
+            }
+          ],
+          "price": 459000,
+          "rate": "0.0",
+          "color_ranges": [
+            {
+              "id": 7,
+              "title": "صورتی",
+              "status": 1,
+              "created_at": "2025-04-26 10:16:09",
+              "updated_at": "2025-04-26 10:16:09",
+              "image": "https://api.atlasmode.shop/storage/3b052f6c-2963-4485-9446-da248e8baa08/82bb84f17b73bc116114c3d72d9fadaa6da3ea49_1670664327.png",
+              "pivot": {
+                "variety_id": 573,
+                "color_range_id": 7
+              }
+            },
+            {
+              "id": 9,
+              "title": "طوسی",
+              "status": 1,
+              "created_at": "2025-04-26 10:16:30",
+              "updated_at": "2025-04-26 10:16:30",
+              "image": "https://api.atlasmode.shop/storage/f759d7b8-7a21-4688-9820-6ce5a40b9e7a/e3f34aeca4096bfb699fd8e1d19a632221599b8e_1670663944.png",
+              "pivot": {
+                "variety_id": 573,
+                "color_range_id": 9
+              }
+            }
+          ],
+          "major_discount_amount": 0,
+          "major_image": {
+            "id": 459,
+            "type": "image",
+            "name": "product-132.jpg",
+            "url": "https://api.atlasmode.shop/storage/602c2f24-1fc3-4c39-a8eb-1441f64d6d7d/product-132.jpg",
+            "conversions": {
+              "lg": "https://api.atlasmode.shop/storage/602c2f24-1fc3-4c39-a8eb-1441f64d6d7d/conversions/product-132-thumb_lg.jpg",
+              "md": "https://api.atlasmode.shop/storage/602c2f24-1fc3-4c39-a8eb-1441f64d6d7d/conversions/product-132-thumb_md.jpg",
+              "sm": "https://api.atlasmode.shop/storage/602c2f24-1fc3-4c39-a8eb-1441f64d6d7d/conversions/product-132-thumb_sm.jpg"
+            }
+          },
+          "major_final_price": {
+            "discount_model": "none",
+            "discount_type": "none",
+            "discount": 0,
+            "discount_price": 0,
+            "amount": 459000
+          },
+          "views_count": 309,
+          "video_cover": [],
+          "video": [],
+          "is_vip": false
+        }
+      ],
+      "settedProducts": [],
+      "settedProducts2": []
+    },
+    "logs": []
+  }
+}
