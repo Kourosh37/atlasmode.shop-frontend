@@ -1,7 +1,6 @@
 <template>
   <div class="bg-amber-50 border-amber-200 border mt-2 p-4 rounded-2xl shadow-lg max-w-4xl">
     <h3 class="font-bold text-lg text-amber-800 mb-3 flex items-center gap-2">
-      <svg class="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M6 18L18 6" /></svg>
       انتخاب‌های شما
     </h3>
     <ul>
