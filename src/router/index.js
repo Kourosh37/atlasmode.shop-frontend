@@ -1,21 +1,37 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-// import pages components
-import index from "../pages/index.vue";
-import products from "../pages/products.vue";
-import ProductDetails from '../pages/ProductDetails.vue';
+// ==========================
+// Page Components
+// ==========================
+import IndexPage from "../pages/index.vue";
+import ProductsPage from "../pages/products.vue";
+import ProductDetailsPage from "../pages/ProductDetails.vue";
 
+// ==========================
+// Route Definitions
+// ==========================
 const routes = [
-  { path: "/", component: index },
-  { path: "/products", component: products },
   {
-    path: '/products/:id',
-    name: 'ProductDetails',
-    component: ProductDetails,
-    props: true
-  }
+    path: "/",
+    component: IndexPage,
+    // Optionally: name: 'Home',
+  },
+  {
+    path: "/products",
+    component: ProductsPage,
+    // Optionally: name: 'Products',
+  },
+  {
+    path: "/products/:id",
+    name: "ProductDetails",
+    component: ProductDetailsPage,
+    props: true, // Route param as prop
+  },
 ];
 
+// ==========================
+// Router Instance
+// ==========================
 const router = createRouter({
   history: createWebHistory(),
   routes,

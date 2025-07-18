@@ -1,4 +1,7 @@
 <script setup>
+// ==============================
+// Header: Responsive, MegaMenu, Mobile Drawer
+// ==============================
 import { ref, onMounted } from "vue";
 import {
   ShoppingBagIcon,
@@ -12,21 +15,29 @@ import {
 import { useHeaderMenuStore } from "../stores/headerMenu";
 import logo from "../assets/logo.svg";
 
-const showMenu = ref(false);
-const megaMenuOpen = ref(false);
-const megaMenuTimeout = ref(null);
+// --- State ---
+const showMenu = ref(false);        // Mobile menu drawer
+const megaMenuOpen = ref(false);    // Mega menu (desktop, for women)
+const megaMenuTimeout = ref(null);  // Timeout for mega menu (for smooth UX)
 const menuStore = useHeaderMenuStore();
 
+// --- On mount, fetch menus ---
 onMounted(() => {
   menuStore.fetchMenus();
 });
 
+/**
+ * Resolves link for a menu item
+ * @param {object} item
+ * @returns {string}
+ */
 function getLink(item) {
   if (item.link) return item.link;
   if (item.linkable_id) return "/page/" + item.linkable_id;
   return "#";
 }
 
+// --- Mega menu open/close logic (delay to avoid flicker) ---
 function openMegaMenu() {
   clearTimeout(megaMenuTimeout.value);
   megaMenuOpen.value = true;
@@ -39,21 +50,26 @@ function closeMegaMenu() {
 </script>
 
 <template>
+  <!-- ==============================
+       Main Fixed Header
+       ============================== -->
   <header
     class="px-[10%] fixed top-0 left-0 w-full z-50 bg-white shadow-sm font-[Vazirmatn]"
     dir="rtl"
-
   >
-    <div
-      class="flex flex-row items-center justify-between py-2  md:py-4"
-    >
-      <div class="flex items-center w-1/5" >
-        <img :src="logo" alt="" class="w-32" />
+    <div class="flex flex-row items-center justify-between py-2 md:py-4">
+      <!-- Logo (RTL, right side) -->
+      <div class="flex items-center w-1/5">
+        <img :src="logo" alt="Logo" class="w-32" />
       </div>
-      <!-- Nav Desktop -->
+
+      <!-- ==============================
+           Desktop Navigation
+           ============================== -->
       <nav
         class="hidden md:flex items-center justify-center gap-6 text-gray-800 text-base font-sm w-3/5"
       >
+        <!-- Loading skeletons -->
         <template v-if="menuStore.loading">
           <span
             v-for="i in 4"
@@ -61,11 +77,9 @@ function closeMegaMenu() {
             class="h-6 w-20 bg-gray-200 rounded animate-shine"
           ></span>
         </template>
+        <!-- Menu items -->
         <template v-else-if="menuStore.menus.length">
-          <template
-            v-for="item in menuStore.menus"
-            :key="item.id"
-          >
+          <template v-for="item in menuStore.menus" :key="item.id">
             <div
               class="relative group"
               @mouseenter="item.title === 'لباس زنانه' && openMegaMenu()"
@@ -86,7 +100,7 @@ function closeMegaMenu() {
                 ></span>
               </a>
 
-              <!-- CENTERED MODAL LIKE TOOLTIP -->
+              <!-- ====== MEGA MENU (only for "لباس زنانه") ====== -->
               <transition name="fade">
                 <div
                   v-if="
@@ -120,13 +134,15 @@ function closeMegaMenu() {
                   </div>
                 </div>
               </transition>
-              <!-- ✅ END TOOLTIP -->
+              <!-- ====== END MEGA MENU ====== -->
             </div>
           </template>
         </template>
       </nav>
 
-      <!-- Icons Desktop -->
+      <!-- ==============================
+           Desktop Icon Buttons (LTR for icon hover!)
+           ============================== -->
       <div class="flex items-center justify-start gap-3 w-1/5" dir="ltr">
         <button class="group transition relative">
           <ShoppingBagIcon
@@ -161,7 +177,9 @@ function closeMegaMenu() {
       </div>
     </div>
 
-    <!-- Mobile Menu (Drawer) -->
+    <!-- ==============================
+         Mobile Menu (Drawer)
+         ============================== -->
     <transition name="fade">
       <div
         v-if="showMenu"
@@ -171,15 +189,16 @@ function closeMegaMenu() {
           class="bg-white w-4/5 max-w-xs h-full p-6 pt-8 flex flex-col gap-6"
           dir="rtl"
         >
+          <!-- Close Button -->
           <button
             @click="showMenu = false"
             class="mb-6 text-right w-full group"
           >
             <span
               class="text-2xl transition-all duration-300 group-hover:text-indigo-500 group-hover:scale-110"
-              >&#8592;</span
-            >
+            >&#8592;</span>
           </button>
+          <!-- Loading skeletons for mobile -->
           <template v-if="menuStore.loading">
             <span
               v-for="i in 5"
@@ -187,6 +206,7 @@ function closeMegaMenu() {
               class="h-6 w-36 bg-gray-200 rounded animate-shine"
             ></span>
           </template>
+          <!-- Menu items mobile -->
           <template v-else-if="menuStore.menus.length">
             <a
               v-for="item in menuStore.menus"
@@ -210,9 +230,12 @@ function closeMegaMenu() {
     </transition>
   </header>
 
+  <!-- Padding for header height -->
   <div class="h-16 md:h-20"></div>
 
-  <!-- Bottom Nav Mobile -->
+  <!-- ==============================
+       Mobile Bottom Navigation
+       ============================== -->
   <nav
     class="fixed bottom-0 left-0 w-full flex items-center justify-between px-3 py-2 bg-white shadow-2xl border-t border-gray-200 md:hidden z-40"
     dir="rtl"
@@ -225,8 +248,7 @@ function closeMegaMenu() {
         class="w-6 h-6 transition-all duration-300 group-hover:scale-110 group-hover:text-cyan-600 group-hover:drop-shadow-[0_2px_8px_rgba(6,182,212,0.18)] group-hover:animate-glow"
       />
       <span class="text-xs mt-0.5 group-hover:text-cyan-600 transition"
-        >پروفایل</span
-      >
+        >پروفایل</span>
     </a>
     <a
       href="#"
@@ -236,8 +258,7 @@ function closeMegaMenu() {
         class="w-6 h-6 transition-all duration-300 group-hover:scale-110 group-hover:text-indigo-500 group-hover:drop-shadow-[0_2px_8px_rgba(99,102,241,0.18)] group-hover:animate-glow"
       />
       <span class="text-xs mt-0.5 group-hover:text-indigo-500 transition"
-        >سبد خرید</span
-      >
+        >سبد خرید</span>
     </a>
     <a
       href="#"
@@ -247,8 +268,7 @@ function closeMegaMenu() {
         class="w-6 h-6 transition-all duration-300 group-hover:scale-110 group-hover:text-fuchsia-600 group-hover:drop-shadow-[0_2px_8px_rgba(236,72,153,0.18)] group-hover:animate-glow"
       />
       <span class="text-xs mt-0.5 group-hover:text-fuchsia-600 transition"
-        >دسته بندی ها</span
-      >
+        >دسته بندی ها</span>
     </a>
     <a
       href="#"
@@ -258,13 +278,13 @@ function closeMegaMenu() {
         class="w-6 h-6 transition-all duration-300 group-hover:scale-110 group-hover:text-indigo-700 group-hover:drop-shadow-[0_2px_8px_rgba(99,102,241,0.22)] group-hover:animate-glow"
       />
       <span class="text-xs mt-0.5 group-hover:text-indigo-700 transition"
-        >صفحه اصلی</span
-      >
+        >صفحه اصلی</span>
     </a>
   </nav>
 </template>
 
 <style scoped>
+/* Fade in/out for mega menu, mobile menu */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s;
@@ -273,33 +293,29 @@ function closeMegaMenu() {
 .fade-leave-to {
   opacity: 0;
 }
+
+/* Loading skeleton animation */
 @keyframes shine {
-  0% {
-    background-position: -200px 0;
-  }
-  100% {
-    background-position: calc(200px + 100%) 0;
-  }
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
 }
 .animate-shine {
   background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
   background-size: 400% 100%;
   animation: shine 1.5s linear infinite;
 }
+
+/* Glow animation on icon hover */
 @keyframes glow {
-  0% {
-    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
-  }
-  50% {
-    box-shadow: 0 0 12px 3px rgba(99, 102, 241, 0.16);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
-  }
+  0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);}
+  50% { box-shadow: 0 0 12px 3px rgba(99, 102, 241, 0.16);}
+  100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);}
 }
 .group-hover\:animate-glow:hover {
   animation: glow 1s infinite;
 }
+
+/* Force underline highlight on hover/focus */
 .group:hover > span,
 .group:focus > span {
   opacity: 1 !important;

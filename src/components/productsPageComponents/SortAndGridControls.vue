@@ -1,15 +1,21 @@
 <script setup>
-// All store-based: no inject or local filter
-import { computed } from 'vue'
+// ==============================
+// Imports & Store
+// ==============================
+import { computed, inject } from 'vue'
 import { useProductsPageStore } from '../../stores/productsPageStore'
 
-// Import grid state
-import { inject } from 'vue'
-const grid = inject('grid', 2) // fallback 2, or move to store if you want it globally
+// Import grid layout from provide/inject, fallback is 2
+const grid = inject('grid', 2)
 
 const store = useProductsPageStore()
 
-// Define your sort options directly here or fetch from store if you want dynamic
+// ==============================
+// Sort Options (Static)
+// ==============================
+/**
+ * Array of sort options. You can also fetch from the store if needed.
+ */
 const sortOptions = [
   { value: '', label: 'پربازدید ترین' },
   { value: 'low_to_high', label: 'ارزان ترین' },
@@ -19,25 +25,47 @@ const sortOptions = [
   { value: 'special', label: 'ویژه' }
 ]
 
-// Show/hide sort dropdown (UI state, can also be moved to store if you want)
+// ==============================
+// Dropdown Open/Close State
+// ==============================
+/**
+ * Controls visibility of the sort dropdown (can move to store for global UI state).
+ */
 const showSort = computed({
   get: () => store.ui.showSort ?? false,
   set: v => { store.ui.showSort = v }
 })
 
-// Computed label for selected sort
+// ==============================
+// Current Sort Label
+// ==============================
+/**
+ * Computes label for the selected sort option.
+ */
 const selectedSortLabel = computed(() => {
   return sortOptions.find(opt => opt.value === store.filters.sort)?.label || 'پربازدید ترین'
 })
 
-// Handle changing the sort filter
+// ==============================
+// Sort Change Handler
+// ==============================
+/**
+ * Called when a sort is selected; updates store and applies filters.
+ * @param {string} value
+ */
 function selectSort(value) {
   store.filters.sort = value
   store.ui.showSort = false
   store.applyFilters()
 }
 
-// Toggle available only checkbox
+// ==============================
+// Available Only Toggle Handler
+// ==============================
+/**
+ * Toggle "available only" filter checkbox.
+ * @param {Event} event
+ */
 function toggleAvailable(event) {
   store.filters.available = event.target.checked ? 1 : 0
   store.applyFilters()
@@ -45,7 +73,11 @@ function toggleAvailable(event) {
 </script>
 
 <template>
+  <!-- ==============================
+       Sort, Grid, and Availability Controls
+       ============================== -->
   <div class="flex flex-wrap justify-between items-center mb-6 gap-4">
+    <!-- Sort Dropdown -->
     <div class="flex items-center gap-4">
       <div class="flex items-center gap-2" dir="rtl">
         <span class="text-gray-600 text-xs">فیلتر:</span>
@@ -77,50 +109,49 @@ function toggleAvailable(event) {
         </div>
       </div>
     </div>
+    <!-- Grid Switcher & Available Only Toggle -->
     <div class="flex items-center gap-2" dir="rtl">
- <!-- 2-column button -->
-<button
-  :class="[
-    'rounded-lg border text-xs font-bold transition-all flex items-center justify-center',
-    grid === 2
-      ? 'bg-black text-white shadow border-black'
-      : 'bg-gray-200 text-black border-gray-200',
-  ]"
-  @click="$emit('update:grid', 2)"
-  style="width: 28px; height: 28px; padding: 0"
-  title="2 ستونه"
->
-  <svg width="20" height="20" viewBox="0 0 20 20" class="mx-auto" fill="none">
-    <rect x="5" y="3" width="4" height="14" rx="1.1"
-      :fill="grid === 2 ? '#fff' : '#000'" />
-    <rect x="10" y="3" width="4" height="14" rx="1.1"
-      :fill="grid === 2 ? '#fff' : '#000'" />
-  </svg>
-</button>
-<!-- 3-column button -->
-<button
-  :class="[
-    'rounded-lg border text-xs font-bold transition-all flex items-center justify-center',
-    grid === 3
-      ? 'bg-black text-white shadow border-black'
-      : 'bg-gray-200 text-black border-gray-200',
-  ]"
-  @click="$emit('update:grid', 3)"
-  style="width: 28px; height: 28px; padding: 0"
-  title="3 ستونه"
->
-  <svg width="20" height="20" viewBox="0 0 20 20" class="mx-auto" fill="none">
-    <rect x="3" y="3" width="4" height="14" rx="1"
-      :fill="grid === 3 ? '#fff' : '#000'" />
-    <rect x="8" y="3" width="4" height="14" rx="1"
-      :fill="grid === 3 ? '#fff' : '#000'" />
-    <rect x="13" y="3" width="4" height="14" rx="1"
-      :fill="grid === 3 ? '#fff' : '#000'" />
-  </svg>
-</button>
-
-
-
+      <!-- 2-column grid button -->
+      <button
+        :class="[
+          'rounded-lg border text-xs font-bold transition-all flex items-center justify-center',
+          grid === 2
+            ? 'bg-black text-white shadow border-black'
+            : 'bg-gray-200 text-black border-gray-200',
+        ]"
+        @click="$emit('update:grid', 2)"
+        style="width: 28px; height: 28px; padding: 0"
+        title="2 ستونه"
+      >
+        <svg width="20" height="20" viewBox="0 0 20 20" class="mx-auto" fill="none">
+          <rect x="5" y="3" width="4" height="14" rx="1.1"
+            :fill="grid === 2 ? '#fff' : '#000'" />
+          <rect x="10" y="3" width="4" height="14" rx="1.1"
+            :fill="grid === 2 ? '#fff' : '#000'" />
+        </svg>
+      </button>
+      <!-- 3-column grid button -->
+      <button
+        :class="[
+          'rounded-lg border text-xs font-bold transition-all flex items-center justify-center',
+          grid === 3
+            ? 'bg-black text-white shadow border-black'
+            : 'bg-gray-200 text-black border-gray-200',
+        ]"
+        @click="$emit('update:grid', 3)"
+        style="width: 28px; height: 28px; padding: 0"
+        title="3 ستونه"
+      >
+        <svg width="20" height="20" viewBox="0 0 20 20" class="mx-auto" fill="none">
+          <rect x="3" y="3" width="4" height="14" rx="1"
+            :fill="grid === 3 ? '#fff' : '#000'" />
+          <rect x="8" y="3" width="4" height="14" rx="1"
+            :fill="grid === 3 ? '#fff' : '#000'" />
+          <rect x="13" y="3" width="4" height="14" rx="1"
+            :fill="grid === 3 ? '#fff' : '#000'" />
+        </svg>
+      </button>
+      <!-- Available Only Checkbox -->
       <span class="text-gray-500 text-xs">نمایش محصولات موجود</span>
       <input
         type="checkbox"

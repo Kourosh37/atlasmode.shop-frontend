@@ -1,24 +1,39 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 
+/**
+ * Products Store
+ * Centralizes all product/fetch logic for homepage and featured sections.
+ * - Manages loading, error, and data for product highlights (discounts, most sales, new, categories)
+ */
 export const useProductsStore = defineStore("products", {
+  // ========================
+  // State
+  // ========================
   state: () => ({
-    categories: [],
-    categoriesLoading: false,
+    categories: [],            // Home page product categories (with featured products)
+    categoriesLoading: false,  // Loading state for home categories
 
-    discountProducts: [],
-    discountLoading: false,
+    discountProducts: [],      // Most discounted products
+    discountLoading: false,    // Loading state for discount products
 
-    mostSalesProducts: [],
-    mostSalesLoading: false,
-    mostSalesError: null,
+    mostSalesProducts: [],     // Top selling products
+    mostSalesLoading: false,   // Loading state for most sales
+    mostSalesError: null,      // Error for most sales fetch
 
-    newProducts: [],
-    newLoading: false,
-    newError: null,
+    newProducts: [],           // Newest products
+    newLoading: false,         // Loading state for new products
+    newError: null,            // Error for new products fetch
   }),
 
+  // ========================
+  // Actions
+  // ========================
   actions: {
+    /**
+     * Fetches homepage product categories.
+     * Updates loading state and resets categories on error.
+     */
     async fetchCategories() {
       this.categoriesLoading = true;
       try {
@@ -31,10 +46,16 @@ export const useProductsStore = defineStore("products", {
       this.categoriesLoading = false;
     },
 
+    /**
+     * Fetches most discounted products (uses axios for demonstration).
+     * Updates loading state and resets products on error.
+     */
     async fetchDiscountProducts() {
       this.discountLoading = true;
       try {
-        const { data } = await axios.get("https://api.atlasmode.shop/v1/front/most-discounts?version=new2");
+        const { data } = await axios.get(
+          "https://api.atlasmode.shop/v1/front/most-discounts?version=new2"
+        );
         this.discountProducts = data.data.response.mostDiscount;
       } catch (e) {
         this.discountProducts = [];
@@ -42,6 +63,10 @@ export const useProductsStore = defineStore("products", {
       this.discountLoading = false;
     },
 
+    /**
+     * Fetches most sold products.
+     * Updates error and loading states.
+     */
     async fetchMostSalesProducts() {
       this.mostSalesLoading = true;
       this.mostSalesError = null;
@@ -56,6 +81,10 @@ export const useProductsStore = defineStore("products", {
       this.mostSalesLoading = false;
     },
 
+    /**
+     * Fetches newest products.
+     * Updates error and loading states.
+     */
     async fetchNewProducts() {
       this.newLoading = true;
       this.newError = null;

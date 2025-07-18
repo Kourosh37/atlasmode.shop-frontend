@@ -1,14 +1,23 @@
-// stores/product.js
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import axios from 'axios'
 
+/**
+ * useProductStore
+ * Centralized store for handling a single product's full detail page.
+ * - Loads product by ID, manages loading/not found, images, price, variants, etc.
+ * - Exposes helpers for design/size selection logic, price formatting, etc.
+ */
 export const useProductStore = defineStore('product', () => {
-  // --- Main product state ---
-  const loading = ref(true) // Whether product is loading
-  const notFound = ref(false) // If product is not found
+  // ========================
+  // State
+  // ========================
+  /** Loading status for the product details fetch */
+  const loading = ref(true)
+  /** Product not found (404) flag */
+  const notFound = ref(false)
 
-  // Product basic info
+  // Product main info and relations
   const productTitle = ref('')
   const productImages = ref([])
   const relatedProducts = ref([])
@@ -19,12 +28,16 @@ export const useProductStore = defineStore('product', () => {
   const productQuantity = ref(0)
   const productAvailibilityStatus = ref('')
   const productSizeCharts = ref([])
-  const productVarities = ref([]) // All varities (combinations of size, design...)
+  const productVarities = ref([]) // All possible variations (design + size)
+
+  // ========================
+  // Getters / Computed
+  // ========================
 
   /**
-   * Find the attribute name for size (for flexible product types).
-   * e.g., "sizePants", "sizeClothes", etc.
-   * @returns {string}
+   * Get the attribute name used for size, depending on product type.
+   * (Useful for clothing/shoes/pants, etc.)
+   * @returns {string} e.g. "sizePants"
    */
   function getSizeAttrName() {
     return (
@@ -35,8 +48,9 @@ export const useProductStore = defineStore('product', () => {
   }
 
   /**
-   * Unique available designs ("tarh") for this product
-   * @returns {Array}
+   * All unique available designs ("tarh") for this product.
+   * Used for design selector UI.
+   * @type {import('vue').ComputedRef<string[]>}
    */
   const uniqueDesigns = computed(() => {
     const designs = productVarities.value
@@ -44,14 +58,13 @@ export const useProductStore = defineStore('product', () => {
         variety.attributes?.find(attr => attr.name === 'tarh')?.pivot?.value
       )
       .filter(Boolean)
-    // Remove duplicates (using Set)
-    return [...new Set(designs)]
+    return [...new Set(designs)] // Remove duplicates
   })
 
   /**
-   * For a given design, get available unique sizes
+   * For a given design, get unique sizes available (in stock).
    * @param {string} design
-   * @returns {Array}
+   * @returns {string[]}
    */
   function availableSizesForDesign(design) {
     const sizeAttrName = getSizeAttrName()
@@ -60,7 +73,7 @@ export const useProductStore = defineStore('product', () => {
         variety =>
           variety.attributes?.some(
             attr => attr.name === 'tarh' && attr.pivot?.value === design
-          ) && variety.quantity > 0 // Only show available
+          ) && variety.quantity > 0 // Only available
       )
       .map(variety =>
         variety.attributes?.find(attr => attr.name === sizeAttrName)?.pivot?.value
@@ -70,7 +83,7 @@ export const useProductStore = defineStore('product', () => {
   }
 
   /**
-   * For a given design+size, return available quantity in stock
+   * For a given design+size, return available quantity in stock.
    * @param {string} design
    * @param {string|number} size
    * @returns {number}
@@ -86,30 +99,30 @@ export const useProductStore = defineStore('product', () => {
   }
 
   /**
- * For a given design+size, return the variety object (for cart and quantity)
- * @param {string} design
- * @param {string|number} size
- * @returns {object|null}
- */
-function findVariety(design, size) {
-  const sizeAttrName = getSizeAttrName();
-  return productVarities.value.find(
-    v =>
-      v.attributes?.some(attr => attr.name === sizeAttrName && attr.pivot?.value === size) &&
-      v.attributes?.some(attr => attr.name === "tarh" && attr.pivot?.value === design)
-  ) || null;
-}
+   * For a given design+size, return the full variety object (for cart/selection).
+   * @param {string} design
+   * @param {string|number} size
+   * @returns {object|null}
+   */
+  function findVariety(design, size) {
+    const sizeAttrName = getSizeAttrName()
+    return productVarities.value.find(
+      v =>
+        v.attributes?.some(attr => attr.name === sizeAttrName && attr.pivot?.value === size) &&
+        v.attributes?.some(attr => attr.name === "tarh" && attr.pivot?.value === design)
+    ) || null
+  }
 
   /**
-   * Final price after discount (computed)
-   * @returns {number}
+   * Final price after discount (computed).
+   * @type {import('vue').ComputedRef<number>}
    */
   const finalPrice = computed(() => {
     return productPrice.value * (1 - productsDiscountPercent.value / 100)
   })
 
   /**
-   * Format number with Persian comma separators
+   * Format a number with Persian comma separators.
    * @param {number} num
    * @returns {string}
    */
@@ -118,8 +131,13 @@ function findVariety(design, size) {
     return Number(num).toLocaleString('fa-IR')
   }
 
+  // ========================
+  // Actions / Methods
+  // ========================
+
   /**
-   * Fetch product details from API
+   * Fetch full product details from API by product ID.
+   * Populates all state fields, or sets notFound if missing.
    * @param {string|number} productId
    */
   async function fetchProduct(productId) {
@@ -154,7 +172,7 @@ function findVariety(design, size) {
   }
 
   /**
-   * Reset product state (useful before loading a new product)
+   * Reset all product state to defaults (before loading a new product).
    */
   function resetProduct() {
     productTitle.value = ''
@@ -172,10 +190,9 @@ function findVariety(design, size) {
     notFound.value = false
   }
 
-
-
-
-  // --- Expose state, computed, and methods ---
+  // ========================
+  // Expose state, computed, methods
+  // ========================
   return {
     // State
     loading,

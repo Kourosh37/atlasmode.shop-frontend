@@ -1,8 +1,12 @@
 <template>
+  <!-- ==============================
+       Product Filters Sidebar
+       ============================== -->
   <aside
     class="w-full md:w-1/4 bg-white rounded-2xl shadow-xl p-5 h-fit min-w-[310px]"
     dir="rtl"
   >
+    <!-- Header: Title and Icon -->
     <div class="flex items-center justify-between mb-3">
       <span class="font-bold text-lg">فیلتر جستجو</span>
       <!-- Filter icon -->
@@ -22,12 +26,13 @@
     </div>
     <hr class="mb-5" />
 
+    <!-- ==============================
+         Filter Form
+         ============================== -->
     <form @submit.prevent="store.applyFilters" class="flex flex-col gap-6">
       <!-- Category Dropdown -->
       <div>
-        <label class="block mb-1 text-xs font-bold text-gray-700"
-          >دسته بندی ها</label
-        >
+        <label class="block mb-1 text-xs font-bold text-gray-700">دسته بندی ها</label>
         <select
           v-model="store.filters.categoryId"
           class="w-full rounded-xl border px-3 py-2 text-sm text-gray-500 bg-gray-50 focus:ring-2 focus:ring-primary-600"
@@ -151,22 +156,12 @@
             </div>
           </div>
         </transition>
-        <!-- Show selected colors as tags below -->
+
+        <!-- Selected Colors as Tags -->
         <div
           class="flex flex-wrap mt-2 gap-1"
           v-if="store.filters.colors.length"
         >
-          <!--
-  Stylish tag for each selected color filter
-  - Bold, rounded, with subtle shadow and smooth hover effect
-  - Remove button (×) animates on hover
-  - Ready for dynamic color background if you want in future
--->
-          <!--
-  Stylish tag for each selected color filter
-  - Light border, bold pill shape, subtle shadow
-  - Centered remove icon (SVG)
--->
           <span
             v-for="color in store.filters.colors"
             :key="color.id"
@@ -175,13 +170,12 @@
             <!-- Color name -->
             <span class="pr-1">{{ color.title }}</span>
 
-            <!-- Remove button with centered SVG icon -->
+            <!-- Remove button with SVG icon -->
             <span
               class="flex items-center justify-center rounded-full w-7 h-7 ml-1 cursor-pointer bg-red-50 text-red-500 transition-all duration-200 group-hover:bg-red-500 group-hover:text-white hover:scale-110 shadow border border-red-200"
               @click.stop="removeColor(color.id)"
               title="Remove"
             >
-              <!-- SVG Trash Icon (centered, 16x16) -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="mx-auto"
@@ -203,11 +197,9 @@
         </div>
       </div>
 
-      <!-- Only Available Products Toggle -->
+      <!-- Only Available Products Switch -->
       <div>
-        <label
-          class="flex items-center gap-2 cursor-pointer select-none text-base text-gray-700 justify-between"
-        >
+        <label class="flex items-center gap-2 cursor-pointer select-none text-base text-gray-700 justify-between">
           <span>فقط کالاهای موجود</span>
           <span class="relative inline-flex items-center">
             <input
@@ -217,21 +209,15 @@
               false-value="0"
               class="sr-only peer"
             />
-            <div
-              class="w-11 h-6 rounded-full transition bg-gray-400 peer-checked:bg-black"
-            ></div>
-            <div
-              class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition peer-checked:translate-x-5 border border-gray-300"
-            ></div>
+            <div class="w-11 h-6 rounded-full transition bg-gray-400 peer-checked:bg-black"></div>
+            <div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition peer-checked:translate-x-5 border border-gray-300"></div>
           </span>
         </label>
       </div>
 
       <!-- Price Range Slider -->
       <div>
-        <label class="block mb-1 text-xs font-bold text-gray-700"
-          >قیمت ها</label
-        >
+        <label class="block mb-1 text-xs font-bold text-gray-700">قیمت ها</label>
         <VueSlider
           v-model="store.filters.priceRange"
           :min="store.priceMin"
@@ -244,18 +230,12 @@
           :reverse="true"
         />
         <div class="flex justify-between text-xs text-gray-500 mt-1">
-          <span
-            >از قیمت:
-            {{ store.filters.priceRange[0]?.toLocaleString() }} تومان</span
-          >
-          <span
-            >تا قیمت:
-            {{ store.filters.priceRange[1]?.toLocaleString() }} تومان</span
-          >
+          <span>از قیمت: {{ store.filters.priceRange[0]?.toLocaleString() }} تومان</span>
+          <span>تا قیمت: {{ store.filters.priceRange[1]?.toLocaleString() }} تومان</span>
         </div>
       </div>
 
-      <!-- Submit Filter Button -->
+      <!-- Submit Button -->
       <button
         type="submit"
         class="bg-black hover:bg-gray-800 text-white px-6 py-2 rounded-xl shadow font-bold text-sm transition-all mt-2"
@@ -267,30 +247,36 @@
 </template>
 
 <script setup>
-// 100% store-driven filter sidebar
+// ==============================
+// Imports & Store
+// ==============================
 import { useProductsPageStore } from "../../stores/productsPageStore";
 import VueSlider from "vue-slider-component";
 import "vue-slider-component/theme/default.css";
 
+/**
+ * Products page store for filter state and logic.
+ */
 const store = useProductsPageStore();
 
 /**
- * Toggle color selection (adds or removes color from store.filters.colors)
- * This operates entirely on the store, no local state
+ * Adds or removes a color from the filter colors array.
+ * @param {Object} colorObj
  */
 function toggleColor(colorObj) {
   const idx = store.filters.colors.findIndex((c) => c.id === colorObj.id);
   if (idx > -1) {
-    // Remove from filter
+    // Remove color
     store.filters.colors.splice(idx, 1);
   } else {
-    // Add whole color object (from API)
+    // Add color object from API
     store.filters.colors.push(colorObj);
   }
 }
 
 /**
- * Remove a color from selected colors (from its id)
+ * Remove a color from selected filters by id.
+ * @param {number|string} colorId
  */
 function removeColor(colorId) {
   const idx = store.filters.colors.findIndex((c) => c.id === colorId);
@@ -300,7 +286,9 @@ function removeColor(colorId) {
 }
 
 /**
- * Checks if color is selected by id (used for UI highlight)
+ * Checks if a color is selected.
+ * @param {Object} colorObj
+ * @returns {boolean}
  */
 function isColorSelected(colorObj) {
   return store.filters.colors.some((c) => c.id === colorObj.id);
@@ -308,6 +296,9 @@ function isColorSelected(colorObj) {
 </script>
 
 <style>
+/* ==============================
+   VueSlider Style Customization
+   ============================== */
 .vue-slider-rail {
   background: #ddd !important;
 }

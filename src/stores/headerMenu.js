@@ -1,11 +1,29 @@
 import { defineStore } from 'pinia'
 
+/**
+ * Header Menu Store
+ * Manages the state and loading for top navigation/header menus.
+ * - Fetches menu items from backend API.
+ * - Handles loading state and error fallback.
+ */
 export const useHeaderMenuStore = defineStore('headerMenu', {
+  // ============================
+  // State
+  // ============================
   state: () => ({
-    menus: [],
-    loading: false
+    menus: [],      // Header menu items (array of objects from API)
+    loading: false  // Is header menu currently loading?
   }),
+
+  // ============================
+  // Actions
+  // ============================
   actions: {
+    /**
+     * Fetch header menu items from backend API.
+     * Updates 'menus' and 'loading' state.
+     * On failure, sets menus to empty array.
+     */
     async fetchMenus() {
       this.loading = true
       try {

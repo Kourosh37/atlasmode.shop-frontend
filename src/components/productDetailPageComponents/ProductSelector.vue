@@ -1,8 +1,10 @@
 <template>
   <div class="flex flex-col gap-7">
-    <!-- انتخاب طرح و سایز و تعداد -->
+    <!-- ==============================
+         Design, Size, and Quantity Selectors
+         ============================== -->
     <div class="flex flex-col md:flex-row gap-5 items-center md:items-end w-full">
-      <!-- Design select -->
+      <!-- Design Selection Dropdown -->
       <div class="flex flex-col gap-1 min-w-[120px]">
         <label class="font-bold text-gray-800 mb-1">طرح:</label>
         <select
@@ -19,7 +21,7 @@
         </select>
       </div>
 
-      <!-- Size buttons -->
+      <!-- Size Buttons -->
       <div class="flex flex-col gap-1 min-w-[120px]">
         <label class="font-bold text-gray-800 mb-1">سایز:</label>
         <div class="flex flex-wrap gap-2">
@@ -38,13 +40,15 @@
             {{ size }}
           </button>
         </div>
-        <span v-if="productStore.availableSizesForDesign(selectedDesign).length === 0"
-              class="text-rose-600 font-bold text-xs mt-1">
+        <span
+          v-if="productStore.availableSizesForDesign(selectedDesign).length === 0"
+          class="text-rose-600 font-bold text-xs mt-1"
+        >
           سایز موجود نیست
         </span>
       </div>
 
-      <!-- Quantity and confirm -->
+      <!-- Quantity Selector with Buttons -->
       <div class="flex flex-col gap-1 min-w-[105px]">
         <label class="font-bold text-gray-800 mb-1">تعداد:</label>
         <div class="flex items-center gap-2 bg-gray-50 border border-gray-300 rounded-xl px-2 py-1 w-fit">
@@ -79,6 +83,8 @@
           حداکثر: {{ maxQuantityForSelectedSizeAndDesign }}
         </div>
       </div>
+
+      <!-- Confirm Selection Button -->
       <button
         class="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2 rounded-xl font-bold shadow-xl transition-all mt-3 md:mt-0"
         @click="confirmSelection"
@@ -89,7 +95,9 @@
       </button>
     </div>
 
-    <!-- Selections List -->
+    <!-- ==============================
+         Selections List Component
+         ============================== -->
     <SelectionsList
       v-if="cartSelections.length > 0"
       :cart-selections="cartSelections"
@@ -101,37 +109,69 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from "vue";
+// ==============================
+// Imports & Components
+// ==============================
+import { ref, computed, watch, onMounted } from "vue";
 import { useProductStore } from "../../stores/productDetails";
 import SelectionsList from "./SelectionsList.vue";
 
-// State from parent (optional, or keep local if you want)
+// ==============================
+// Props (Optional: initial selections)
+// ==============================
 const props = defineProps({
   initialSelections: Array,
 });
 
-// Store
+// ==============================
+// Store Instance
+// ==============================
+/**
+ * Product store instance containing all designs, sizes, and price logic.
+ */
 const productStore = useProductStore();
 
-// Selection state
+// ==============================
+// Local State for Selection
+// ==============================
 const selectedDesign = ref("");
 const selectedSize = ref("");
 const selectedCount = ref(1);
+
+/**
+ * Array of all user selections for cart review.
+ * @type {import('vue').Ref<Array>}
+ */
 const cartSelections = ref(props.initialSelections || []);
 
-// Quantity logic
+// ==============================
+// Quantity Button Hold Logic
+// ==============================
 let interval = null;
 let timeout = null;
+
+/**
+ * Increment selected count if under limit.
+ */
 function incrementQuantity() {
   if (selectedCount.value < maxQuantityForSelectedSizeAndDesign.value) {
     selectedCount.value++;
   }
 }
+
+/**
+ * Decrement selected count if above 1.
+ */
 function decrementQuantity() {
   if (selectedCount.value > 1) {
     selectedCount.value--;
   }
 }
+
+/**
+ * Start continuous quantity change on button hold.
+ * @param {'inc' | 'dec'} type
+ */
 function startChange(type) {
   stopChange();
   if (
@@ -157,6 +197,10 @@ function startChange(type) {
     }, 90);
   }, 400);
 }
+
+/**
+ * Stop changing quantity on button release.
+ */
 function stopChange() {
   if (timeout) {
     clearTimeout(timeout);
@@ -168,30 +212,61 @@ function stopChange() {
   }
 }
 
-// Watch design for auto-select size
+/**
+ * Select a size for the current design.
+ * @param {string} size
+ */
+function selectSize(size) {
+  selectedSize.value = size;
+}
+
+// ==============================
+// Computed
+// ==============================
+/**
+ * The maximum available quantity for the selected design & size.
+ */
+const maxQuantityForSelectedSizeAndDesign = computed(() => {
+  return productStore.maxQuantityForDesignAndSize(selectedDesign.value, selectedSize.value);
+});
+
+/**
+ * Total price for all selected variations.
+ */
+const cartTotal = computed(() =>
+  cartSelections.value.reduce((sum, item) => sum + item.totalPrice, 0)
+);
+
+// ==============================
+// Watchers
+// ==============================
+/**
+ * When design changes, auto-select the first available size.
+ */
 watch(selectedDesign, () => {
   selectedSize.value = productStore.availableSizesForDesign(selectedDesign.value)[0] || "";
 });
-// Watch for limits
+
+/**
+ * Keep selectedCount within valid bounds when design/size changes.
+ */
 watch([selectedDesign, selectedSize], () => {
   if (selectedCount.value > maxQuantityForSelectedSizeAndDesign.value) {
     selectedCount.value = maxQuantityForSelectedSizeAndDesign.value || 1;
   }
 });
 
-function selectSize(size) {
-  selectedSize.value = size;
-}
-
-const maxQuantityForSelectedSizeAndDesign = computed(() => {
-  return productStore.maxQuantityForDesignAndSize(selectedDesign.value, selectedSize.value);
-});
-
+// ==============================
+// Selection Logic
+// ==============================
+/**
+ * Confirm and add the current selection to cartSelections.
+ */
 function confirmSelection() {
   const variety = productStore.findVariety(selectedDesign.value, selectedSize.value);
   if (!variety) return;
   const price = productStore.finalPrice;
-  // Check duplicate
+  // If duplicate, merge counts and prices
   const existingIndex = cartSelections.value.findIndex(
     item => item.design === selectedDesign.value && item.size === selectedSize.value
   );
@@ -213,18 +288,24 @@ function confirmSelection() {
   selectedCount.value = 1;
 }
 
+/**
+ * Remove a selection from cartSelections by index.
+ * @param {number} idx
+ */
 function removeSelection(idx) {
   cartSelections.value.splice(idx, 1);
 }
-const cartTotal = computed(() =>
-  cartSelections.value.reduce((sum, item) => sum + item.totalPrice, 0)
-);
+
+/**
+ * Add all selections to the cart (implement your cart logic here).
+ */
 function addToCart() {
   alert("Selected items added to cart! (implement actual logic)");
 }
 
-// On mount, set initial selection
-import { onMounted } from "vue";
+// ==============================
+// On Mounted: set initial design & size
+// ==============================
 onMounted(() => {
   if (productStore.uniqueDesigns.length > 0) {
     selectedDesign.value = productStore.uniqueDesigns[0];
