@@ -29,6 +29,7 @@ export const useProductStore = defineStore('product', () => {
   const productAvailibilityStatus = ref('')
   const productSizeCharts = ref([])
   const productVarities = ref([]) // All possible variations (design + size)
+  const productSpecifications = ref({}) // New: product specifications as { label: value }
 
   // ========================
   // Getters / Computed
@@ -152,6 +153,7 @@ export const useProductStore = defineStore('product', () => {
         notFound.value = true
         return
       }
+
       // Fill all main product fields
       productTitle.value = p.title
       productImages.value = p.images
@@ -164,10 +166,12 @@ export const useProductStore = defineStore('product', () => {
       productAvailibilityStatus.value = p.status
       productSizeCharts.value = p.size_charts
       productVarities.value = p.varieties || []
+      productSpecifications.value = p.specifications
+
     } catch (e) {
       notFound.value = true
     } finally {
-      loading.value = false
+      loading.value = false // loading finishes after ALL fields are parsed
     }
   }
 
@@ -186,6 +190,7 @@ export const useProductStore = defineStore('product', () => {
     productAvailibilityStatus.value = ''
     productSizeCharts.value = []
     productVarities.value = []
+    productSpecifications.value = {}
     loading.value = false
     notFound.value = false
   }
@@ -208,6 +213,7 @@ export const useProductStore = defineStore('product', () => {
     productAvailibilityStatus,
     productSizeCharts,
     productVarities,
+    productSpecifications,
 
     // Computed
     uniqueDesigns,

@@ -1,94 +1,99 @@
 <template>
-  <div class="flex flex-col gap-7">
+  <div class="flex flex-col gap-6">
     <!-- ==============================
-         Design, Size, and Quantity Selectors
+         Design Selector
          ============================== -->
-    <div class="flex flex-col md:flex-row gap-5 items-center md:items-end w-full">
-      <!-- Design Selection Dropdown -->
-      <div class="flex flex-col gap-1 min-w-[120px]">
-        <label class="font-bold text-gray-800 mb-1">طرح:</label>
-        <select
-          v-model="selectedDesign"
-          class="border-2 border-amber-600 rounded-lg px-2 py-1 outline-none focus:ring-2 ring-amber-500 transition-all bg-white text-gray-800 font-semibold text-sm"
+    <div class="flex flex-col gap-1 w-full max-w-[240px]">
+      <label class="text-sm text-gray-600">طرح</label>
+      <select
+        v-model="selectedDesign"
+        class="border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-800 bg-white focus:outline-none focus:ring-1 focus:ring-gray-400"
+      >
+        <option
+          v-for="design in productStore.uniqueDesigns"
+          :key="design"
+          :value="design"
         >
-          <option
-            v-for="design in productStore.uniqueDesigns"
-            :key="design"
-            :value="design"
-          >
-            {{ design }}
-          </option>
-        </select>
-      </div>
+          {{ design }}
+        </option>
+      </select>
+    </div>
 
-      <!-- Size Buttons -->
-      <div class="flex flex-col gap-1 min-w-[120px]">
-        <label class="font-bold text-gray-800 mb-1">سایز:</label>
-        <div class="flex flex-wrap gap-2">
-          <button
-            v-for="size in productStore.availableSizesForDesign(selectedDesign)"
-            :key="size"
-            :class="[
-              'rounded-xl px-4 py-1 font-bold border-2 transition-all text-sm shadow-sm min-w-[50px]',
-              selectedSize === size
-                ? 'bg-amber-500 border-amber-700 text-white scale-105'
-                : 'bg-white border-gray-300 text-gray-700 hover:bg-amber-50'
-            ]"
-            @click="selectSize(size)"
-            type="button"
-          >
-            {{ size }}
-          </button>
-        </div>
-        <span
-          v-if="productStore.availableSizesForDesign(selectedDesign).length === 0"
-          class="text-rose-600 font-bold text-xs mt-1"
+    <!-- ==============================
+         Size Selector
+         ============================== -->
+    <div class="flex flex-col gap-1">
+      <label class="text-sm text-gray-600">سایز</label>
+      <div class="flex flex-wrap gap-2">
+        <button
+          v-for="size in productStore.availableSizesForDesign(selectedDesign)"
+          :key="size"
+          :class="[
+            'px-4 py-1 text-sm border rounded-md',
+            selectedSize === size
+              ? 'bg-gray-800 text-white border-gray-800'
+              : 'bg-white text-gray-700 border-gray-300 hover:border-gray-400'
+          ]"
+          @click="selectSize(size)"
+          type="button"
         >
-          سایز موجود نیست
-        </span>
+          {{ size }}
+        </button>
       </div>
+      <span
+        v-if="productStore.availableSizesForDesign(selectedDesign).length === 0"
+        class="text-xs text-red-500 font-medium mt-1"
+      >
+        سایز موجود نیست
+      </span>
+    </div>
 
-      <!-- Quantity Selector with Buttons -->
-      <div class="flex flex-col gap-1 min-w-[105px]">
-        <label class="font-bold text-gray-800 mb-1">تعداد:</label>
-        <div class="flex items-center gap-2 bg-gray-50 border border-gray-300 rounded-xl px-2 py-1 w-fit">
-          <button
-            class="w-8 h-8 rounded-full flex items-center justify-center bg-gray-200 hover:bg-amber-500 hover:text-white transition-colors text-xl font-bold disabled:bg-gray-100 disabled:text-gray-400"
-            @mousedown="startChange('inc')"
-            @mouseup="stopChange"
-            @mouseleave="stopChange"
-            @touchstart.prevent="startChange('inc')"
-            @touchend="stopChange"
-            :disabled="selectedCount >= maxQuantityForSelectedSizeAndDesign || maxQuantityForSelectedSizeAndDesign === 0"
-            type="button"
-            aria-label="اضافه کردن"
-          >+</button>
-          <span class="w-7 text-center font-bold text-base select-none">{{ selectedCount }}</span>
-          <button
-            class="w-8 h-8 rounded-full flex items-center justify-center bg-gray-200 hover:bg-amber-500 hover:text-white transition-colors text-xl font-bold disabled:bg-gray-100 disabled:text-gray-400"
-            @mousedown="startChange('dec')"
-            @mouseup="stopChange"
-            @mouseleave="stopChange"
-            @touchstart.prevent="startChange('dec')"
-            @touchend="stopChange"
-            :disabled="selectedCount <= 1"
-            type="button"
-            aria-label="کم کردن"
-          >-</button>
-        </div>
-        <div v-if="maxQuantityForSelectedSizeAndDesign === 0" class="text-xs text-rose-500 font-bold mt-1">
-          ناموجود
-        </div>
-        <div v-else class="text-xs text-gray-500 mt-1">
-          حداکثر: {{ maxQuantityForSelectedSizeAndDesign }}
-        </div>
+    <!-- ==============================
+         Quantity Selector
+         ============================== -->
+    <div class="flex flex-col gap-1">
+      <label class="text-sm text-gray-600">تعداد</label>
+      <div class="flex items-center gap-2 border border-gray-300 rounded-md px-3 py-1 bg-white w-fit">
+        <button
+          class="w-7 h-7 flex items-center justify-center text-lg rounded bg-gray-100 hover:bg-gray-200 disabled:text-gray-400"
+          @mousedown="startChange('inc')"
+          @mouseup="stopChange"
+          @mouseleave="stopChange"
+          @touchstart.prevent="startChange('inc')"
+          @touchend="stopChange"
+          :disabled="selectedCount >= maxQuantityForSelectedSizeAndDesign || maxQuantityForSelectedSizeAndDesign === 0"
+          type="button"
+        >+</button>
+
+        <span class="w-6 text-center text-base select-none">{{ selectedCount }}</span>
+
+        <button
+          class="w-7 h-7 flex items-center justify-center text-lg rounded bg-gray-100 hover:bg-gray-200 disabled:text-gray-400"
+          @mousedown="startChange('dec')"
+          @mouseup="stopChange"
+          @mouseleave="stopChange"
+          @touchstart.prevent="startChange('dec')"
+          @touchend="stopChange"
+          :disabled="selectedCount <= 1"
+          type="button"
+        >−</button>
       </div>
+      <div v-if="maxQuantityForSelectedSizeAndDesign === 0" class="text-xs text-red-500 mt-1 font-medium">
+        ناموجود
+      </div>
+      <div v-else class="text-xs text-gray-500 mt-1">
+        حداکثر: {{ maxQuantityForSelectedSizeAndDesign }}
+      </div>
+    </div>
 
-      <!-- Confirm Selection Button -->
+    <!-- ==============================
+         Confirm Button
+         ============================== -->
+    <div>
       <button
-        class="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2 rounded-xl font-bold shadow-xl transition-all mt-3 md:mt-0"
         @click="confirmSelection"
         :disabled="!selectedDesign || !selectedSize || maxQuantityForSelectedSizeAndDesign === 0 || selectedCount < 1"
+        class="px-5 py-2 text-sm rounded-md border border-gray-300 text-gray-800 bg-white hover:bg-gray-100 disabled:text-gray-400 disabled:border-gray-200 self-start"
         type="button"
       >
         تایید انتخاب
@@ -96,7 +101,7 @@
     </div>
 
     <!-- ==============================
-         Selections List Component
+         Selections List
          ============================== -->
     <SelectionsList
       v-if="cartSelections.length > 0"
@@ -107,6 +112,9 @@
     />
   </div>
 </template>
+
+
+
 
 <script setup>
 // ==============================

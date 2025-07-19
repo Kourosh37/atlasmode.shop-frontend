@@ -74,7 +74,7 @@ function closeMegaMenu() {
           <span
             v-for="i in 4"
             :key="i"
-            class="h-6 w-20 bg-gray-200 rounded animate-shine"
+            class="h-6 w-20 bg-gray-200 rounded animate-shine select-none"
           ></span>
         </template>
         <!-- Menu items -->
