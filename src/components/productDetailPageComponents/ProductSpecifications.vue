@@ -8,10 +8,10 @@
           <tr
             v-for="spec in specifications"
             :key="spec.id"
-            class="odd:bg-gray-100 even:bg-gray-200 border-b border-gray-100 transition hover:bg-gray-100"
+            class="odd:bg-gray-100 even:bg-gray-200 border-b border-gray-100 transition hover:font-extrabold"
           >
-            <td class="py-3 px-4 font-medium text-gray-900">{{ spec.label }}</td>
-            <td class="py-3 px-4 text-gray-700">{{ getSpecificationValue(spec) }}</td>
+            <td class="py-3 px-4  text-gray-900 select-none">{{ spec.label }}</td>
+            <td class="py-3 px-4 text-gray-700 select-none">{{ getSpecificationValue(spec) }}</td>
           </tr>
         </tbody>
       </table>
